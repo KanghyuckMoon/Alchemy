@@ -205,6 +205,9 @@
     <ClInclude Include="SpriteSO.h">
       <Filter>Engine\09.ScreiptableObject\SO</Filter>
     </ClInclude>
+    <ClInclude Include="SOManager.h">
+      <Filter>Engine\09.ScreiptableObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -313,6 +316,9 @@
     </ClCompile>
     <ClCompile Include="SpriteSO.cpp">
       <Filter>Engine\09.ScreiptableObject\SO</Filter>
+    </ClCompile>
+    <ClCompile Include="SOManager.cpp">
+      <Filter>Engine\09.ScreiptableObject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -188,6 +188,7 @@
     <ClInclude Include="Scene_Start.h" />
     <ClInclude Include="ScriptableObject.h" />
     <ClInclude Include="SelectGDI.h" />
+    <ClInclude Include="SOManager.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundMgr.h" />
     <ClInclude Include="SpriteSO.h" />
@@ -228,6 +229,7 @@
     <ClCompile Include="Scene_Start.cpp" />
     <ClCompile Include="ScriptableObject.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
+    <ClCompile Include="SOManager.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundMgr.cpp" />
     <ClCompile Include="SpriteSO.cpp" />

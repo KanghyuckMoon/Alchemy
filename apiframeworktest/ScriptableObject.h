@@ -1,6 +1,7 @@
 #pragma once
-static class ScriptableObject
+static class ScriptableObject abstract
 {
-	
+	public:
+		static void Init();
 };
 
