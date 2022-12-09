@@ -98,6 +98,9 @@
     <Filter Include="Engine\05. Scene\Scene_Ending">
       <UniqueIdentifier>{b62361d4-49ee-4395-90d2-eb7cf1f6e1b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Lobby">
+      <UniqueIdentifier>{4b2ee3c4-b29a-4090-aafe-287966e2c983}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -217,6 +220,9 @@
     <ClInclude Include="Scene_Ending.h">
       <Filter>Engine\05. Scene\Scene_Ending</Filter>
     </ClInclude>
+    <ClInclude Include="Scene_Lobby.h">
+      <Filter>Engine\05. Scene\Scene_Lobby</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -331,6 +337,9 @@
     </ClCompile>
     <ClCompile Include="Scene_Ending.cpp">
       <Filter>Engine\05. Scene\Scene_Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Lobby.cpp">
+      <Filter>Engine\05. Scene\Scene_Lobby</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
