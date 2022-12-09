@@ -92,6 +92,12 @@
     <Filter Include="Engine\09.ScreiptableObject\SO">
       <UniqueIdentifier>{09506b1b-78de-41bf-b4ed-d7c3af49c416}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Main">
+      <UniqueIdentifier>{514f0da1-a5d3-47ae-97be-519e268b922c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Ending">
+      <UniqueIdentifier>{b62361d4-49ee-4395-90d2-eb7cf1f6e1b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -205,6 +211,12 @@
     <ClInclude Include="SpriteSO.h">
       <Filter>Engine\09.ScreiptableObject\SO</Filter>
     </ClInclude>
+    <ClInclude Include="Scene_Main.h">
+      <Filter>Engine\05. Scene\Scene_Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Ending.h">
+      <Filter>Engine\05. Scene\Scene_Ending</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -313,6 +325,12 @@
     </ClCompile>
     <ClCompile Include="SpriteSO.cpp">
       <Filter>Engine\09.ScreiptableObject\SO</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Main.cpp">
+      <Filter>Engine\05. Scene\Scene_Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Ending.cpp">
+      <Filter>Engine\05. Scene\Scene_Ending</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

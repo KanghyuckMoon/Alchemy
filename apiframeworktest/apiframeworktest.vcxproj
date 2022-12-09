@@ -185,6 +185,8 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="Scene_01.h" />
+    <ClInclude Include="Scene_Ending.h" />
+    <ClInclude Include="Scene_Main.h" />
     <ClInclude Include="Scene_Start.h" />
     <ClInclude Include="ScriptableObject.h" />
     <ClInclude Include="SelectGDI.h" />
@@ -225,6 +227,8 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="Scene_01.cpp" />
+    <ClCompile Include="Scene_Ending.cpp" />
+    <ClCompile Include="Scene_Main.cpp" />
     <ClCompile Include="Scene_Start.cpp" />
     <ClCompile Include="ScriptableObject.cpp" />
     <ClCompile Include="SelectGDI.cpp" />

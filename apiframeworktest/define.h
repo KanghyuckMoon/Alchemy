@@ -53,6 +53,8 @@ enum class SCENE_TYPE
 	SCENE_01,
 	TOOL,
 	SCENE_02,
+	SCENE_MAIN,
+	SCENE_ENDING,
 	END,
 };
 
