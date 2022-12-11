@@ -2,11 +2,17 @@
 class ItemData
 {
 public:
-	ItemData(int nameIndex, int textIndex, int spriteIndex);
+	ItemData(string nameAddress, string textAddress, string spriteAddress);
 
 public:
-	int nameIndex;
-	int textIndex;
-	int spriteIndex;
+	string nameAddress;
+	string textAddress;
+	string spriteAddress;
+
+public:
+	string GetName();
+	string GetText();
+	int GetSprite();
+
 };
 

@@ -4,5 +4,5 @@
 
 void ItemSO::Init()
 {
-	AddItemData("Postion", shared_ptr<ItemData>(new ItemData(100, 101, 102)));
+	AddItemData("Postion", shared_ptr<ItemData>(new ItemData("Postion_n1", "Postion_t1", "Postion_1")));
 }
