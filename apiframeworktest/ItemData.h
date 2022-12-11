@@ -2,16 +2,16 @@
 class ItemData
 {
 public:
-	ItemData(string nameAddress, string textAddress, string spriteAddress);
+	ItemData(wstring nameAddress, wstring textAddress, wstring spriteAddress);
 
 public:
-	string nameAddress;
-	string textAddress;
-	string spriteAddress;
+	wstring nameAddress;
+	wstring textAddress;
+	wstring spriteAddress;
 
 public:
-	string GetName();
-	string GetText();
+	wstring GetName();
+	wstring GetText();
 	int GetSprite();
 
 };

@@ -1,18 +1,20 @@
 #pragma once
-#include "pch.h"
 #include "ScriptableObject.h"
 class ItemData;
 
-static class ItemSO : public ScriptableObject
+class ItemSO : public ScriptableObject
 {
+public:
+	SINGLE(ItemSO);
+
 private:
-	static map<string, shared_ptr<ItemData>> itemDatas;
+	map<wstring, shared_ptr<ItemData>> itemDatas;
 
 public:
-	 static void Init();
+	void Init();
 
 public:
-	static shared_ptr<ItemData> GetItemData(string key) { return itemDatas.at(key); }
-	static void AddItemData(string key, shared_ptr<ItemData> itemData) { itemDatas.insert({ key, itemData }); }
+	shared_ptr<ItemData> GetItemData(const wstring& key) { return itemDatas.at(key); }
+	void AddItemData(const wstring& key, shared_ptr<ItemData> itemData) { itemDatas.insert({ key, itemData }); }
 };
 

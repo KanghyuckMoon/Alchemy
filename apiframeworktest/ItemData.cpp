@@ -3,24 +3,24 @@
 #include "TextSO.h"
 #include "SpriteSO.h"
 
-ItemData::ItemData(string nameAddress, string textAddress, string spriteAddress)
+ItemData::ItemData(wstring nameAddress, wstring textAddress, wstring spriteAddress)
 {
 	this->nameAddress = nameAddress;
 	this->textAddress = textAddress;
 	this->spriteAddress = spriteAddress;
 }
 
-string ItemData::GetName()
+wstring ItemData::GetName()
 {
-	return TextSO::GetTextData(nameAddress);
+	return TextSO::GetInst()->GetTextData(nameAddress);
 }
 
-string ItemData::GetText()
+wstring ItemData::GetText()
 {
-	return TextSO::GetTextData(textAddress);
+	return TextSO::GetInst()->GetTextData(textAddress);
 }
 
 int ItemData::GetSprite()
 {
-	return SpriteSO::GetSpriteData(spriteAddress);
+	return SpriteSO::GetInst()->GetSpriteData(spriteAddress);
 }

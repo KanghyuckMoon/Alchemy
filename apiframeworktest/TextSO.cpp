@@ -3,6 +3,6 @@
 
 void TextSO::Init()
 {
-	AddTextData("Postion_t1", "먹으면 기운이 나는 포션");
-	AddTextData("Postion_n1", "포션");
+	GetInst()->AddTextData(L"Postion_t1", L"먹으면 기운이 나는 포션");
+	GetInst()->AddTextData(L"Postion_n1", L"포션");
 }

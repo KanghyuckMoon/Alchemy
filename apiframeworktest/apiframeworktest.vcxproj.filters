@@ -86,10 +86,13 @@
     <Filter Include="Engine\03. Manager\SoundMgr">
       <UniqueIdentifier>{e09d7cab-b2dc-4a5f-8924-8af5317c88d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\09.ScreiptableObject">
+    <Filter Include="Engine\10. Debug">
+      <UniqueIdentifier>{c11ef5b5-0935-4358-89cb-e7d8f899a432}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09. ScreiptableObject">
       <UniqueIdentifier>{883aa213-c71e-4b80-add8-36c56c2deb5d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\09.ScreiptableObject\SO">
+    <Filter Include="Engine\09. ScreiptableObject\SO">
       <UniqueIdentifier>{09506b1b-78de-41bf-b4ed-d7c3af49c416}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -191,22 +194,22 @@
       <Filter>Engine\03. Manager\SoundMgr</Filter>
     </ClInclude>
     <ClInclude Include="ScriptableObject.h">
-      <Filter>Engine\09.ScreiptableObject</Filter>
+      <Filter>Engine\09. ScreiptableObject</Filter>
     </ClInclude>
     <ClInclude Include="ItemSO.h">
-      <Filter>Engine\09.ScreiptableObject\SO</Filter>
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClInclude>
     <ClInclude Include="ItemData.h">
-      <Filter>Engine\09.ScreiptableObject\SO</Filter>
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClInclude>
     <ClInclude Include="TextSO.h">
-      <Filter>Engine\09.ScreiptableObject\SO</Filter>
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClInclude>
     <ClInclude Include="SpriteSO.h">
-      <Filter>Engine\09.ScreiptableObject\SO</Filter>
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClInclude>
     <ClInclude Include="SOManager.h">
-      <Filter>Engine\09.ScreiptableObject</Filter>
+      <Filter>Engine\09. ScreiptableObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +222,12 @@
       <Filter>Default\리소스 파일</Filter>
     </Image>
     <Image Include="apiframeworktest.ico">
+      <Filter>Default\리소스 파일</Filter>
+    </Image>
+    <Image Include="bitmap1.bmp">
+      <Filter>Default\리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\Cheese.png">
       <Filter>Default\리소스 파일</Filter>
     </Image>
   </ItemGroup>
@@ -303,22 +312,22 @@
       <Filter>Engine\03. Manager\SoundMgr</Filter>
     </ClCompile>
     <ClCompile Include="ScriptableObject.cpp">
-      <Filter>Engine\09.ScreiptableObject</Filter>
+      <Filter>Engine\09. ScreiptableObject</Filter>
     </ClCompile>
     <ClCompile Include="ItemSO.cpp">
-      <Filter>Engine\09.ScreiptableObject\SO</Filter>
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClCompile>
     <ClCompile Include="ItemData.cpp">
-      <Filter>Engine\09.ScreiptableObject\SO</Filter>
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClCompile>
     <ClCompile Include="TextSO.cpp">
-      <Filter>Engine\09.ScreiptableObject\SO</Filter>
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClCompile>
     <ClCompile Include="SpriteSO.cpp">
-      <Filter>Engine\09.ScreiptableObject\SO</Filter>
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClCompile>
     <ClCompile Include="SOManager.cpp">
-      <Filter>Engine\09.ScreiptableObject</Filter>
+      <Filter>Engine\09. ScreiptableObject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

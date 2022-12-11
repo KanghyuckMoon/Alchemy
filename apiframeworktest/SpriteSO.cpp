@@ -4,5 +4,5 @@
 
 void SpriteSO::Init()
 {
-	AddSpriteData("Postion_1", IDB_PNG1);
+	AddSpriteData(L"Postion_1", IDB_PNG1);
 }

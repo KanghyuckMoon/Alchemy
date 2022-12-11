@@ -3,13 +3,17 @@
 
 class SpriteSO : public ScriptableObject
 {
-static map<string, int> spriteDatas;
+public:
+	SINGLE(SpriteSO);
 
 public:
-	static void Init();
+map<wstring, int> spriteDatas;
 
 public:
-	static int GetSpriteData(string key) { return spriteDatas.at(key); }
-	static void AddSpriteData(string key, int index) { spriteDatas.insert({ key, index }); }
+	void Init();
+
+public:
+	const int GetSpriteData(const wstring& key) { return spriteDatas.at(key); }
+	void AddSpriteData(const wstring& key, int index) { spriteDatas.insert({ key, index }); }
 };
 

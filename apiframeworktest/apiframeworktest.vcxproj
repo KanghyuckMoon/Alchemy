@@ -241,7 +241,9 @@
     <ResourceCompile Include="apiframeworktest.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\Cheese.png" />
     <Image Include="apiframeworktest.ico" />
+    <Image Include="bitmap1.bmp" />
     <Image Include="small.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

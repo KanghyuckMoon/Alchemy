@@ -1,8 +1,9 @@
 #pragma once
-
-
-static class SOManager
+class SOManager
 {
+public:
+	SINGLE(SOManager);
+
 public:
 	void Init();
 };

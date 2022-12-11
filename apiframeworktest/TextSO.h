@@ -1,17 +1,18 @@
 #pragma once
-#include "pch.h"
 #include "ScriptableObject.h"
-
-static class TextSO : public ScriptableObject
+class TextSO : public ScriptableObject
 {
+public:
+	SINGLE(TextSO);
+
 private:
-	static map<string, string> textDatas;
+	map<wstring, wstring> textDatas;
 
 public:
-	static void Init();
+	void Init();
 
 public:
-	static string GetTextData(string key) { return textDatas.at(key); }
-	static void AddTextData(string key, string text) { textDatas.insert({ key, text }); }
+	const wstring GetTextData(const wstring& key) { return textDatas.at(key); }
+	const void AddTextData(const wstring& key, const wstring& text) { textDatas.insert({ key, text }); }
 };
 

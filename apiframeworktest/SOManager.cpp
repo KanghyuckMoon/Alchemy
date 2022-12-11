@@ -7,7 +7,7 @@
 
 void SOManager::Init()
 {
-	TextSO::Init();
-	SpriteSO::Init();
-	ItemSO::Init();
+	TextSO::GetInst()->Init();
+	SpriteSO::GetInst()->Init();
+	ItemSO::GetInst()->Init();
 }
