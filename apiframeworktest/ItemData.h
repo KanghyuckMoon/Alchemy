@@ -1,4 +1,5 @@
 #pragma once
+class Image;
 class ItemData
 {
 public:
@@ -12,7 +13,7 @@ public:
 public:
 	wstring GetName();
 	wstring GetText();
-	int GetSprite();
+	const Image* GetSprite();
 
 };
 

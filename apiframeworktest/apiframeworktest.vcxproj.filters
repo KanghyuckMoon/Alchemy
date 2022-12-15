@@ -95,6 +95,9 @@
     <Filter Include="Engine\09. ScreiptableObject\SO">
       <UniqueIdentifier>{09506b1b-78de-41bf-b4ed-d7c3af49c416}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\ItemTestScene">
+      <UniqueIdentifier>{cdcb4f96-887f-4312-85ef-2a011828861f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -205,11 +208,14 @@
     <ClInclude Include="TextSO.h">
       <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteSO.h">
-      <Filter>Engine\09. ScreiptableObject\SO</Filter>
-    </ClInclude>
     <ClInclude Include="SOManager.h">
       <Filter>Engine\09. ScreiptableObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemTestScene.h">
+      <Filter>Engine\05. Scene\ItemTestScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteSO.h">
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -323,11 +329,14 @@
     <ClCompile Include="TextSO.cpp">
       <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteSO.cpp">
-      <Filter>Engine\09. ScreiptableObject\SO</Filter>
-    </ClCompile>
     <ClCompile Include="SOManager.cpp">
       <Filter>Engine\09. ScreiptableObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemTestScene.cpp">
+      <Filter>Engine\05. Scene\ItemTestScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSO.cpp">
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
