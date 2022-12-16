@@ -35,6 +35,8 @@ public:
 public:
 	int Init(HWND _hWnd, POINT _ptResolution);
 	void Progress();
+
+	void Close();
 private:
 	void Update();
 	void Render();
