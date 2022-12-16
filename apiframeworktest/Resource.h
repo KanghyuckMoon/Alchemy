@@ -13,7 +13,6 @@
 #define IDC_APIFRAMEWORKTEST            109
 #define IDR_MAINFRAME                   128
 #define IDR_ACCELERATOR1                129
-#define IDB_PNG1                        131
 #define IDC_STATIC                      -1
 
 // Next default values for new objects

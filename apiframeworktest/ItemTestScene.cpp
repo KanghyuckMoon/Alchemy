@@ -13,6 +13,8 @@
 #include "SOManager.h"
 #include "ItemData.h"
 #include "ItemSO.h"
+#include "SpriteSO.h"
+#include "Image.h"
 
 
 ItemTestScene::ItemTestScene()
@@ -40,7 +42,10 @@ void ItemTestScene::Update()
 	//{
 	//	ChangeScene(SCENE_TYPE::SCENE_01);
 	//}
-	shared_ptr<ItemData> itemData = ItemSO::GetInst()->GetItemData(L"Postion");
+	shared_ptr<ItemData> itemData = ItemSO::GetInst()->GetItemData(L"다이아몬드");
 	wstring str = itemData->GetText();
 	TextOutW(Core::GetInst()->GetMainDC(), 100, 100, str.c_str(), str.length());
+	Image* image = itemData->GetSprite();
+	BitBlt(Core::GetInst()->GetMainDC(), 200, 200, 100, 100, image->GetDC(), 0, 0, SRCCOPY);
+	
 }

@@ -10,6 +10,6 @@ public:
 	void Init();
 
 public:
-	const Image* GetSpriteData(const wstring& key);
+	//Image* GetSpriteData(const wstring& key);
 };
 

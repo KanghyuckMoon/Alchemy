@@ -3,6 +3,7 @@
 #include "TextSO.h"
 #include "SpriteSO.h"
 #include "Image.h"
+#include "ResMgr.h"
 
 ItemData::ItemData(wstring nameAddress, wstring textAddress, wstring spriteAddress)
 {
@@ -21,7 +22,7 @@ wstring ItemData::GetText()
 	return TextSO::GetInst()->GetTextData(textAddress);
 }
 
-const Image* ItemData::GetSprite()
+Image* ItemData::GetSprite()
 {
-	return SpriteSO::GetInst()->GetSpriteData(spriteAddress);
+	return ResMgr::GetInst()->ImgFind(spriteAddress);
 }

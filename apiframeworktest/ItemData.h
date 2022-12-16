@@ -13,7 +13,7 @@ public:
 public:
 	wstring GetName();
 	wstring GetText();
-	const Image* GetSprite();
+	Image* GetSprite();
 
 };
 

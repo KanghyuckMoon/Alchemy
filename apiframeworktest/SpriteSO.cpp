@@ -32,11 +32,11 @@ void SpriteSO::Init()
 	ResMgr::GetInst()->ImgLoad(L"Golden Key", L"Image\\ItemImage\\Golden Key.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Lantern", L"Image\\ItemImage\\Lantern.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Leather Helmet", L"Image\\ItemImage\\Leather Helmet.bmp");
-
-
+	ResMgr::GetInst()->ImgLoad(L"Paper", L"Image\\ItemImage\\Paper.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Bone", L"Image\\ItemImage\\Bone.bmp");
 }
 
-const Image* SpriteSO::GetSpriteData(const wstring& key)
-{
-	return ResMgr::GetInst()->ImgFind(key);
-}
+//Image* SpriteSO::GetSpriteData(const wstring& key)
+//{
+//	return ResMgr::GetInst()->ImgFind(key);
+//}
