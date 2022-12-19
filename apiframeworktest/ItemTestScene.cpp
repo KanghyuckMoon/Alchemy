@@ -15,6 +15,8 @@
 #include "ItemSO.h"
 #include "SpriteSO.h"
 #include "Image.h"
+#include "Inventory.h"
+#include "RecipeSO.h"
 
 
 ItemTestScene::ItemTestScene()
@@ -37,15 +39,23 @@ void ItemTestScene::Exit()
 
 void ItemTestScene::Update()
 {
-	//Scene::Update();
-	//if (KEY_TAP(KEY::ENTER))
-	//{
-	//	ChangeScene(SCENE_TYPE::SCENE_01);
-	//}
+	Scene::Update();
+	if (KEY_TAP(KEY::ENTER))
+	{
+		//ChangeScene(SCENE_TYPE::SCENE_01);
+		Inventory::GetInst()->RemoveItem(L"나무");
+		Inventory::GetInst()->RemoveItem(L"돌");
+		Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(L"나무돌"));
+	}
 	shared_ptr<ItemData> itemData = ItemSO::GetInst()->GetItemData(L"다이아몬드");
-	wstring str = itemData->GetText();
-	TextOutW(Core::GetInst()->GetMainDC(), 100, 100, str.c_str(), str.length());
-	Image* image = itemData->GetSprite();
-	BitBlt(Core::GetInst()->GetMainDC(), 200, 200, 100, 100, image->GetDC(), 0, 0, SRCCOPY);
-	
+
+	int x = 1;
+	for (auto itemData : Inventory::GetInst()->itemData)
+	{
+		wstring str = itemData->GetText();
+		TextOutW(Core::GetInst()->GetMainDC(), 100 * x, 100, str.c_str(), str.length());
+		Image* image = itemData->GetSprite();
+		BitBlt(Core::GetInst()->GetMainDC(), 100 * x, 150, 100, 100, image->GetDC(), 0, 0, SRCCOPY);
+		x++;
+	}
 }

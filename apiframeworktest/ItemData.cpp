@@ -5,11 +5,17 @@
 #include "Image.h"
 #include "ResMgr.h"
 
-ItemData::ItemData(wstring nameAddress, wstring textAddress, wstring spriteAddress)
+ItemData::ItemData(wstring key, wstring nameAddress, wstring textAddress, wstring spriteAddress)
 {
+	this->key = key;
 	this->nameAddress = nameAddress;
 	this->textAddress = textAddress;
 	this->spriteAddress = spriteAddress;
+}
+
+wstring ItemData::GetKey()
+{
+	return this->key;
 }
 
 wstring ItemData::GetName()

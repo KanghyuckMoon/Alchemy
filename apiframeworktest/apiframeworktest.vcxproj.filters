@@ -217,6 +217,12 @@
     <ClInclude Include="SpriteSO.h">
       <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClInclude>
+    <ClInclude Include="RecipeSO.h">
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -336,6 +342,12 @@
       <Filter>Engine\05. Scene\ItemTestScene</Filter>
     </ClCompile>
     <ClCompile Include="SpriteSO.cpp">
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
+    </ClCompile>
+    <ClCompile Include="RecipeSO.cpp">
+      <Filter>Engine\09. ScreiptableObject\SO</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
       <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClCompile>
   </ItemGroup>
