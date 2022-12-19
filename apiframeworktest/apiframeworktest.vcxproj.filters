@@ -223,6 +223,9 @@
     <ClInclude Include="Inventory.h">
       <Filter>Engine\09. ScreiptableObject\SO</Filter>
     </ClInclude>
+    <ClInclude Include="ItemBox.h">
+      <Filter>Engine\07. Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -349,6 +352,9 @@
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>Engine\09. ScreiptableObject\SO</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBox.cpp">
+      <Filter>Engine\07. Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

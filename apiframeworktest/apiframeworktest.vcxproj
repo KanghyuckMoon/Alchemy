@@ -172,6 +172,7 @@
     <ClInclude Include="func.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="ItemBox.h" />
     <ClInclude Include="ItemData.h" />
     <ClInclude Include="ItemSO.h" />
     <ClInclude Include="ItemTestScene.h" />
@@ -211,6 +212,7 @@
     <ClCompile Include="func.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="ItemBox.cpp" />
     <ClCompile Include="ItemData.cpp" />
     <ClCompile Include="ItemSO.cpp" />
     <ClCompile Include="ItemTestScene.cpp" />

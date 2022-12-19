@@ -1,5 +1,7 @@
 #pragma once
 #include "Scene.h"
+
+class ItemBox;
 class ItemTestScene :
     public Scene
 {
@@ -10,5 +12,7 @@ public:
 public:
     ItemTestScene();
     virtual ~ItemTestScene();
+
+    vector<ItemBox> itemBoxs;
 };
 

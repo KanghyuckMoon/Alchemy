@@ -10,14 +10,8 @@
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 #include "SoundMgr.h"
+#include "ItemBox.h"
 #include "SOManager.h"
-#include "ItemData.h"
-#include "ItemSO.h"
-#include "SpriteSO.h"
-#include "Image.h"
-#include "Inventory.h"
-#include "RecipeSO.h"
-
 
 ItemTestScene::ItemTestScene()
 {
@@ -29,33 +23,32 @@ ItemTestScene::~ItemTestScene()
 void ItemTestScene::Enter()
 {
 	SOManager::GetInst()->Init();
+	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
+	SoundMgr::GetInst()->Play(L"BGM");
+
+	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
+	int iItem = 8;
+	float fMoveDist = 10.f;
+	float fObjScale = 100.f;
+	float fTerm = (640 / iItem);
+	ItemBox* itemObj = nullptr;
+	for (int i = 0; i < iItem; i++)
+	{
+		itemObj = new ItemBox(L"나무");
+		itemObj->SetName(L"ItemBox");
+		itemObj->SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 480 - fObjScale));
+		itemObj->SetScale(Vec2(fObjScale, fObjScale));
+		AddObject(itemObj, GROUP_TYPE::MONSTER);
+	}
+
 }
 
 void ItemTestScene::Exit()
 {
-	//DeleteAll();
-	//CollisionMgr::GetInst()->CheckReset();
+	DeleteAll();
 }
 
 void ItemTestScene::Update()
 {
 	Scene::Update();
-	if (KEY_TAP(KEY::ENTER))
-	{
-		//ChangeScene(SCENE_TYPE::SCENE_01);
-		Inventory::GetInst()->RemoveItem(L"나무");
-		Inventory::GetInst()->RemoveItem(L"돌");
-		Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(L"나무돌"));
-	}
-	shared_ptr<ItemData> itemData = ItemSO::GetInst()->GetItemData(L"다이아몬드");
-
-	int x = 1;
-	for (auto itemData : Inventory::GetInst()->itemData)
-	{
-		wstring str = itemData->GetText();
-		TextOutW(Core::GetInst()->GetMainDC(), 100 * x, 100, str.c_str(), str.length());
-		Image* image = itemData->GetSprite();
-		BitBlt(Core::GetInst()->GetMainDC(), 100 * x, 150, 100, 100, image->GetDC(), 0, 0, SRCCOPY);
-		x++;
-	}
 }
