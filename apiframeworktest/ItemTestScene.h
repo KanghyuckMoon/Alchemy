@@ -3,6 +3,7 @@
 
 class ItemBox;
 class Background;
+class Inventory;
 class ItemTestScene :
     public Scene
 {

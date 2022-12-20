@@ -21,6 +21,7 @@ private:
 	CLONE(ItemBox);
 
 public:
+	const wstring& GetItemData();
 	void SetItemData(const wstring& str);
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
