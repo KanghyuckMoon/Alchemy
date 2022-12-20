@@ -4,7 +4,7 @@
 
 void ItemSO::Init()
 {
-	//itemDatas = map<string, shared_ptr<ItemData>>();
+	//아이템
 	AddItemData(L"나무", shared_ptr<ItemData>(new ItemData(L"나무", L"나무_N", L"나무_T", L"Wood")));
 	AddItemData(L"돌", shared_ptr<ItemData>(new ItemData(L"돌", L"돌_N", L"돌_T", L"Rune Stone")));
 	AddItemData(L"가죽", shared_ptr<ItemData>(new ItemData(L"가죽", L"가죽_N", L"가죽_T", L"Leather")));
@@ -35,5 +35,15 @@ void ItemSO::Init()
 	AddItemData(L"해골", shared_ptr<ItemData>(new ItemData(L"해골", L"해골_N", L"해골_T", L"Skull")));
 	AddItemData(L"생명", shared_ptr<ItemData>(new ItemData(L"생명", L"생명_N", L"생명_T", L"Heart")));
 	AddItemData(L"다이아몬드", shared_ptr<ItemData>(new ItemData(L"다이아몬드", L"다이아몬드_N", L"다이아몬드_T", L"Diamond")));
+
+	//미소녀
+	AddItemData(L"미소녀1", shared_ptr<ItemData>(new ItemData(L"미소녀1", L"미소녀1_N", L"다이아몬드_T", L"Diamond")));
+	AddItemData(L"미소녀2", shared_ptr<ItemData>(new ItemData(L"미소녀2", L"미소녀2_N", L"다이아몬드_T", L"Diamond")));
+	AddItemData(L"미소녀3", shared_ptr<ItemData>(new ItemData(L"미소녀3", L"미소녀3_N", L"다이아몬드_T", L"Diamond")));
+	AddItemData(L"미소녀4", shared_ptr<ItemData>(new ItemData(L"미소녀4", L"미소녀4_N", L"다이아몬드_T", L"Diamond")));
+	AddItemData(L"미소녀5", shared_ptr<ItemData>(new ItemData(L"미소녀5", L"미소녀5_N", L"다이아몬드_T", L"Diamond")));
+	AddItemData(L"미소녀6", shared_ptr<ItemData>(new ItemData(L"미소녀6", L"미소녀6_N", L"다이아몬드_T", L"Diamond")));
+	AddItemData(L"미소녀7", shared_ptr<ItemData>(new ItemData(L"미소녀7", L"미소녀7_N", L"다이아몬드_T", L"Diamond")));
+
 }
 	

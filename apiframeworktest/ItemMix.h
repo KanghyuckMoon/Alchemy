@@ -13,10 +13,12 @@ private:
 	bool isSelecItemBox1;
 	shared_ptr<ItemBox> itemBox1;
 	shared_ptr<ItemBox> itemBox2;
-
+	
 public:
+	wstring MixItem();
 	void SelectItem(const wstring& str);
 	void Clear();
+	void ReturnItems();
 
 private:
 	void SelectItem1(const wstring& str);

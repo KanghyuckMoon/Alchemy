@@ -15,6 +15,8 @@
 #include "Background.h"
 #include "Inventory.h"
 #include "ItemData.h"
+#include "ItemMix.h"
+#include "RecipeSO.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -23,13 +25,29 @@ ItemTestScene::ItemTestScene()
 ItemTestScene::~ItemTestScene()
 {
 }
+void ItemTestScene::InventoryFetch()
+{
+	for (int i = 0; i < 8; i++)
+	{
+		shared_ptr<ItemData> itemData = Inventory::GetInst()->GetItemData(i);
+		if (itemData)
+		{
+			itemBoxs.at(i).SetItemData(itemData->GetKey());
+		}
+		else
+		{
+			itemBoxs.at(i).SetItemData(L"");
+		}
+	}
+}
 void ItemTestScene::Enter()
 {
 	SOManager::GetInst()->Init();
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
 	m_Background = new Background(L"Background1", L"Image\\Background\\background1.bmp");
-	
+	itemMix = new ItemMix();
+
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
 	int iItem = 8;
 	float fMoveDist = 10.f;
@@ -37,12 +55,11 @@ void ItemTestScene::Enter()
 	float fTerm = (640 / iItem);
 	for (int i = 0; i < iItem; i++)
 	{
-		itemBoxs.push_back(ItemBox(L"NULL"));
+		itemBoxs.push_back(ItemBox(L""));
 		itemBoxs.at(i).SetName(L"ItemBox");
 		itemBoxs.at(i).SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 480 - fObjScale));
 		itemBoxs.at(i).SetScale(Vec2(fObjScale, fObjScale));
 	}
-
 }
 
 void ItemTestScene::Exit()
@@ -57,23 +74,59 @@ void ItemTestScene::Update()
 	if (KEY_TAP(KEY::A))
 	{
 		Inventory::GetInst()->AddItem(L"³ª¹«");
+		InventoryFetch();
+	}
+	if (KEY_TAP(KEY::SPACE))
+	{
+		if (Inventory::GetInst()->GetCount() > 0)
+		{
+			itemMix->SelectItem(Inventory::GetInst()->GetItemData(0)->GetKey());
+			Inventory::GetInst()->RemoveItem(0);
+		}
+
+		InventoryFetch();
+	}
+
+	if (KEY_TAP(KEY::S))
+	{
+		wstring str = itemMix->MixItem();
+		if (str != L"")
+		{
+			if (RecipeSO::GetInst()->GetRecipe(str) != L"")
+			{
+				Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(str));
+				itemMix->Clear();
+			}
+		}
+		InventoryFetch();
+	}
+
+
+	if (KEY_TAP(KEY::D))
+	{
+		itemMix->ReturnItems();
+		itemMix->Clear();
+		InventoryFetch();
+	}
+
+	if (KEY_TAP(KEY::F))
+	{
+		if (Inventory::GetInst()->GetCount() > 0)
+		{
+			if (RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(0)->GetKey()) != L"")
+			{
+				wstring str = RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(0)->GetKey());
+				Inventory::GetInst()->RemoveItem(0);
+				Inventory::GetInst()->AddItem(str);
+			}
+		}
+		InventoryFetch();
 	}
 
 
 	if (KEY_TAP(KEY::ENTER))
 	{
-		for (int i = 0; i < 8; i++)
-		{
-			shared_ptr<ItemData> itemData = Inventory::GetInst()->GetItemData(i);
-			if (itemData)
-			{
-				itemBoxs.at(i).SetItemData(itemData->GetKey());
-			}
-			else
-			{
-				itemBoxs.at(i).SetItemData(L"NULL");
-			}
-		}
+		InventoryFetch();
 	}
 }
 
@@ -85,4 +138,5 @@ void ItemTestScene::Render(HDC _dc)
 	{
 		itemBoxs.at(i).Render(_dc);
 	}
+	itemMix->Render(_dc);
 }

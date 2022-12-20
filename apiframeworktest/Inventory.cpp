@@ -20,6 +20,18 @@ void Inventory::AddItem(const wstring& str)
 	itemData.push_back(data);
 	++count;
 }
+
+void Inventory::RemoveItem(int index)
+{
+	if (count <= index)
+	{
+		return;
+	}
+
+	itemData.erase(itemData.begin() + index);
+	--count;
+}
+
 void Inventory::RemoveItem(const wstring& str)
 {
 	for (int i = 0; i < itemData.size(); ++i)
@@ -27,6 +39,7 @@ void Inventory::RemoveItem(const wstring& str)
 		if (itemData.at(i)->GetKey() == str)
 		{
 			itemData.erase(itemData.begin() + i);
+			--count;
 			break;
 		}
 	}

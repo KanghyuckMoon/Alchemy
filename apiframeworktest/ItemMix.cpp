@@ -1,18 +1,36 @@
 #include "pch.h"
 #include "ItemMix.h"
 #include "ItemBox.h"
+#include "Inventory.h"
 
 ItemMix::ItemMix()
 {
-	itemBox1 = make_shared<ItemBox>(L"NULL");
-	itemBox2 = make_shared<ItemBox>(L"NULL");
+	itemBox1 = make_shared<ItemBox>(L"");
+	itemBox2 = make_shared<ItemBox>(L"");
 
+	itemBox1->SetName(L"ItemBox");
+	itemBox2->SetName(L"ItemBox");
 	itemBox1->SetPos(Vec2(100, 100));
 	itemBox2->SetPos(Vec2(200, 100));
+	itemBox1->SetScale(Vec2(100.0f, 100.0f));
+	itemBox2->SetScale(Vec2(100.0f, 100.0f));
+
 }
 
 ItemMix::~ItemMix()
 {
+}
+
+wstring ItemMix::MixItem()
+{
+	wstring s1 = itemBox1->GetItemData();
+	wstring s2 = itemBox2->GetItemData();
+	if (s1 != L"" && s2 != L"")
+	{
+		s1 = s1.append(s2);
+		return s1;
+	}
+	return L"";
 }
 
 void ItemMix::SelectItem(const wstring& str)
@@ -32,19 +50,40 @@ void ItemMix::Clear()
 {
 	if (itemBox1)
 	{
-		if (itemBox1->GetItemData() != L"NULL")
+		if (itemBox1->GetItemData() != L"")
 		{
-			//인벤토리에 추가
+			itemBox1->SetItemData(L"");
 		}
 	}
 
 	if (itemBox2)
 	{
-		if (itemBox2->GetItemData() != L"NULL")
+		if (itemBox2->GetItemData() != L"")
 		{
-			//인벤토리에 추가
+			itemBox2->SetItemData(L"");
 		}
 	}
+	isSelecItemBox1 = false;
+}
+
+void ItemMix::ReturnItems()
+{
+	if (itemBox1)
+	{
+		if (itemBox1->GetItemData() != L"")
+		{
+			Inventory::GetInst()->AddItem(itemBox1->GetItemData());
+		}
+	}
+
+	if (itemBox2)
+	{
+		if (itemBox2->GetItemData() != L"")
+		{
+			Inventory::GetInst()->AddItem(itemBox2->GetItemData());
+		}
+	}
+	isSelecItemBox1 = false;
 }
 
 void ItemMix::SelectItem1(const wstring& str)

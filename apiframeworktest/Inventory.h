@@ -13,6 +13,7 @@ private:
 public:
 	void Init();
 	void RemoveItem(const wstring& str);
+	void RemoveItem(int index);
 	void AddItem(const wstring& str);
 	int GetCount() { return count; }
 	shared_ptr<ItemData> GetItemData(int index);

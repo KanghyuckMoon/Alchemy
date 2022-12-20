@@ -115,7 +115,7 @@ const wstring& RecipeSO::GetRecipe(const wstring& str)
 	}
 	else
 	{
-		return L"NULL";
+		return L"";
 	}
 }
 
@@ -127,6 +127,6 @@ const wstring& RecipeSO::GetGirl(const wstring& str)
 	}
 	else
 	{
-		return L"NULL";
+		return L"";
 	}
 }

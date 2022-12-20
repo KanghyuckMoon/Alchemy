@@ -6,10 +6,6 @@
 #include "ItemSO.h"
 #include "ResMgr.h"
 
-ItemBox::ItemBox()
-{
-}
-
 ItemBox::~ItemBox()
 {
 }
@@ -19,20 +15,20 @@ ItemBox::ItemBox(const wstring& str)
 	SetItemData(str);
 }
 
-const wstring& ItemBox::GetItemData()
+wstring ItemBox::GetItemData()
 {
 	// TODO: insert return statement here
 	if (itemData)
 	{
 		return itemData->GetKey();
 	}
-	return L"NULL";
+	return L"";
 }
 
 void ItemBox::SetItemData(const wstring& str)
 {
 	m_templateImage = ResMgr::GetInst()->ImgLoad(L"ItemBox1", L"Image\\UIImage\\ItemBox1.bmp");
-	if (str != L"NULL")
+	if (str != L"")
 	{
 		itemData = ItemSO::GetInst()->GetItemData(str);
 		m_itemImage = itemData->GetSprite();

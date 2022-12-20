@@ -4,6 +4,7 @@
 class ItemBox;
 class Background;
 class Inventory;
+class ItemMix;
 class ItemTestScene :
     public Scene
 {
@@ -16,6 +17,10 @@ public:
     ItemTestScene();
     virtual ~ItemTestScene();
 
+public:
+    void InventoryFetch();
+
+    ItemMix* itemMix;
     vector<ItemBox> itemBoxs;
     Background* m_Background;
 };
