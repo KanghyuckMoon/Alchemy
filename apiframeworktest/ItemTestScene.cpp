@@ -45,7 +45,13 @@ void ItemTestScene::Enter()
 	SOManager::GetInst()->Init();
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
-	m_Background = new Background(L"Background1", L"Image\\Background\\background1.bmp");
+	m_Background_DefaultMode = new Background(L"Background1", L"Image\\Background\\background1.bmp");
+	m_Background_MixMode = new Background(L"Background2", L"Image\\Background\\background2.bmp");
+	m_Background_ExchangeMode = new Background(L"Background3", L"Image\\Background\\background3.bmp");
+	m_Background_ItemTreeMode = new Background(L"Background4", L"Image\\Background\\background4.bmp");
+	m_Background_DeleteMode = new Background(L"Background5", L"Image\\Background\\background5.bmp");
+
+
 	itemMix = new ItemMix();
 
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
@@ -132,7 +138,25 @@ void ItemTestScene::Update()
 
 void ItemTestScene::Render(HDC _dc)
 {
-	m_Background->Render(_dc);
+	switch (itemMode)
+	{
+	case ItemMode::DEFAULTMODE:
+		m_Background_DefaultMode->Render(_dc);
+		break;
+	case ItemMode::MIXMODE:
+		m_Background_MixMode->Render(_dc);
+		break;
+	case ItemMode::EXCHANGEMODE:
+		m_Background_ExchangeMode->Render(_dc);
+		break;
+	case ItemMode::ITEMTREEMODE:
+		m_Background_ItemTreeMode->Render(_dc);
+		break;
+	case ItemMode::DELETEMODE:
+		m_Background_DeleteMode->Render(_dc);
+		break;
+	}
+
 	Scene::Render(_dc);
 	for (int i = 0; i < 8; i++)
 	{

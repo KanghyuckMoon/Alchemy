@@ -37,13 +37,13 @@ void ItemSO::Init()
 	AddItemData(L"¥Ÿ¿Ãæ∆∏ÛµÂ", shared_ptr<ItemData>(new ItemData(L"¥Ÿ¿Ãæ∆∏ÛµÂ", L"¥Ÿ¿Ãæ∆∏ÛµÂ_N", L"¥Ÿ¿Ãæ∆∏ÛµÂ_T", L"Diamond")));
 
 	//πÃº“≥‡
-	AddItemData(L"πÃº“≥‡1", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡1", L"πÃº“≥‡1_N", L"¥Ÿ¿Ãæ∆∏ÛµÂ_T", L"Diamond")));
-	AddItemData(L"πÃº“≥‡2", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡2", L"πÃº“≥‡2_N", L"¥Ÿ¿Ãæ∆∏ÛµÂ_T", L"Diamond")));
-	AddItemData(L"πÃº“≥‡3", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡3", L"πÃº“≥‡3_N", L"¥Ÿ¿Ãæ∆∏ÛµÂ_T", L"Diamond")));
-	AddItemData(L"πÃº“≥‡4", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡4", L"πÃº“≥‡4_N", L"¥Ÿ¿Ãæ∆∏ÛµÂ_T", L"Diamond")));
-	AddItemData(L"πÃº“≥‡5", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡5", L"πÃº“≥‡5_N", L"¥Ÿ¿Ãæ∆∏ÛµÂ_T", L"Diamond")));
-	AddItemData(L"πÃº“≥‡6", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡6", L"πÃº“≥‡6_N", L"¥Ÿ¿Ãæ∆∏ÛµÂ_T", L"Diamond")));
-	AddItemData(L"πÃº“≥‡7", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡7", L"πÃº“≥‡7_N", L"¥Ÿ¿Ãæ∆∏ÛµÂ_T", L"Diamond")));
+	AddItemData(L"πÃº“≥‡1", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡1", L"πÃº“≥‡1_N", L"πÃº“≥‡1_T", L"Diamond")));
+	AddItemData(L"πÃº“≥‡2", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡2", L"πÃº“≥‡2_N", L"πÃº“≥‡2_T", L"Diamond")));
+	AddItemData(L"πÃº“≥‡3", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡3", L"πÃº“≥‡3_N", L"πÃº“≥‡3_T", L"Diamond")));
+	AddItemData(L"πÃº“≥‡4", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡4", L"πÃº“≥‡4_N", L"πÃº“≥‡4_T", L"Diamond")));
+	AddItemData(L"πÃº“≥‡5", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡5", L"πÃº“≥‡5_N", L"πÃº“≥‡5_T", L"Diamond")));
+	AddItemData(L"πÃº“≥‡6", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡6", L"πÃº“≥‡6_N", L"πÃº“≥‡6_T", L"Diamond")));
+	AddItemData(L"πÃº“≥‡7", shared_ptr<ItemData>(new ItemData(L"πÃº“≥‡7", L"πÃº“≥‡7_N", L"πÃº“≥‡7_T", L"Diamond")));
 
 }
 	
