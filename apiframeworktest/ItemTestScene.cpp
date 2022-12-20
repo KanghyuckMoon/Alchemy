@@ -12,6 +12,7 @@
 #include "SoundMgr.h"
 #include "ItemBox.h"
 #include "SOManager.h"
+#include "Background.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -25,6 +26,7 @@ void ItemTestScene::Enter()
 	SOManager::GetInst()->Init();
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
+	m_Background = new Background(L"Background1", L"Image\\Background\\background1.bmp");
 
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
 	int iItem = 8;
@@ -51,4 +53,10 @@ void ItemTestScene::Exit()
 void ItemTestScene::Update()
 {
 	Scene::Update();
+}
+
+void ItemTestScene::Render(HDC _dc)
+{
+	m_Background->Render(_dc);
+	Scene::Render(_dc);
 }

@@ -13,7 +13,8 @@ public:
 
 private:
 	shared_ptr<ItemData> itemData;
-	Image* m_pImage;
+	Image* m_itemImage;
+	Image* m_templateImage;
 	wstring m_name;
 
 private:
