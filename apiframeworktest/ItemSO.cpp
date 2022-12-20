@@ -4,7 +4,7 @@
 
 void ItemSO::Init()
 {
-	//itemDatas = map<string, shared_ptr<ItemData>>();
+	//¾ÆÀÌÅÛ
 	AddItemData(L"³ª¹«", shared_ptr<ItemData>(new ItemData(L"³ª¹«", L"³ª¹«_N", L"³ª¹«_T", L"Wood")));
 	AddItemData(L"µ¹", shared_ptr<ItemData>(new ItemData(L"µ¹", L"µ¹_N", L"µ¹_T", L"Rune Stone")));
 	AddItemData(L"°¡Á×", shared_ptr<ItemData>(new ItemData(L"°¡Á×", L"°¡Á×_N", L"°¡Á×_T", L"Leather")));
@@ -35,5 +35,15 @@ void ItemSO::Init()
 	AddItemData(L"ÇØ°ñ", shared_ptr<ItemData>(new ItemData(L"ÇØ°ñ", L"ÇØ°ñ_N", L"ÇØ°ñ_T", L"Skull")));
 	AddItemData(L"»ý¸í", shared_ptr<ItemData>(new ItemData(L"»ý¸í", L"»ý¸í_N", L"»ý¸í_T", L"Heart")));
 	AddItemData(L"´ÙÀÌ¾Æ¸óµå", shared_ptr<ItemData>(new ItemData(L"´ÙÀÌ¾Æ¸óµå", L"´ÙÀÌ¾Æ¸óµå_N", L"´ÙÀÌ¾Æ¸óµå_T", L"Diamond")));
+
+	//¹Ì¼Ò³à
+	AddItemData(L"¹Ì¼Ò³à1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à1", L"¹Ì¼Ò³à1_N", L"¹Ì¼Ò³à1_T", L"Diamond")));
+	AddItemData(L"¹Ì¼Ò³à2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à2", L"¹Ì¼Ò³à2_N", L"¹Ì¼Ò³à2_T", L"Diamond")));
+	AddItemData(L"¹Ì¼Ò³à3", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à3", L"¹Ì¼Ò³à3_N", L"¹Ì¼Ò³à3_T", L"Diamond")));
+	AddItemData(L"¹Ì¼Ò³à4", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à4", L"¹Ì¼Ò³à4_N", L"¹Ì¼Ò³à4_T", L"Diamond")));
+	AddItemData(L"¹Ì¼Ò³à5", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à5", L"¹Ì¼Ò³à5_N", L"¹Ì¼Ò³à5_T", L"Diamond")));
+	AddItemData(L"¹Ì¼Ò³à6", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à6", L"¹Ì¼Ò³à6_N", L"¹Ì¼Ò³à6_T", L"Diamond")));
+	AddItemData(L"¹Ì¼Ò³à7", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à7", L"¹Ì¼Ò³à7_N", L"¹Ì¼Ò³à7_T", L"Diamond")));
+
 }
 	

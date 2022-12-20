@@ -5,17 +5,33 @@
 
 void Inventory::Init()
 {
-	auto data1 = ItemSO::GetInst()->GetItemData(L"나무");
-	auto data2 = ItemSO::GetInst()->GetItemData(L"돌");
-	itemData.push_back(data1);
-	itemData.push_back(data2);
+	AddItem(L"나무");
+	AddItem(L"돌");
 }
 
 void Inventory::AddItem(const wstring& str)
 {
+	if (count == 8)
+	{
+		return;
+	}
+
 	auto data = ItemSO::GetInst()->GetItemData(str);
 	itemData.push_back(data);
+	++count;
 }
+
+void Inventory::RemoveItem(int index)
+{
+	if (count <= index)
+	{
+		return;
+	}
+
+	itemData.erase(itemData.begin() + index);
+	--count;
+}
+
 void Inventory::RemoveItem(const wstring& str)
 {
 	for (int i = 0; i < itemData.size(); ++i)
@@ -23,8 +39,18 @@ void Inventory::RemoveItem(const wstring& str)
 		if (itemData.at(i)->GetKey() == str)
 		{
 			itemData.erase(itemData.begin() + i);
-			
+			--count;
 			break;
 		}
 	}
+}
+
+shared_ptr<ItemData> Inventory::GetItemData(int index)
+{
+	if (count <= index)
+	{
+		return nullptr;
+	}
+
+	return itemData.at(index);
 }
