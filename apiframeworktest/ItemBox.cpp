@@ -62,10 +62,10 @@ void ItemBox::Render(HDC _dc)
 bool ItemBox::ClickEvent(POINT ps)
 {
 	RECT rt = {
-	   GetPos().x - GetScale().x / 2,
-	   GetPos().y - GetScale().y / 2,
-	   GetPos().x + GetScale().x / 2,
-	   GetPos().y + GetScale().y / 2,
+	   GetPos().x - GetScale().x / 2 - 32,
+	   GetPos().y - GetScale().y / 2 - 32,
+	   GetPos().x + GetScale().x / 2 - 32,
+	   GetPos().y + GetScale().y / 2 - 32,
 	};
 
 	if ((rt.left < ps.x && ps.x < rt.right && rt.top < ps.y && ps.y < rt.bottom)) {

@@ -173,16 +173,6 @@ ItemTree::~ItemTree()
 }
 void ItemTree::Update()
 {
-	if (KEY_TAP(KEY::ENTER))
-	{
-		Vec2 pos = Vec2(300 - itemBoxs.at(0)->GetPos().x, 400 - itemBoxs.at(0)->GetPos().y);
-
-		for (auto& itemBox : itemBoxs)
-		{
-			itemBox->SetPos(Vec2(itemBox->GetPos().x + pos.x, itemBox->GetPos().y + pos.y));
-		}
-	}
-
 	if (KEY_HOLD(KEY::W))
 	{
 		for (auto& itemBox : itemBoxs)
@@ -239,6 +229,16 @@ void ItemTree::Render(HDC _dc)
 				itemBox->GetPos().x + itemBox->GetScale().x / 4 - 32,
 				itemBox->GetPos().y + itemBox->GetScale().y / 4 - 32);
 		}
+	}
+}
+
+void ItemTree::ResetPosition()
+{
+	Vec2 pos = Vec2(300 - itemBoxs.at(0)->GetPos().x, 400 - itemBoxs.at(0)->GetPos().y);
+
+	for (auto& itemBox : itemBoxs)
+	{
+		itemBox->SetPos(Vec2(itemBox->GetPos().x + pos.x, itemBox->GetPos().y + pos.y));
 	}
 }
 

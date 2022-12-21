@@ -5,8 +5,6 @@
 
 void Inventory::Init()
 {
-	AddItem(L"³ª¹«");
-	AddItem(L"µ¹");
 }
 
 void Inventory::AddItem(const wstring& str)

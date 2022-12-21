@@ -18,6 +18,7 @@
 #include "ItemMix.h"
 #include "RecipeSO.h"
 #include "ItemTree.h"
+#include "Button.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -54,6 +55,14 @@ void ItemTestScene::Enter()
 
 	itemTree = new ItemTree();
 	itemMix = new ItemMix();
+
+	mixButton = new Button();
+	mixButton->SetPos(Vec2(100, 270));
+	mixButton->SetScale(Vec2(150, 40));
+
+	cancleButton = new Button();
+	cancleButton->SetPos(Vec2(600, 270));
+	cancleButton->SetScale(Vec2(150, 40));
 
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
 	int iItem = 8;
@@ -97,6 +106,7 @@ void ItemTestScene::Update()
 			break;
 		case ItemMode::DELETEMODE:
 			itemMode = ItemMode::ITEMTREEMODE;
+			itemTree->ResetPosition();
 			break;
 		}
 	}
@@ -113,6 +123,7 @@ void ItemTestScene::Update()
 			break;
 		case ItemMode::EXCHANGEMODE:
 			itemMode = ItemMode::ITEMTREEMODE;
+			itemTree->ResetPosition();
 			break;
 		case ItemMode::ITEMTREEMODE:
 			itemMode = ItemMode::DELETEMODE;
@@ -121,12 +132,6 @@ void ItemTestScene::Update()
 			itemMode = ItemMode::DEFAULTMODE;
 			break;
 		}
-	}
-
-
-	if (KEY_TAP(KEY::ENTER))
-	{
-		InventoryFetch();
 	}
 
 	POINT mouse;
@@ -153,30 +158,32 @@ void ItemTestScene::Update()
 					{
 						itemMix->SelectItem(Inventory::GetInst()->GetItemData(index)->GetKey());
 						Inventory::GetInst()->RemoveItem(index);
+						break;
 					}
 				}
 			}
-			InventoryFetch();
-		}
 
-		if (KEY_TAP(KEY::S))
-		{
-			wstring str = itemMix->MixItem();
-			if (str != L"")
+			if (mixButton->StayCollision(mouse))
 			{
-				if (RecipeSO::GetInst()->GetRecipe(str) != L"")
+				wstring str = itemMix->MixItem();
+				if (str != L"")
 				{
-					Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(str));
-					itemMix->Clear();
+					if (RecipeSO::GetInst()->GetRecipe(str) != L"")
+					{
+						Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(str));
+						itemMix->Clear();
+					}
 				}
 			}
-			InventoryFetch();
-		}
 
-		if (KEY_TAP(KEY::D))
-		{
-			itemMix->ReturnItems();
-			itemMix->Clear();
+			if (cancleButton->StayCollision(mouse))
+			{
+				itemMix->ReturnItems();
+				itemMix->Clear();
+				InventoryFetch();
+			}
+
+
 			InventoryFetch();
 		}
 		break;
@@ -188,13 +195,20 @@ void ItemTestScene::Update()
 			{
 				if ((itemBoxs.begin() + index)->ClickEvent(mouse))
 				{
-					if (Inventory::GetInst()->GetCount() > 0)
+					if (Inventory::GetInst()->GetCount() > index)
 					{
 						if (RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey()) != L"")
 						{
 							wstring str = RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey());
+
+							if (str == L"미소녀9")
+							{
+								SceneMgr::GetInst()->ChangeScene(SCENE_TYPE::SCENE_ENDING);
+								break;
+							}
 							Inventory::GetInst()->RemoveItem(index);
 							Inventory::GetInst()->AddItem(str);
+							break;
 						}
 					}
 				}
@@ -213,6 +227,7 @@ void ItemTestScene::Update()
 					if (Inventory::GetInst()->GetCount() > index)
 					{
 						Inventory::GetInst()->RemoveItem(index);
+						break;
 					}
 				}
 			}
@@ -253,16 +268,43 @@ void ItemTestScene::Render(HDC _dc)
 	{
 	case ItemMode::MIXMODE:
 		itemMix->Render(_dc);
+		mixButton->Render(_dc);
+		cancleButton->Render(_dc);
+		for (int i = 0; i < 8; i++)
+		{
+			itemBoxs.at(i).Render(_dc);
+		}
+
+		TextOutW(_dc, 10, 10, L"합성", 2);
+		break;
 	case ItemMode::EXCHANGEMODE:
+		for (int i = 0; i < 8; i++)
+		{
+			itemBoxs.at(i).Render(_dc);
+		}
+		TextOutW(_dc, 10, 10, L"등가 교환", 5);
+		break;
 	case ItemMode::DELETEMODE:
+		for (int i = 0; i < 8; i++)
+		{
+			itemBoxs.at(i).Render(_dc);
+		}
+		TextOutW(_dc, 10, 10, L"제거", 2);
+		break;
 	case ItemMode::DEFAULTMODE:
 		for (int i = 0; i < 8; i++)
 		{
 			itemBoxs.at(i).Render(_dc);
 		}
+
+		TextOutW(_dc, 10, 10, L"벌목", 2);
 		break;
 	case ItemMode::ITEMTREEMODE:
 		itemTree->Render(_dc);
+		TextOutW(_dc, 10, 10, L"아이템 트리", 6);
+		TextOutW(_dc, 10, 30, L"검정 : 다른 두 가지 아이템 합성", 19);
+		TextOutW(_dc, 10, 50, L"빨강 : 등가교환", 9);
+		TextOutW(_dc, 10, 70, L"파랑 : 같은 아이템 두 개 합성", 18);
 		break;
 	}
 

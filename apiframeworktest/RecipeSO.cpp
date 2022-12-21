@@ -99,6 +99,11 @@ void RecipeSO::Init()
 	AddExchange(L"루비", L"미소녀8");
 	AddExchange(L"미소녀8", L"포션");
 	AddExchange(L"포션", L"미소녀8");
+
+	//6
+	AddExchange(L"다이아몬드", L"미소녀9");
+	AddExchange(L"미소녀9", L"다이아몬드");
+	AddExchange(L"다이아몬드", L"미소녀9");
 }
 
 void RecipeSO::AddRecipe(const wstring& str, const wstring& value)

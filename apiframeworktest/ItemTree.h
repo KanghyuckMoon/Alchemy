@@ -19,6 +19,6 @@ private:
 public:
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
-
+	void ResetPosition();
 };
 

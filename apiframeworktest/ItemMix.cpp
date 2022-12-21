@@ -10,8 +10,8 @@ ItemMix::ItemMix()
 
 	itemBox1->SetName(L"ItemBox");
 	itemBox2->SetName(L"ItemBox");
-	itemBox1->SetPos(Vec2(100, 100));
-	itemBox2->SetPos(Vec2(200, 100));
+	itemBox1->SetPos(Vec2(200, 100));
+	itemBox2->SetPos(Vec2(500, 100));
 	itemBox1->SetScale(Vec2(100.0f, 100.0f));
 	itemBox2->SetScale(Vec2(100.0f, 100.0f));
 
