@@ -17,6 +17,7 @@ void SpriteSO::Init()
 	ResMgr::GetInst()->ImgLoad(L"Meat", L"Image\\ItemImage\\Meat.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Silver Ingot", L"Image\\ItemImage\\Silver Ingot.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Silver Key", L"Image\\ItemImage\\Silver Key.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Silver Nugget", L"Image\\ItemImage\\Silver Nugget.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Knife", L"Image\\ItemImage\\Knife.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Helm", L"Image\\ItemImage\\Helm.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Iron Helmet", L"Image\\ItemImage\\Iron Helmet.bmp");

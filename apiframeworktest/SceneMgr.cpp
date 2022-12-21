@@ -7,6 +7,8 @@
 #include "Scene_Main.h"
 #include "Scene_Ending.h"
 
+#include "ItemTestScene.h"
+
 #include "EventMgr.h"
 SceneMgr::SceneMgr()
 	: m_pCurScene(nullptr)
@@ -41,7 +43,7 @@ void SceneMgr::Init()
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_01] = new Scene_01;
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_01]->SetName(L"Scene 01");
 
-	m_arrScene[(UINT)SCENE_TYPE::SCENE_LOBBY] = new Scene_Lobby;
+	m_arrScene[(UINT)SCENE_TYPE::SCENE_LOBBY] = new ItemTestScene;
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_LOBBY]->SetName(L"Scene Lobby");
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_MAIN] = new Scene_Main;
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_MAIN]->SetName(L"Scene Main");

@@ -18,6 +18,7 @@ void Inventory::AddItem(const wstring& str)
 
 	auto data = ItemSO::GetInst()->GetItemData(str);
 	itemData.push_back(data);
+	getItemDatas.insert(str);
 	++count;
 }
 
@@ -30,6 +31,11 @@ void Inventory::RemoveItem(int index)
 
 	itemData.erase(itemData.begin() + index);
 	--count;
+}
+
+int Inventory::GetCount()
+{
+	return count;
 }
 
 void Inventory::RemoveItem(const wstring& str)
@@ -53,4 +59,16 @@ shared_ptr<ItemData> Inventory::GetItemData(int index)
 	}
 
 	return itemData.at(index);
+}
+
+bool Inventory::CheckGetItemWas(const wstring& str)
+{
+	if (getItemDatas.count(str))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

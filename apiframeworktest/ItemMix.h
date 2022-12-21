@@ -10,7 +10,7 @@ public:
 	~ItemMix();
 
 private:
-	bool isSelecItemBox1;
+	int count = 0;
 	shared_ptr<ItemBox> itemBox1;
 	shared_ptr<ItemBox> itemBox2;
 	
@@ -19,6 +19,7 @@ public:
 	void SelectItem(const wstring& str);
 	void Clear();
 	void ReturnItems();
+	int GetCount();
 
 private:
 	void SelectItem1(const wstring& str);

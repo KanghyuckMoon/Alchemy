@@ -35,13 +35,14 @@ wstring ItemMix::MixItem()
 
 void ItemMix::SelectItem(const wstring& str)
 {
-	if (!isSelecItemBox1)
+	if (count == 0)
 	{
-		isSelecItemBox1 = true;
+		count++;
 		SelectItem1(str);
 	}
-	else
+	else if(count == 1)
 	{
+		count++;
 		SelectItem2(str);
 	}
 }
@@ -63,7 +64,7 @@ void ItemMix::Clear()
 			itemBox2->SetItemData(L"");
 		}
 	}
-	isSelecItemBox1 = false;
+	count = 0;
 }
 
 void ItemMix::ReturnItems()
@@ -83,7 +84,12 @@ void ItemMix::ReturnItems()
 			Inventory::GetInst()->AddItem(itemBox2->GetItemData());
 		}
 	}
-	isSelecItemBox1 = false;
+	count = 0;
+}
+
+int ItemMix::GetCount()
+{
+	return count;
 }
 
 void ItemMix::SelectItem1(const wstring& str)

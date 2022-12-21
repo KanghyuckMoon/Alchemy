@@ -73,6 +73,7 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"¹Ì¼Ò³à5_N", L"¹Ì¼Ò³à5");
 	GetInst()->AddTextData(L"¹Ì¼Ò³à6_N", L"¹Ì¼Ò³à6");
 	GetInst()->AddTextData(L"¹Ì¼Ò³à7_N", L"¹Ì¼Ò³à7");
+	GetInst()->AddTextData(L"¹Ì¼Ò³à8_N", L"¹Ì¼Ò³à8");
 
 	GetInst()->AddTextData(L"¹Ì¼Ò³à1_T", L"¹Ì¼Ò³à1");
 	GetInst()->AddTextData(L"¹Ì¼Ò³à2_T", L"¹Ì¼Ò³à2");
@@ -81,5 +82,6 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"¹Ì¼Ò³à5_T", L"¹Ì¼Ò³à5");
 	GetInst()->AddTextData(L"¹Ì¼Ò³à6_T", L"¹Ì¼Ò³à6");
 	GetInst()->AddTextData(L"¹Ì¼Ò³à7_T", L"¹Ì¼Ò³à7");
+	GetInst()->AddTextData(L"¹Ì¼Ò³à8_T", L"¹Ì¼Ò³à8");
 
 }

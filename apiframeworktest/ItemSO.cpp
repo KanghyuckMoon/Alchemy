@@ -18,7 +18,7 @@ void ItemSO::Init()
 	AddItemData(L"박스", shared_ptr<ItemData>(new ItemData(L"박스", L"박스_N", L"박스_T", L"Crate")));
 	AddItemData(L"고기", shared_ptr<ItemData>(new ItemData(L"고기", L"고기_N", L"고기_T", L"Meat")));
 	AddItemData(L"은괴", shared_ptr<ItemData>(new ItemData(L"은괴", L"은괴_N", L"은괴_T", L"Silver Ingot")));
-	AddItemData(L"은", shared_ptr<ItemData>(new ItemData(L"은", L"은_N", L"은_T", L"Silver Key")));
+	AddItemData(L"은", shared_ptr<ItemData>(new ItemData(L"은", L"은_N", L"은_T", L"Silver Nugget")));
 	AddItemData(L"램프", shared_ptr<ItemData>(new ItemData(L"램프", L"램프_N", L"램프_T", L"Lantern")));
 	AddItemData(L"키", shared_ptr<ItemData>(new ItemData(L"키", L"키_N", L"키_T", L"Silver Key")));
 	AddItemData(L"나이프", shared_ptr<ItemData>(new ItemData(L"나이프", L"나이프_N", L"나이프_T", L"Knife")));
@@ -44,6 +44,7 @@ void ItemSO::Init()
 	AddItemData(L"미소녀5", shared_ptr<ItemData>(new ItemData(L"미소녀5", L"미소녀5_N", L"미소녀5_T", L"Diamond")));
 	AddItemData(L"미소녀6", shared_ptr<ItemData>(new ItemData(L"미소녀6", L"미소녀6_N", L"미소녀6_T", L"Diamond")));
 	AddItemData(L"미소녀7", shared_ptr<ItemData>(new ItemData(L"미소녀7", L"미소녀7_N", L"미소녀7_T", L"Diamond")));
+	AddItemData(L"미소녀8", shared_ptr<ItemData>(new ItemData(L"미소녀8", L"미소녀8_N", L"미소녀8_T", L"Diamond")));
 
 }
 	
