@@ -1,5 +1,8 @@
 #pragma once
 #include "Scene.h"
+
+class Background;
+
 class Scene_Tutorial :
     public Scene
 {
@@ -11,5 +14,8 @@ public:
     virtual void Enter() override;
     virtual void Exit() override;
     virtual void Update() override;
+    virtual void Render(HDC _dc) override;
+private:
+    Background* m_tutorial;
 };
 

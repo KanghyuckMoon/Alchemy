@@ -179,6 +179,7 @@
     <ClInclude Include="ItemMix.h" />
     <ClInclude Include="ItemSO.h" />
     <ClInclude Include="ItemTestScene.h" />
+    <ClInclude Include="ItemTree.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Object.h" />
@@ -226,6 +227,7 @@
     <ClCompile Include="ItemMix.cpp" />
     <ClCompile Include="ItemSO.cpp" />
     <ClCompile Include="ItemTestScene.cpp" />
+    <ClCompile Include="ItemTree.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="BWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
