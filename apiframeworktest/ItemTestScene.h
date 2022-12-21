@@ -5,6 +5,7 @@ class ItemBox;
 class Background;
 class Inventory;
 class ItemMix;
+class ItemTree;
 
 enum class ItemMode : int
 {
@@ -32,7 +33,7 @@ public:
 
 private:
     ItemMode itemMode;
-
+    ItemTree* itemTree;
     ItemMix* itemMix;
     vector<ItemBox> itemBoxs;
     Background* m_Background_DefaultMode;

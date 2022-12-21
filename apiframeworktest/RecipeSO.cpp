@@ -35,8 +35,8 @@ void RecipeSO::Init()
 	AddRecipe(L"Àº±«Çï¸ä", L"Ã¶ Çï¸ä");
 	AddRecipe(L"ÀºÀº±«", L"±Ý±«");
 	AddRecipe(L"Àº±«Àº", L"±Ý±«");
-	AddRecipe(L"Å°¸ñÀç", L"»óÀÚ");
-	AddRecipe(L"¸ñÀçÅ°", L"»óÀÚ");
+	AddRecipe(L"Å°¹Ú½º", L"»óÀÚ");
+	AddRecipe(L"¹Ú½ºÅ°", L"»óÀÚ");
 
 	//6
 	AddRecipe(L"³ªÀÌÇÁ±¸¿î °í±â", L"»À");
@@ -67,34 +67,38 @@ void RecipeSO::Init()
 	AddExchange(L"µ¹", L"¹Ì¼Ò³à1");
 
 	//2
-	AddExchange(L"±¸¸® ÁÖ±«", L"¹Ì¼Ò³à2");
-	AddExchange(L"¹Ì¼Ò³à2", L"±¸¸®");
-	AddExchange(L"±¸¸®", L"¹Ì¼Ò³à2");
+	AddExchange(L"°¡Á×", L"¹Ì¼Ò³à2");
+	AddExchange(L"¹Ì¼Ò³à2", L"¾çÇÇÁö");
+	AddExchange(L"¾çÇÇÁö", L"¹Ì¼Ò³à2");
+
+	AddExchange(L"±¸¸® ÁÖ±«", L"¹Ì¼Ò³à3");
+	AddExchange(L"¹Ì¼Ò³à3", L"±¸¸®");
+	AddExchange(L"±¸¸®", L"¹Ì¼Ò³à3");
 
 	//3
-	AddExchange(L"Ã¥", L"¹Ì¼Ò³à3");
-	AddExchange(L"¹Ì¼Ò³à3", L"È¶ºÒ");
-	AddExchange(L"È¶ºÒ", L"¹Ì¼Ò³à3");
+	AddExchange(L"Ã¥", L"¹Ì¼Ò³à4");
+	AddExchange(L"¹Ì¼Ò³à4", L"È¶ºÒ");
+	AddExchange(L"È¶ºÒ", L"¹Ì¼Ò³à4");
 
-	AddExchange(L"Àº±«", L"¹Ì¼Ò³à4");
-	AddExchange(L"¹Ì¼Ò³à4", L"Àº");
-	AddExchange(L"Àº", L"¹Ì¼Ò³à4");
+	AddExchange(L"Àº±«", L"¹Ì¼Ò³à5");
+	AddExchange(L"¹Ì¼Ò³à5", L"Àº");
+	AddExchange(L"Àº", L"¹Ì¼Ò³à5");
 
-	AddExchange(L"»óÀÚ", L"¹Ì¼Ò³à5");
-	AddExchange(L"¹Ì¼Ò³à5", L"°í±â");
-	AddExchange(L"°í±â", L"¹Ì¼Ò³à5");
+	AddExchange(L"¹Ú½º", L"¹Ì¼Ò³à6");
+	AddExchange(L"¹Ì¼Ò³à6", L"°í±â");
+	AddExchange(L"°í±â", L"¹Ì¼Ò³à6");
 
 	//4
 	
 	//5
-	AddExchange(L"±Ý±«", L"¹Ì¼Ò³à6");
-	AddExchange(L"¹Ì¼Ò³à6", L"±Ý ¿­¼è");
-	AddExchange(L"±Ý ¿­¼è", L"¹Ì¼Ò³à6");
+	AddExchange(L"±Ý±«", L"¹Ì¼Ò³à7");
+	AddExchange(L"¹Ì¼Ò³à7", L"±Ý ¿­¼è");
+	AddExchange(L"±Ý ¿­¼è", L"¹Ì¼Ò³à7");
 
 	//6
-	AddExchange(L"·çºñ", L"¹Ì¼Ò³à7");
-	AddExchange(L"¹Ì¼Ò³à7", L"Æ÷¼Ç");
-	AddExchange(L"Æ÷¼Ç", L"¹Ì¼Ò³à7");
+	AddExchange(L"·çºñ", L"¹Ì¼Ò³à8");
+	AddExchange(L"¹Ì¼Ò³à8", L"Æ÷¼Ç");
+	AddExchange(L"Æ÷¼Ç", L"¹Ì¼Ò³à8");
 }
 
 void RecipeSO::AddRecipe(const wstring& str, const wstring& value)
