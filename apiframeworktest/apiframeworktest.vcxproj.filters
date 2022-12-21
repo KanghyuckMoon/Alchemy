@@ -110,6 +110,9 @@
     <Filter Include="Engine\05. Scene\Scene_Tutorial">
       <UniqueIdentifier>{466e9840-3754-49c9-8642-0de520c3320d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Button">
+      <UniqueIdentifier>{07cfd030-bc0e-4cad-8849-41e1125d6698}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -235,9 +238,6 @@
     <ClInclude Include="Scene_Ending.h">
       <Filter>Engine\05. Scene\Scene_Ending</Filter>
     </ClInclude>
-    <ClInclude Include="ItemTestScene.h">
-      <Filter>Engine\09. ScreiptableObject</Filter>
-    </ClInclude>
     <ClInclude Include="Background.h">
       <Filter>Engine\07. Component</Filter>
     </ClInclude>
@@ -253,12 +253,17 @@
     <ClInclude Include="RecipeSO.h">
       <Filter>Engine\09. ScreiptableObject</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h" />
     <ClInclude Include="Scene_Tutorial.h">
       <Filter>Engine\05. Scene\Scene_Tutorial</Filter>
     </ClInclude>
     <ClInclude Include="ItemTree.h">
       <Filter>Engine\07. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Engine\04. Object\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemTestScene.h">
+      <Filter>Engine\05. Scene\ItemTestScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -380,9 +385,6 @@
     <ClCompile Include="Scene_Ending.cpp">
       <Filter>Engine\05. Scene\Scene_Ending</Filter>
     </ClCompile>
-    <ClCompile Include="ItemTestScene.cpp">
-      <Filter>Engine\09. ScreiptableObject</Filter>
-    </ClCompile>
     <ClCompile Include="Background.cpp">
       <Filter>Engine\07. Component</Filter>
     </ClCompile>
@@ -399,12 +401,17 @@
       <Filter>Engine\09. ScreiptableObject</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Scene_Tutorial.cpp">
       <Filter>Engine\05. Scene\Scene_Tutorial</Filter>
     </ClCompile>
     <ClCompile Include="ItemTree.cpp">
       <Filter>Engine\07. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Engine\04. Object\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemTestScene.cpp">
+      <Filter>Engine\05. Scene\ItemTestScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
