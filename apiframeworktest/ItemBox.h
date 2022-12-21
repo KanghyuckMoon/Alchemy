@@ -9,7 +9,6 @@ public:
 	~ItemBox();
 	ItemBox(const wstring& str);
 
-
 private:
 	shared_ptr<ItemData> itemData = nullptr;
 	Image* m_itemImage = nullptr;
@@ -24,5 +23,8 @@ public:
 	void SetItemData(const wstring& str);
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
+
+public:
+	bool ClickEvent(POINT ps);
 };
 

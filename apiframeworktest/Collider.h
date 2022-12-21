@@ -22,6 +22,7 @@ public:
 	UINT GetID() {	return m_iID; }
 	Vec2 GetFinalPos() { return m_vFinalPos; }
 	Object* GetObj() { return m_pOwner; }
+
 public:
 	void FinalUpdate();
 	void Render(HDC _dc);
@@ -31,4 +32,3 @@ public:
 	void ExitCollision(Collider* _pOther);
 	friend class Object;
 };
-

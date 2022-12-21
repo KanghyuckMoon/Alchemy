@@ -2,6 +2,7 @@
 #include "Core.h"
 #include "Scene_Lobby.h"
 #include "KeyMgr.h"
+#include "Button.h"
 
 Scene_Lobby::Scene_Lobby()
 {
@@ -22,36 +23,45 @@ void Scene_Lobby::Exit()
 
 void Scene_Lobby::Update()
 {
-	RECT button_1 = {
-		Core::GetInst()->GetResolution().x / 2 - 110,
-		Core::GetInst()->GetResolution().y / 2 + 20,
-		Core::GetInst()->GetResolution().x / 2 + 110,
-		Core::GetInst()->GetResolution().y / 2 + 70
-	};
-	Rectangle(Core::GetInst()->GetMainDC(), button_1.left, button_1.top, button_1.right, button_1.bottom);
+	Button button_1;
+	button_1.SetScale(Vec2(220, 50));
+	button_1.SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 + 50));
+	button_1.Render(Core::GetInst()->GetMainDC());
+	button_1.CreateCollider();
 
-	RECT button_2 = {
-		Core::GetInst()->GetResolution().x / 2 - 110,
-		Core::GetInst()->GetResolution().y / 2 + 90,
-		Core::GetInst()->GetResolution().x / 2 + 110,
-		Core::GetInst()->GetResolution().y / 2 + 140
-	};
-	Rectangle(Core::GetInst()->GetMainDC(), button_2.left, button_2.top, button_2.right, button_2.bottom);
+	Button button_2;
+	button_2.SetScale(Vec2(220, 50));
+	button_2.SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 + 130));
+	button_2.Render(Core::GetInst()->GetMainDC());
+	button_2.CreateCollider();
 
 	POINT mouse;
 	GetCursorPos(&mouse);
 	ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
 
-	if (KeyMgr::GetInst()->GetKey(KEY::LBTN) == KEY_STATE::HOLD) {
+	KEY_STATE key = KeyMgr::GetInst()->GetKey(KEY::LBTN);
 
-		if ((button_1.left < mouse.x && mouse.x < button_1.right && button_1.top < mouse.y && mouse.y < button_1.bottom)) {
+	if (button_1.StayCollision(mouse)) {
+		if (key == KEY_STATE::TAP) {
 			ChangeScene(SCENE_TYPE::SCENE_MAIN);
 		}
-		else if ((button_2.left < mouse.x && mouse.x < button_2.right && button_2.top < mouse.y && mouse.y < button_2.bottom)) {
-			Core::GetInst()->Close();
-		}
+		else if (key == KEY_STATE::AWAY) {
 
+		}
 	}
 	else {
+
+	}
+
+	if (button_2.StayCollision(mouse)) {
+		if (key == KEY_STATE::TAP) {
+
+		}
+		else if (key == KEY_STATE::AWAY) {
+
+		}
+	}
+	else {
+
 	}
 }

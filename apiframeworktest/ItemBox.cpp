@@ -57,5 +57,20 @@ void ItemBox::Render(HDC _dc)
 	{
 		BitBlt(_dc, GetPos().x - (GetScale().x / 2), GetPos().y - (GetScale().y / 2), GetScale().x, GetScale().y, m_itemImage->GetDC(), 0, 0, SRCCOPY);
 	}
+}
 
+bool ItemBox::ClickEvent(POINT ps)
+{
+	RECT rt = {
+	   GetPos().x - GetScale().x / 2,
+	   GetPos().y - GetScale().y / 2,
+	   GetPos().x + GetScale().x / 2,
+	   GetPos().y + GetScale().y / 2,
+	};
+
+	if ((rt.left < ps.x && ps.x < rt.right && rt.top < ps.y && ps.y < rt.bottom)) {
+		return true;
+	}
+
+	return false;
 }
