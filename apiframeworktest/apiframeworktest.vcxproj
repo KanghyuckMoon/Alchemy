@@ -196,6 +196,7 @@
     <ClInclude Include="Scene_Lobby.h" />
     <ClInclude Include="Scene_Main.h" />
     <ClInclude Include="Scene_Start.h" />
+    <ClInclude Include="Scene_Tutorial.h" />
     <ClInclude Include="ScriptableObject.h" />
     <ClInclude Include="SelectGDI.h" />
     <ClInclude Include="SOManager.h" />
@@ -247,6 +248,7 @@
     <ClCompile Include="Scene_Lobby.cpp" />
     <ClCompile Include="Scene_Main.cpp" />
     <ClCompile Include="Scene_Start.cpp" />
+    <ClCompile Include="Scene_Tutorial.cpp" />
     <ClCompile Include="ScriptableObject.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
     <ClCompile Include="SOManager.cpp" />

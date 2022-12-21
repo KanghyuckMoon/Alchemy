@@ -43,7 +43,7 @@ void Scene_Lobby::Update()
 
 	if (button_1.StayCollision(mouse)) {
 		if (key == KEY_STATE::TAP) {
-			ChangeScene(SCENE_TYPE::SCENE_MAIN);
+			ChangeScene(SCENE_TYPE::SCENE_TUTORIAL);
 		}
 		else if (key == KEY_STATE::AWAY) {
 

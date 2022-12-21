@@ -107,6 +107,9 @@
     <Filter Include="Engine\05. Scene\Scene_Ending">
       <UniqueIdentifier>{18e806c5-87a0-4d10-bd84-c126e0d7098d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Tutorial">
+      <UniqueIdentifier>{466e9840-3754-49c9-8642-0de520c3320d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -251,6 +254,9 @@
       <Filter>Engine\09. ScreiptableObject</Filter>
     </ClInclude>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Scene_Tutorial.h">
+      <Filter>Engine\05. Scene\Scene_Tutorial</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -391,5 +397,8 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Scene_Tutorial.cpp">
+      <Filter>Engine\05. Scene\Scene_Tutorial</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
