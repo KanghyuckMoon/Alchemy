@@ -19,6 +19,7 @@
 #include "RecipeSO.h"
 #include "ItemTree.h"
 #include "Button.h"
+#include "ItemCaptionWindow.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -44,6 +45,7 @@ void ItemTestScene::InventoryFetch()
 }
 void ItemTestScene::Enter()
 {
+
 	SOManager::GetInst()->Init();
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
@@ -52,6 +54,13 @@ void ItemTestScene::Enter()
 	m_Background_ExchangeMode = new Background(L"Background3", L"Image\\Background\\background3.bmp");
 	m_Background_ItemTreeMode = new Background(L"Background4", L"Image\\Background\\background4.bmp");
 	m_Background_DeleteMode = new Background(L"Background5", L"Image\\Background\\background5.bmp");
+
+	inventoryWindow = new Background(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
+	inventoryWindow->SetScale(Vec2(640, 64));
+	inventoryWindow->SetPos(Vec2(320, 440 - 32));
+	inventoryWindow->SetImageSize(Vec2(640, 32));
+
+	itemCaptionWindow = new ItemCaptionWindow();
 
 	itemTree = new ItemTree();
 	itemMix = new ItemMix();
@@ -66,14 +75,14 @@ void ItemTestScene::Enter()
 
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
 	int iItem = 8;
-	float fMoveDist = 10.f;
+	float fMoveDist = 30.f;
 	float fObjScale = 100.f;
 	float fTerm = (640 / iItem);
 	for (int i = 0; i < iItem; i++)
 	{
 		itemBoxs.push_back(ItemBox(L""));
 		itemBoxs.at(i).SetName(L"ItemBox");
-		itemBoxs.at(i).SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 480 - fObjScale));
+		itemBoxs.at(i).SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 440.f));
 		itemBoxs.at(i).SetScale(Vec2(fObjScale, fObjScale));
 	}
 }
@@ -201,13 +210,12 @@ void ItemTestScene::Update()
 						{
 							wstring str = RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey());
 
-							if (str == L"미소녀9")
+							if (str == L"미소녀9_1")
 							{
 								SceneMgr::GetInst()->ChangeScene(SCENE_TYPE::SCENE_ENDING);
 								break;
 							}
-							Inventory::GetInst()->RemoveItem(index);
-							Inventory::GetInst()->AddItem(str);
+							Inventory::GetInst()->ChangeItem(str, index);
 							break;
 						}
 					}
@@ -238,10 +246,55 @@ void ItemTestScene::Update()
 		itemTree->Update();
 		break;
 	}
+
+	if (itemMode == ItemMode::ITEMTREEMODE)
+	{
+		itemCaptionWindow->SetItemData(itemTree->ClickEventGetItemKey(mouse));
+	}
+	else
+	{
+		bool isTouch = false;
+		for (size_t index = 0; index < itemBoxs.size(); ++index)
+		{
+			if ((itemBoxs.begin() + index)->ClickEvent(mouse))
+			{
+				if (Inventory::GetInst()->GetCount() > index)
+				{
+					isTouch = true;
+					itemCaptionWindow->SetItemData(Inventory::GetInst()->GetItemData(index)->GetKey());
+					break;
+				}
+				else
+				{
+					isTouch = false;
+					itemCaptionWindow->SetItemData(L"");
+				}
+			}
+		}
+
+		if (!isTouch)
+		{
+			itemCaptionWindow->SetItemData(L"");
+		}
+	}
 }
 
 void ItemTestScene::Render(HDC _dc)
 {
+	SetBkMode(_dc, TRANSPARENT);
+
+	HFONT s_hFont = (HFONT)NULL;
+	HFONT s_oldHFont = (HFONT)NULL;
+	LOGFONT logFont;
+	ZeroMemory(&logFont, sizeof(LOGFONT));
+
+	logFont.lfHeight = -MulDiv(10, GetDeviceCaps(_dc, LOGPIXELSY), 72);
+	logFont.lfWeight = FW_NORMAL;
+	SetTextColor(_dc, RGB(255, 255, 255));
+	wcscpy_s(logFont.lfFaceName, TEXT("DungGeunMo"));
+	s_hFont = CreateFontIndirect(&logFont);
+	s_oldHFont = (HFONT)SelectObject(_dc, s_hFont);
+
 	switch (itemMode)
 	{
 	case ItemMode::DEFAULTMODE:
@@ -267,6 +320,7 @@ void ItemTestScene::Render(HDC _dc)
 	switch (itemMode)
 	{
 	case ItemMode::MIXMODE:
+		inventoryWindow->Render(_dc);
 		itemMix->Render(_dc);
 		mixButton->Render(_dc);
 		cancleButton->Render(_dc);
@@ -278,6 +332,7 @@ void ItemTestScene::Render(HDC _dc)
 		TextOutW(_dc, 10, 10, L"합성", 2);
 		break;
 	case ItemMode::EXCHANGEMODE:
+		inventoryWindow->Render(_dc);
 		for (int i = 0; i < 8; i++)
 		{
 			itemBoxs.at(i).Render(_dc);
@@ -285,6 +340,7 @@ void ItemTestScene::Render(HDC _dc)
 		TextOutW(_dc, 10, 10, L"등가 교환", 5);
 		break;
 	case ItemMode::DELETEMODE:
+		inventoryWindow->Render(_dc);
 		for (int i = 0; i < 8; i++)
 		{
 			itemBoxs.at(i).Render(_dc);
@@ -292,6 +348,7 @@ void ItemTestScene::Render(HDC _dc)
 		TextOutW(_dc, 10, 10, L"제거", 2);
 		break;
 	case ItemMode::DEFAULTMODE:
+		inventoryWindow->Render(_dc);
 		for (int i = 0; i < 8; i++)
 		{
 			itemBoxs.at(i).Render(_dc);
@@ -307,6 +364,7 @@ void ItemTestScene::Render(HDC _dc)
 		TextOutW(_dc, 10, 70, L"파랑 : 같은 아이템 두 개 합성", 18);
 		break;
 	}
+	itemCaptionWindow->Render(_dc);
 
-
+	DeleteObject(s_hFont);
 }

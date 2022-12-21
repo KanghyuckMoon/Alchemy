@@ -242,6 +242,40 @@ void ItemTree::ResetPosition()
 	}
 }
 
+bool ItemTree::ClickEvent(POINT ps)
+{
+	for (auto& itemBox : itemBoxs)
+	{
+		if (itemBox->ClickEvent(ps))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+wstring ItemTree::ClickEventGetItemKey(POINT ps)
+{
+	for (auto& itemBox : itemBoxs)
+	{
+		if (itemBox->ClickEvent(ps))
+		{
+
+			if (Inventory::GetInst()->CheckGetItemWas(itemBox->GetItemData()))
+			{
+				return itemBox->GetItemData();
+			}
+			else
+			{
+				wstring str = itemBox->GetItemData();
+				str = str.append(L"ÈùÆ®");
+				return str;
+			}
+		}
+	}
+	return L"";
+}
+
 void ItemTree::DrawLines(HDC _dc, const wstring& key, shared_ptr<ItemBox> itemBox)
 {
 	if (key == L"³ª¹«")

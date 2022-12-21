@@ -175,10 +175,12 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="ItemBox.h" />
+    <ClInclude Include="ItemCaptionWindow.h" />
     <ClInclude Include="ItemData.h" />
     <ClInclude Include="ItemMix.h" />
     <ClInclude Include="ItemSO.h" />
     <ClInclude Include="ItemTestScene.h" />
+    <ClInclude Include="ItemTree.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Object.h" />
@@ -222,10 +224,12 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="ItemBox.cpp" />
+    <ClCompile Include="ItemCaptionWindow.cpp" />
     <ClCompile Include="ItemData.cpp" />
     <ClCompile Include="ItemMix.cpp" />
     <ClCompile Include="ItemSO.cpp" />
     <ClCompile Include="ItemTestScene.cpp" />
+    <ClCompile Include="ItemTree.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="BWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>

@@ -37,14 +37,54 @@ void ItemSO::Init()
 	AddItemData(L"다이아몬드", shared_ptr<ItemData>(new ItemData(L"다이아몬드", L"다이아몬드_N", L"다이아몬드_T", L"Diamond")));
 
 	//미소녀
-	AddItemData(L"미소녀1", shared_ptr<ItemData>(new ItemData(L"미소녀1", L"미소녀1_N", L"미소녀1_T", L"Diamond")));
-	AddItemData(L"미소녀2", shared_ptr<ItemData>(new ItemData(L"미소녀2", L"미소녀2_N", L"미소녀2_T", L"Diamond")));
-	AddItemData(L"미소녀3", shared_ptr<ItemData>(new ItemData(L"미소녀3", L"미소녀3_N", L"미소녀3_T", L"Diamond")));
-	AddItemData(L"미소녀4", shared_ptr<ItemData>(new ItemData(L"미소녀4", L"미소녀4_N", L"미소녀4_T", L"Diamond")));
-	AddItemData(L"미소녀5", shared_ptr<ItemData>(new ItemData(L"미소녀5", L"미소녀5_N", L"미소녀5_T", L"Diamond")));
-	AddItemData(L"미소녀6", shared_ptr<ItemData>(new ItemData(L"미소녀6", L"미소녀6_N", L"미소녀6_T", L"Diamond")));
-	AddItemData(L"미소녀7", shared_ptr<ItemData>(new ItemData(L"미소녀7", L"미소녀7_N", L"미소녀7_T", L"Diamond")));
-	AddItemData(L"미소녀8", shared_ptr<ItemData>(new ItemData(L"미소녀8", L"미소녀8_N", L"미소녀8_T", L"Diamond")));
+	AddItemData(L"미소녀1_1", shared_ptr<ItemData>(new ItemData(L"미소녀1_1", L"미소녀1_N", L"미소녀1_T", L"Diamond")));
+	AddItemData(L"미소녀2_1", shared_ptr<ItemData>(new ItemData(L"미소녀2_1", L"미소녀2_N", L"미소녀2_T", L"Diamond")));
+	AddItemData(L"미소녀3_1", shared_ptr<ItemData>(new ItemData(L"미소녀3_1", L"미소녀3_N", L"미소녀3_T", L"Diamond")));
+	AddItemData(L"미소녀4_1", shared_ptr<ItemData>(new ItemData(L"미소녀4_1", L"미소녀4_N", L"미소녀4_T", L"Diamond")));
+	AddItemData(L"미소녀5_1", shared_ptr<ItemData>(new ItemData(L"미소녀5_1", L"미소녀5_N", L"미소녀5_T", L"Diamond")));
+	AddItemData(L"미소녀6_1", shared_ptr<ItemData>(new ItemData(L"미소녀6_1", L"미소녀6_N", L"미소녀6_T", L"Diamond")));
+	AddItemData(L"미소녀7_1", shared_ptr<ItemData>(new ItemData(L"미소녀7_1", L"미소녀7_N", L"미소녀7_T", L"Diamond")));
+	AddItemData(L"미소녀8_1", shared_ptr<ItemData>(new ItemData(L"미소녀8_1", L"미소녀8_N", L"미소녀8_T", L"Diamond")));
 
+	AddItemData(L"미소녀1_2", shared_ptr<ItemData>(new ItemData(L"미소녀1_2", L"미소녀1_N", L"미소녀1_T", L"Diamond")));
+	AddItemData(L"미소녀2_2", shared_ptr<ItemData>(new ItemData(L"미소녀2_2", L"미소녀2_N", L"미소녀2_T", L"Diamond")));
+	AddItemData(L"미소녀3_2", shared_ptr<ItemData>(new ItemData(L"미소녀3_2", L"미소녀3_N", L"미소녀3_T", L"Diamond")));
+	AddItemData(L"미소녀4_2", shared_ptr<ItemData>(new ItemData(L"미소녀4_2", L"미소녀4_N", L"미소녀4_T", L"Diamond")));
+	AddItemData(L"미소녀5_2", shared_ptr<ItemData>(new ItemData(L"미소녀5_2", L"미소녀5_N", L"미소녀5_T", L"Diamond")));
+	AddItemData(L"미소녀6_2", shared_ptr<ItemData>(new ItemData(L"미소녀6_2", L"미소녀6_N", L"미소녀6_T", L"Diamond")));
+	AddItemData(L"미소녀7_2", shared_ptr<ItemData>(new ItemData(L"미소녀7_2", L"미소녀7_N", L"미소녀7_T", L"Diamond")));
+	AddItemData(L"미소녀8_2", shared_ptr<ItemData>(new ItemData(L"미소녀8_2", L"미소녀8_N", L"미소녀8_T", L"Diamond")));
+
+	//힌트
+	AddItemData(L"나무힌트", shared_ptr<ItemData>(new ItemData(L"나무", L"나무_N", L"나무힌트_T", L"Wood")));
+	AddItemData(L"돌힌트", shared_ptr<ItemData>(new ItemData(L"돌", L"돌_N", L"돌힌트_T", L"Rune Stone")));
+	AddItemData(L"가죽힌트", shared_ptr<ItemData>(new ItemData(L"가죽", L"가죽_N", L"가죽힌트_T", L"Leather")));
+	AddItemData(L"양피지힌트", shared_ptr<ItemData>(new ItemData(L"양피지", L"양피지_N", L"양피지힌트_T", L"Paper")));
+	AddItemData(L"목재힌트", shared_ptr<ItemData>(new ItemData(L"목재", L"목재_N", L"목재힌트_T", L"Wooden Plank")));
+	AddItemData(L"구리 주괴힌트", shared_ptr<ItemData>(new ItemData(L"구리 주괴", L"구리 주괴힌트_N", L"구리 주괴_T", L"Copper Ingot")));
+	AddItemData(L"구리힌트", shared_ptr<ItemData>(new ItemData(L"구리", L"구리_N", L"구리힌트_T", L"Copper Nugget")));
+	AddItemData(L"가죽 모자힌트", shared_ptr<ItemData>(new ItemData(L"가죽 모자", L"가죽 모자_N", L"가죽 모자힌트_T", L"Leather Helmet")));
+	AddItemData(L"책힌트", shared_ptr<ItemData>(new ItemData(L"책", L"책_N", L"책힌트_T", L"Book")));
+	AddItemData(L"횃불힌트", shared_ptr<ItemData>(new ItemData(L"횃불", L"횃불_N", L"횃불힌트_T", L"Torch")));
+	AddItemData(L"박스힌트", shared_ptr<ItemData>(new ItemData(L"박스", L"박스_N", L"박스힌트_T", L"Crate")));
+	AddItemData(L"고기힌트", shared_ptr<ItemData>(new ItemData(L"고기", L"고기_N", L"고기힌트_T", L"Meat")));
+	AddItemData(L"은괴힌트", shared_ptr<ItemData>(new ItemData(L"은괴", L"은괴_N", L"은괴힌트_T", L"Silver Ingot")));
+	AddItemData(L"은힌트", shared_ptr<ItemData>(new ItemData(L"은", L"은_N", L"은힌트_T", L"Silver Nugget")));
+	AddItemData(L"램프힌트", shared_ptr<ItemData>(new ItemData(L"램프", L"램프_N", L"램프힌트_T", L"Lantern")));
+	AddItemData(L"키힌트", shared_ptr<ItemData>(new ItemData(L"키", L"키_N", L"키힌트_T", L"Silver Key")));
+	AddItemData(L"나이프힌트", shared_ptr<ItemData>(new ItemData(L"나이프", L"나이프_N", L"나이프힌트_T", L"Knife")));
+	AddItemData(L"구운 고기힌트", shared_ptr<ItemData>(new ItemData(L"구운 고기", L"구운 고기_N", L"구운 고기힌트_T", L"Ham")));
+	AddItemData(L"철 헬멧힌트", shared_ptr<ItemData>(new ItemData(L"철 헬멧", L"철 헬멧_N", L"철 헬멧힌트_T", L"Iron Helmet")));
+	AddItemData(L"헬멧힌트", shared_ptr<ItemData>(new ItemData(L"헬멧", L"헬멧_N", L"헬멧힌트_T", L"Helm")));
+	AddItemData(L"금 열쇠힌트", shared_ptr<ItemData>(new ItemData(L"금 열쇠", L"금 열쇠_N", L"금 열쇠힌트_T", L"Golden Key")));
+	AddItemData(L"금괴힌트", shared_ptr<ItemData>(new ItemData(L"금괴", L"금괴_N", L"금괴힌트_T", L"Golden Ingot")));
+	AddItemData(L"상자힌트", shared_ptr<ItemData>(new ItemData(L"상자", L"상자_N", L"상자힌트_T", L"Chest")));
+	AddItemData(L"뼈힌트", shared_ptr<ItemData>(new ItemData(L"뼈", L"뼈_N", L"뼈힌트_T", L"Bone")));
+	AddItemData(L"루비힌트", shared_ptr<ItemData>(new ItemData(L"루비", L"루비_N", L"루비힌트_T", L"Cut Ruby")));
+	AddItemData(L"포션힌트", shared_ptr<ItemData>(new ItemData(L"포션", L"포션_N", L"포션힌트_T", L"Red Potion 2")));
+	AddItemData(L"사파이어힌트", shared_ptr<ItemData>(new ItemData(L"사파이어", L"사파이어_N", L"사파이어힌트_T", L"Cut Sapphire")));
+	AddItemData(L"해골힌트", shared_ptr<ItemData>(new ItemData(L"해골", L"해골_N", L"해골힌트_T", L"Skull")));
+	AddItemData(L"생명힌트", shared_ptr<ItemData>(new ItemData(L"생명", L"생명_N", L"생명힌트_T", L"Heart")));
+	AddItemData(L"다이아몬드힌트", shared_ptr<ItemData>(new ItemData(L"다이아몬드", L"다이아몬드_N", L"다이아몬드힌트_T", L"Diamond")));
 }
 	

@@ -20,5 +20,10 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
 	void ResetPosition();
+
+
+public:
+	bool ClickEvent(POINT ps);
+	wstring ClickEventGetItemKey(POINT ps);
 };
 

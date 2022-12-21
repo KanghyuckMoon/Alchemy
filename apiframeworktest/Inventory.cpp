@@ -49,6 +49,13 @@ void Inventory::RemoveItem(const wstring& str)
 	}
 }
 
+void Inventory::ChangeItem(const wstring& str, int index)
+{
+	auto data = ItemSO::GetInst()->GetItemData(str);
+	itemData.at(index) = data;
+	getItemDatas.insert(str);
+}
+
 shared_ptr<ItemData> Inventory::GetItemData(int index)
 {
 	if (count <= index)

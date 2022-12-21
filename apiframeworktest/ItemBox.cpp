@@ -32,7 +32,7 @@ void ItemBox::SetItemData(const wstring& str)
 	{
 		itemData = ItemSO::GetInst()->GetItemData(str);
 		m_itemImage = itemData->GetSprite();
-		m_name = itemData->GetText();
+		m_name = itemData->GetName();
 	}
 	else
 	{

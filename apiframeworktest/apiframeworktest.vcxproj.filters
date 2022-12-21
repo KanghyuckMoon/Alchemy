@@ -257,6 +257,10 @@
     <ClInclude Include="Scene_Tutorial.h">
       <Filter>Engine\05. Scene\Scene_Tutorial</Filter>
     </ClInclude>
+    <ClInclude Include="ItemTree.h" />
+    <ClInclude Include="ItemCaptionWindow.h">
+      <Filter>Engine\07. Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -399,6 +403,10 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Scene_Tutorial.cpp">
       <Filter>Engine\05. Scene\Scene_Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemTree.cpp" />
+    <ClCompile Include="ItemCaptionWindow.cpp">
+      <Filter>Engine\07. Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

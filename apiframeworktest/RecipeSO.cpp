@@ -62,48 +62,57 @@ void RecipeSO::Init()
 	//Exchange
 	
 	//1
-	AddExchange(L"³ª¹«", L"¹Ì¼Ò³à1");
-	AddExchange(L"¹Ì¼Ò³à1", L"µ¹");
-	AddExchange(L"µ¹", L"¹Ì¼Ò³à1");
+	AddExchange(L"³ª¹«", L"¹Ì¼Ò³à1_1");
+	AddExchange(L"¹Ì¼Ò³à1_1", L"µ¹");
+	AddExchange(L"µ¹", L"¹Ì¼Ò³à1_2");
+	AddExchange(L"¹Ì¼Ò³à1_2", L"³ª¹«");
 
 	//2
-	AddExchange(L"°¡Á×", L"¹Ì¼Ò³à2");
-	AddExchange(L"¹Ì¼Ò³à2", L"¾çÇÇÁö");
-	AddExchange(L"¾çÇÇÁö", L"¹Ì¼Ò³à2");
+	AddExchange(L"°¡Á×", L"¹Ì¼Ò³à2_1");
+	AddExchange(L"¹Ì¼Ò³à2_1", L"¾çÇÇÁö");
+	AddExchange(L"¾çÇÇÁö", L"¹Ì¼Ò³à2_2");
+	AddExchange(L"¹Ì¼Ò³à2_2", L"°¡Á×");
 
-	AddExchange(L"±¸¸® ÁÖ±«", L"¹Ì¼Ò³à3");
-	AddExchange(L"¹Ì¼Ò³à3", L"±¸¸®");
-	AddExchange(L"±¸¸®", L"¹Ì¼Ò³à3");
+	AddExchange(L"±¸¸® ÁÖ±«", L"¹Ì¼Ò³à3_1");
+	AddExchange(L"¹Ì¼Ò³à3_1", L"±¸¸®");
+	AddExchange(L"±¸¸®", L"¹Ì¼Ò³à3_2");
+	AddExchange(L"¹Ì¼Ò³à3_2", L"±¸¸® ÁÖ±«");
 
 	//3
-	AddExchange(L"Ã¥", L"¹Ì¼Ò³à4");
-	AddExchange(L"¹Ì¼Ò³à4", L"È¶ºÒ");
-	AddExchange(L"È¶ºÒ", L"¹Ì¼Ò³à4");
+	AddExchange(L"Ã¥", L"¹Ì¼Ò³à4_1");
+	AddExchange(L"¹Ì¼Ò³à4_1", L"È¶ºÒ");
+	AddExchange(L"È¶ºÒ", L"¹Ì¼Ò³à4_2");
+	AddExchange(L"¹Ì¼Ò³à4_2", L"Ã¥");
 
-	AddExchange(L"Àº±«", L"¹Ì¼Ò³à5");
-	AddExchange(L"¹Ì¼Ò³à5", L"Àº");
-	AddExchange(L"Àº", L"¹Ì¼Ò³à5");
+	AddExchange(L"Àº±«", L"¹Ì¼Ò³à5_1");
+	AddExchange(L"¹Ì¼Ò³à5_1", L"Àº");
+	AddExchange(L"Àº", L"¹Ì¼Ò³à5_2");
+	AddExchange(L"¹Ì¼Ò³à5_2", L"Àº±«");
 
-	AddExchange(L"¹Ú½º", L"¹Ì¼Ò³à6");
-	AddExchange(L"¹Ì¼Ò³à6", L"°í±â");
-	AddExchange(L"°í±â", L"¹Ì¼Ò³à6");
+	AddExchange(L"¹Ú½º", L"¹Ì¼Ò³à6_1");
+	AddExchange(L"¹Ì¼Ò³à6_1", L"°í±â");
+	AddExchange(L"°í±â", L"¹Ì¼Ò³à6_2");
+	AddExchange(L"¹Ì¼Ò³à6_2", L"¹Ú½º");
 
 	//4
 	
 	//5
-	AddExchange(L"±Ý±«", L"¹Ì¼Ò³à7");
-	AddExchange(L"¹Ì¼Ò³à7", L"±Ý ¿­¼è");
-	AddExchange(L"±Ý ¿­¼è", L"¹Ì¼Ò³à7");
+	AddExchange(L"±Ý±«", L"¹Ì¼Ò³à7_1");
+	AddExchange(L"¹Ì¼Ò³à7_1", L"±Ý ¿­¼è");
+	AddExchange(L"±Ý ¿­¼è", L"¹Ì¼Ò³à7_2");
+	AddExchange(L"¹Ì¼Ò³à7_2", L"±Ý±«");
 
 	//6
-	AddExchange(L"·çºñ", L"¹Ì¼Ò³à8");
-	AddExchange(L"¹Ì¼Ò³à8", L"Æ÷¼Ç");
-	AddExchange(L"Æ÷¼Ç", L"¹Ì¼Ò³à8");
+	AddExchange(L"·çºñ", L"¹Ì¼Ò³à8_1");
+	AddExchange(L"¹Ì¼Ò³à8_1", L"Æ÷¼Ç");
+	AddExchange(L"Æ÷¼Ç", L"¹Ì¼Ò³à8_2");
+	AddExchange(L"¹Ì¼Ò³à8_2", L"·çºñ");
 
 	//6
-	AddExchange(L"´ÙÀÌ¾Æ¸óµå", L"¹Ì¼Ò³à9");
-	AddExchange(L"¹Ì¼Ò³à9", L"´ÙÀÌ¾Æ¸óµå");
-	AddExchange(L"´ÙÀÌ¾Æ¸óµå", L"¹Ì¼Ò³à9");
+	AddExchange(L"´ÙÀÌ¾Æ¸óµå", L"¹Ì¼Ò³à9_1");
+	AddExchange(L"¹Ì¼Ò³à9_1", L"´ÙÀÌ¾Æ¸óµå");
+	AddExchange(L"´ÙÀÌ¾Æ¸óµå", L"¹Ì¼Ò³à9_2");
+	AddExchange(L"¹Ì¼Ò³à9_2", L"´ÙÀÌ¾Æ¸óµå");
 }
 
 void RecipeSO::AddRecipe(const wstring& str, const wstring& value)
