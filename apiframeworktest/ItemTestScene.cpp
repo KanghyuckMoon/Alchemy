@@ -129,110 +129,35 @@ void ItemTestScene::Update()
 		InventoryFetch();
 	}
 
+	POINT mouse;
+	GetCursorPos(&mouse);
+	ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
+
 	switch (itemMode)
 	{
 	case ItemMode::DEFAULTMODE:
-
-	case ItemMode::MIXMODE:
-
-	case ItemMode::EXCHANGEMODE:
-
-	case ItemMode::DELETEMODE:
-
-
-		if (KEY_TAP(KEY::A))
+		if (KEY_TAP(KEY::LBTN))
 		{
 			Inventory::GetInst()->AddItem(L"³ª¹«");
 			InventoryFetch();
 		}
-		if (KEY_TAP(KEY::Q))
+		break;
+	case ItemMode::MIXMODE:
+		if (KEY_TAP(KEY::LBTN))
 		{
-			if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > 0)
+			for (size_t index = 0; index < itemBoxs.size(); ++index)
 			{
-				itemMix->SelectItem(Inventory::GetInst()->GetItemData(0)->GetKey());
-				Inventory::GetInst()->RemoveItem(0);
+				if ((itemBoxs.begin() + index)->ClickEvent(mouse))
+				{
+					if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > index)
+					{
+						itemMix->SelectItem(Inventory::GetInst()->GetItemData(index)->GetKey());
+						Inventory::GetInst()->RemoveItem(index);
+					}
+				}
 			}
-
 			InventoryFetch();
 		}
-
-		if (KEY_TAP(KEY::W))
-		{
-			if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > 1)
-			{
-				itemMix->SelectItem(Inventory::GetInst()->GetItemData(1)->GetKey());
-				Inventory::GetInst()->RemoveItem(1);
-			}
-
-			InventoryFetch();
-		}
-
-		if (KEY_TAP(KEY::E))
-		{
-			if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > 2)
-			{
-				itemMix->SelectItem(Inventory::GetInst()->GetItemData(2)->GetKey());
-				Inventory::GetInst()->RemoveItem(2);
-			}
-
-			InventoryFetch();
-		}
-
-		if (KEY_TAP(KEY::R))
-		{
-			if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > 3)
-			{
-				itemMix->SelectItem(Inventory::GetInst()->GetItemData(3)->GetKey());
-				Inventory::GetInst()->RemoveItem(3);
-			}
-
-			InventoryFetch();
-		}
-
-		if (KEY_TAP(KEY::T))
-		{
-			if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > 4)
-			{
-				itemMix->SelectItem(Inventory::GetInst()->GetItemData(4)->GetKey());
-				Inventory::GetInst()->RemoveItem(4);
-			}
-
-			InventoryFetch();
-		}
-
-		if (KEY_TAP(KEY::Y))
-		{
-			if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > 5)
-			{
-				itemMix->SelectItem(Inventory::GetInst()->GetItemData(5)->GetKey());
-				Inventory::GetInst()->RemoveItem(5);
-			}
-
-			InventoryFetch();
-		}
-
-		if (KEY_TAP(KEY::U))
-		{
-			if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > 6)
-			{
-				itemMix->SelectItem(Inventory::GetInst()->GetItemData(6)->GetKey());
-				Inventory::GetInst()->RemoveItem(6);
-			}
-
-			InventoryFetch();
-		}
-
-		if (KEY_TAP(KEY::I))
-		{
-			if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > 7)
-			{
-				itemMix->SelectItem(Inventory::GetInst()->GetItemData(7)->GetKey());
-				Inventory::GetInst()->RemoveItem(7);
-			}
-
-			InventoryFetch();
-		}
-
 
 		if (KEY_TAP(KEY::S))
 		{
@@ -248,37 +173,52 @@ void ItemTestScene::Update()
 			InventoryFetch();
 		}
 
-
 		if (KEY_TAP(KEY::D))
 		{
 			itemMix->ReturnItems();
 			itemMix->Clear();
 			InventoryFetch();
 		}
+		break;
 
-		if (KEY_TAP(KEY::F))
+	case ItemMode::EXCHANGEMODE:
+		if (KEY_TAP(KEY::LBTN))
 		{
-			if (Inventory::GetInst()->GetCount() > 0)
+			for (size_t index = 0; index < itemBoxs.size(); ++index)
 			{
-				if (RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(0)->GetKey()) != L"")
+				if ((itemBoxs.begin() + index)->ClickEvent(mouse))
 				{
-					wstring str = RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(0)->GetKey());
-					Inventory::GetInst()->RemoveItem(0);
-					Inventory::GetInst()->AddItem(str);
+					if (Inventory::GetInst()->GetCount() > 0)
+					{
+						if (RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey()) != L"")
+						{
+							wstring str = RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey());
+							Inventory::GetInst()->RemoveItem(index);
+							Inventory::GetInst()->AddItem(str);
+						}
+					}
 				}
 			}
 			InventoryFetch();
 		}
-		if (KEY_TAP(KEY::G))
+		break;
+	case ItemMode::DELETEMODE:
+
+		if (KEY_TAP(KEY::LBTN))
 		{
-			if (Inventory::GetInst()->GetCount() > 0)
+			for (size_t index = 0; index < itemBoxs.size(); ++index)
 			{
-				Inventory::GetInst()->RemoveItem(0);
+				if ((itemBoxs.begin() + index)->ClickEvent(mouse))
+				{
+					if (Inventory::GetInst()->GetCount() > index)
+					{
+						Inventory::GetInst()->RemoveItem(index);
+					}
+				}
 			}
 			InventoryFetch();
 		}
 		break;
-
 	case ItemMode::ITEMTREEMODE:
 		itemTree->Update();
 		break;
