@@ -9,6 +9,7 @@ class ItemTree;
 class Button;
 class Image;
 class ItemCaptionWindow;
+class WoodObject;
 
 enum class ItemMode : int
 {
@@ -37,6 +38,9 @@ public:
 private:
     ItemMode itemMode;
     ItemTree* itemTree;
+
+    //Default
+    WoodObject* woodObject;
 
     //ItemMix
     ItemMix* itemMix;

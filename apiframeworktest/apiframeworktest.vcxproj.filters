@@ -110,6 +110,9 @@
     <Filter Include="Engine\05. Scene\Scene_Tutorial">
       <UniqueIdentifier>{466e9840-3754-49c9-8642-0de520c3320d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Effect">
+      <UniqueIdentifier>{d32d8395-ab48-453f-9443-c3b3de134e3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -261,6 +264,15 @@
     <ClInclude Include="ItemCaptionWindow.h">
       <Filter>Engine\07. Component</Filter>
     </ClInclude>
+    <ClInclude Include="WoodObject.h">
+      <Filter>Engine\04. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="AfterImage.h">
+      <Filter>Engine\04. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickEffect.h">
+      <Filter>Engine\04. Object\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -407,6 +419,15 @@
     <ClCompile Include="ItemTree.cpp" />
     <ClCompile Include="ItemCaptionWindow.cpp">
       <Filter>Engine\07. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="WoodObject.cpp">
+      <Filter>Engine\04. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="AfterImage.cpp">
+      <Filter>Engine\04. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickEffect.cpp">
+      <Filter>Engine\04. Object\Effect</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

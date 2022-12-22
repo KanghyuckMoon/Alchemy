@@ -30,6 +30,11 @@ void Background::SetImage(const wstring& str, const wstring& path)
 	backgroundImage = ResMgr::GetInst()->ImgLoad(str, path);
 }
 
+Image* Background::GetImage()
+{
+	return backgroundImage;
+}
+
 void Background::SetImageSize(Vec2 vec2)
 {
 	imageSize = vec2;

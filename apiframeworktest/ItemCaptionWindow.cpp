@@ -3,7 +3,6 @@
 #include "Background.h"
 #include "ItemData.h"
 #include "ItemSO.h"
-
 ItemCaptionWindow::ItemCaptionWindow()
 {
 	background = new Background(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
@@ -11,6 +10,7 @@ ItemCaptionWindow::ItemCaptionWindow()
 	background->SetPos(Vec2(320, 350));
 	background->SetImageSize(Vec2(640, 32));
 	originBackgroundPos = Vec2(320, 350);
+
 }
 
 ItemCaptionWindow::~ItemCaptionWindow()
@@ -32,7 +32,6 @@ void ItemCaptionWindow::SetItemData(const wstring& key)
 
 void ItemCaptionWindow::Update()
 {
-
 }
 
 void ItemCaptionWindow::Render(HDC _dc)

@@ -20,6 +20,7 @@
 #include "ItemTree.h"
 #include "Button.h"
 #include "ItemCaptionWindow.h"
+#include "WoodObject.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -47,13 +48,20 @@ void ItemTestScene::Enter()
 {
 
 	SOManager::GetInst()->Init();
-	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
-	SoundMgr::GetInst()->Play(L"BGM");
+	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\Morning-Kiss.wav");
+	SoundMgr::GetInst()->LoadSound(L"MIXEFF", false, L"Sound\\game-start-6104.wav");
+	SoundMgr::GetInst()->LoadSound(L"DEFAULTEFF", false, L"Sound\\kick-hard-8-bit-103746.wav");
+	SoundMgr::GetInst()->LoadSound(L"ITEMHIGHEFF", false, L"Sound\\one_beep-99630.wav");
+	SoundMgr::GetInst()->LoadSound(L"ITEMHCLICKEFF", false, L"Sound\\confirm-38513.wav");
+	SoundMgr::GetInst()->LoadSound(L"CANCLEEFF", false, L"Sound\\hurt_c_08-102842.wav");
+	//SoundMgr::GetInst()->Play(L"BGM");
 	m_Background_DefaultMode = new Background(L"Background1", L"Image\\Background\\background1.bmp");
 	m_Background_MixMode = new Background(L"Background2", L"Image\\Background\\background2.bmp");
 	m_Background_ExchangeMode = new Background(L"Background3", L"Image\\Background\\background3.bmp");
 	m_Background_ItemTreeMode = new Background(L"Background4", L"Image\\Background\\background4.bmp");
 	m_Background_DeleteMode = new Background(L"Background5", L"Image\\Background\\background5.bmp");
+
+	woodObject = new WoodObject();
 
 	inventoryWindow = new Background(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
 	inventoryWindow->SetScale(Vec2(640, 64));
@@ -150,10 +158,15 @@ void ItemTestScene::Update()
 	switch (itemMode)
 	{
 	case ItemMode::DEFAULTMODE:
+		woodObject->Update();
 		if (KEY_TAP(KEY::LBTN))
 		{
-			Inventory::GetInst()->AddItem(L"나무");
-			InventoryFetch();
+			if (woodObject->StayCollision(mouse))
+			{
+				SoundMgr::GetInst()->Play(L"DEFAULTEFF");
+				Inventory::GetInst()->AddItem(L"나무");
+				InventoryFetch();
+			}
 		}
 		break;
 	case ItemMode::MIXMODE:
@@ -165,6 +178,7 @@ void ItemTestScene::Update()
 				{
 					if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > index)
 					{
+						SoundMgr::GetInst()->Play(L"ITEMHCLICKEFF");
 						itemMix->SelectItem(Inventory::GetInst()->GetItemData(index)->GetKey());
 						Inventory::GetInst()->RemoveItem(index);
 						break;
@@ -179,14 +193,20 @@ void ItemTestScene::Update()
 				{
 					if (RecipeSO::GetInst()->GetRecipe(str) != L"")
 					{
+						SoundMgr::GetInst()->Play(L"MIXEFF");
 						Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(str));
 						itemMix->Clear();
+					}
+					else
+					{
+						SoundMgr::GetInst()->Play(L"CANCLEEFF");
 					}
 				}
 			}
 
 			if (cancleButton->StayCollision(mouse))
 			{
+				SoundMgr::GetInst()->Play(L"CANCLEEFF");
 				itemMix->ReturnItems();
 				itemMix->Clear();
 				InventoryFetch();
@@ -215,8 +235,13 @@ void ItemTestScene::Update()
 								SceneMgr::GetInst()->ChangeScene(SCENE_TYPE::SCENE_ENDING);
 								break;
 							}
+							SoundMgr::GetInst()->Play(L"MIXEFF");
 							Inventory::GetInst()->ChangeItem(str, index);
 							break;
+						}
+						else
+						{
+							SoundMgr::GetInst()->Play(L"CANCLEEFF");
 						}
 					}
 				}
@@ -234,6 +259,7 @@ void ItemTestScene::Update()
 				{
 					if (Inventory::GetInst()->GetCount() > index)
 					{
+						SoundMgr::GetInst()->Play(L"CANCLEEFF");
 						Inventory::GetInst()->RemoveItem(index);
 						break;
 					}
@@ -249,10 +275,27 @@ void ItemTestScene::Update()
 
 	if (itemMode == ItemMode::ITEMTREEMODE)
 	{
-		itemCaptionWindow->SetItemData(itemTree->ClickEventGetItemKey(mouse));
+		static bool isPreviousTouch = false;
+		bool isTouch = false;
+		if (itemTree->ClickEventGetItemKey(mouse) != L"")
+		{
+			isTouch = true;
+			itemCaptionWindow->SetItemData(itemTree->ClickEventGetItemKey(mouse));
+
+		}
+		else
+		{
+			itemCaptionWindow->SetItemData(L"");
+		}
+		if (isTouch && !isPreviousTouch)
+		{
+			SoundMgr::GetInst()->Play(L"ITEMHIGHEFF");
+		}
+		isPreviousTouch = isTouch;
 	}
 	else
 	{
+		static bool isPreviousTouch = false;
 		bool isTouch = false;
 		for (size_t index = 0; index < itemBoxs.size(); ++index)
 		{
@@ -271,11 +314,17 @@ void ItemTestScene::Update()
 				}
 			}
 		}
-
 		if (!isTouch)
 		{
+
 			itemCaptionWindow->SetItemData(L"");
 		}
+		else if (!isPreviousTouch)
+		{
+			SoundMgr::GetInst()->Play(L"ITEMHIGHEFF");
+		}
+
+		isPreviousTouch = isTouch;
 	}
 }
 
@@ -348,6 +397,7 @@ void ItemTestScene::Render(HDC _dc)
 		TextOutW(_dc, 10, 10, L"제거", 2);
 		break;
 	case ItemMode::DEFAULTMODE:
+		woodObject->Render(_dc);
 		inventoryWindow->Render(_dc);
 		for (int i = 0; i < 8; i++)
 		{
