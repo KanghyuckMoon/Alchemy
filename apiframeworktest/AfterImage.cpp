@@ -39,7 +39,6 @@ void AfterImage::Render(HDC _dc, Image* image, int alpha)
 	AlphaBlend(MemDC, GetPos().x - (GetScale().x / 2), GetPos().y - (GetScale().y / 2), GetScale().x, GetScale().y, AlphaDC, GetPos().x - (GetScale().x / 2), GetPos().y - (GetScale().y / 2), GetScale().x, GetScale().y, _bf);
 	BitBlt(_dc, 0, 0, rect.right, rect.bottom, MemDC, 0, 0, SRCCOPY);
 
-
 	SelectObject(MemDC, hOldBitmap);
 	SelectObject(AlphaDC, hOldBitmap2);
 	DeleteObject(hBitmap);

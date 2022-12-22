@@ -15,16 +15,18 @@ Scene_Lobby::~Scene_Lobby()
 
 void Scene_Lobby::Enter()
 {
+	m_background = Background(L"Title", L"Image\\Background\\Title.bmp");
+
 	button_1 = new Button();
 	button_1->SetScale(Vec2(150, 40));
-	button_1->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 + 50));
+	button_1->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2 - 200, Core::GetInst()->GetResolution().y / 2 + 100));
 	button_1->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 	button_1->SetImageSize(Vec2(150, 40));
 	button_1->CreateCollider();
 
 	button_2 = new Button();
 	button_2->SetScale(Vec2(150, 40));
-	button_2->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 + 130));
+	button_2->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2 + 200, Core::GetInst()->GetResolution().y / 2 + 100));
 	button_2->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 	button_2->SetImageSize(Vec2(150, 40));
 	button_2->CreateCollider();
@@ -56,7 +58,7 @@ void Scene_Lobby::Update()
 
 	if (button_2->StayCollision(mouse)) {
 		if (key == KEY_STATE::TAP) {
-
+			Core::GetInst()->Close();
 		}
 		else if (key == KEY_STATE::AWAY) {
 
@@ -69,6 +71,8 @@ void Scene_Lobby::Update()
 
 void Scene_Lobby::Render(HDC _dc)
 {
+	m_background.Render(_dc);
+
 	button_1->Render(_dc);
 	button_2->Render(_dc);
 }

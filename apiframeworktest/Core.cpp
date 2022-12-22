@@ -38,7 +38,7 @@ int Core::Init(HWND _hWnd, POINT _ptResolution)
 	AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, true);
 	SetWindowPos(m_hWnd, nullptr, 100, 100, rt.right - rt.left, rt.bottom - rt.top, 0);
 	m_hDC = GetDC(m_hWnd);
-	
+
 	// 이중 버퍼링 용도의 비트맵과 DC를 만든다.
 	m_hBit = CreateCompatibleBitmap(m_hDC, m_ptResolution.x, m_ptResolution.y);
 	m_memDC = CreateCompatibleDC(m_hDC);
@@ -54,7 +54,7 @@ int Core::Init(HWND _hWnd, POINT _ptResolution)
 	TimeMgr::GetInst()->Init();
 	KeyMgr::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
-	
+
 	return S_OK;
 }
 
@@ -81,16 +81,16 @@ void Core::Update()
 void Core::Render()
 {
 	// ==== Rendering ====
-	PatBlt(m_memDC, 0, 0, m_ptResolution.x, m_ptResolution.y, WHITENESS); 
+	PatBlt(m_memDC, 0, 0, m_ptResolution.x, m_ptResolution.y, WHITENESS);
 
 	SceneMgr::GetInst()->Render(m_memDC);
 
 	// 더블버퍼링으로 그리기
-		BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
-			,m_memDC, 0, 0, SRCCOPY);
-		TimeMgr::GetInst()->Render();
+	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
+		, m_memDC, 0, 0, SRCCOPY);
+	TimeMgr::GetInst()->Render();
 	// === 이벤트 지연 처리 === //
-		EventMgr::GetInst()->Update();
+	EventMgr::GetInst()->Update();
 
 }
 
@@ -107,5 +107,5 @@ void Core::CreateBrushPen()
 
 void Core::Close()
 {
-
+	DestroyWindow(m_hWnd);
 }
