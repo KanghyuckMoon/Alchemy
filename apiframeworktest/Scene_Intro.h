@@ -1,20 +1,22 @@
 #pragma once
 #include "Scene.h"
-
 class Button;
 
-class Scene_Tutorial :
+class Scene_Intro :
 	public Scene
 {
-private:
 public:
-	Scene_Tutorial();
-	virtual ~Scene_Tutorial();
+	Scene_Intro();
+	virtual ~Scene_Intro();
+
 public:
 	virtual void Enter() override;
 	virtual void Exit() override;
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
 private:
+	Button* m_introBtn;
+
+	int m_index;
 };
 

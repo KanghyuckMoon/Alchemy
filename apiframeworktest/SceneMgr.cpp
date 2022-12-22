@@ -3,6 +3,7 @@
 #include "Scene_Start.h"
 #include "Scene_01.h"
 
+#include "Scene_Intro.h"
 #include "Scene_Tutorial.h"
 #include "Scene_Lobby.h"
 #include "Scene_Main.h"
@@ -45,6 +46,9 @@ void SceneMgr::Init()
 
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_TUTORIAL] = new Scene_Tutorial;
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_TUTORIAL]->SetName(L"Scene Tutorial");
+
+	m_arrScene[(UINT)SCENE_TYPE::SCENE_INTRO] = new Scene_Intro;
+	m_arrScene[(UINT)SCENE_TYPE::SCENE_INTRO]->SetName(L"Scene Intro");
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_LOBBY] = new Scene_Lobby;
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_LOBBY]->SetName(L"Scene Lobby");
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_MAIN] = new ItemTestScene;

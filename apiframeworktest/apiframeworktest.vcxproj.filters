@@ -113,6 +113,9 @@
     <Filter Include="Engine\04. Object\Effect">
       <UniqueIdentifier>{d32d8395-ab48-453f-9443-c3b3de134e3e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_intro">
+      <UniqueIdentifier>{fa213b5c-082c-4a1e-96ca-a93c5004727f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -273,6 +276,7 @@
     <ClInclude Include="ClickEffect.h">
       <Filter>Engine\04. Object\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Scene_Intro.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -429,5 +433,6 @@
     <ClCompile Include="ClickEffect.cpp">
       <Filter>Engine\04. Object\Effect</Filter>
     </ClCompile>
+    <ClCompile Include="Scene_Intro.cpp" />
   </ItemGroup>
 </Project>
