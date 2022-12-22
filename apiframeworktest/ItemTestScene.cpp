@@ -22,6 +22,8 @@
 #include "ItemCaptionWindow.h"
 #include "WoodObject.h"
 #include "CutScene.h"
+#include "ItemMoveEffect.h"
+#include "ItemSO.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -101,6 +103,8 @@ void ItemTestScene::Enter()
 		itemBoxs.at(i).SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 435.f));
 		itemBoxs.at(i).SetScale(Vec2(fObjScale, fObjScale));
 	}
+
+	itemMoveEffects = make_shared<vector<ItemMoveEffect*>>();
 }
 
 void ItemTestScene::Exit()
@@ -127,6 +131,9 @@ void ItemTestScene::Update()
 				itemMode = ItemMode::DELETEMODE;
 				break;
 			case ItemMode::MIXMODE:
+				itemMix->ReturnItems();
+				itemMix->Clear();
+				InventoryFetch();
 				itemMode = ItemMode::DEFAULTMODE;
 				break;
 			case ItemMode::EXCHANGEMODE:
@@ -150,6 +157,9 @@ void ItemTestScene::Update()
 				itemMode = ItemMode::MIXMODE;
 				break;
 			case ItemMode::MIXMODE:
+				itemMix->ReturnItems();
+				itemMix->Clear();
+				InventoryFetch();
 				itemMode = ItemMode::EXCHANGEMODE;
 				break;
 			case ItemMode::EXCHANGEMODE:
@@ -178,7 +188,11 @@ void ItemTestScene::Update()
 				if (woodObject->StayCollision(mouse))
 				{
 					SoundMgr::GetInst()->Play(L"DEFAULTEFF");
-					Inventory::GetInst()->AddItem(L"나무");
+					if (Inventory::GetInst()->GetCount() < 8)
+					{
+						ItemMoveEffect::SetEffect(woodObject->GetPos(), Vec2(100.f, 100.f), itemBoxs.at(Inventory::GetInst()->GetCount()).GetPos(), ItemSO::GetInst()->GetItemData(L"나무")->GetSprite(), itemMoveEffects);
+						Inventory::GetInst()->AddItem(L"나무");
+					}
 					InventoryFetch();
 				}
 			}
@@ -193,6 +207,7 @@ void ItemTestScene::Update()
 						if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > index)
 						{
 							SoundMgr::GetInst()->Play(L"ITEMHCLICKEFF");
+							ItemMoveEffect::SetEffect(&itemBoxs.at(index), itemMix->GetCurrentItemBox()->GetPos(), Inventory::GetInst()->GetItemData(index)->GetSprite(), itemMoveEffects);
 							itemMix->SelectItem(Inventory::GetInst()->GetItemData(index)->GetKey());
 							Inventory::GetInst()->RemoveItem(index);
 							break;
@@ -221,6 +236,14 @@ void ItemTestScene::Update()
 				if (cancleButton->StayCollision(mouse))
 				{
 					SoundMgr::GetInst()->Play(L"CANCLEEFF");
+					if (itemMix->ItemBox1()->GetItemData() != L"")
+					{
+						ItemMoveEffect::SetEffect(&(*itemMix->ItemBox1()), itemBoxs.at(Inventory::GetInst()->GetCount()).GetPos(), ItemSO::GetInst()->GetItemData(itemMix->ItemBox1()->GetItemData())->GetSprite(), itemMoveEffects);
+					}
+					if (itemMix->ItemBox2()->GetItemData() != L"")
+					{
+						ItemMoveEffect::SetEffect(&(*itemMix->ItemBox2()), itemBoxs.at(Inventory::GetInst()->GetCount() + 1).GetPos(), ItemSO::GetInst()->GetItemData(itemMix->ItemBox2()->GetItemData())->GetSprite(), itemMoveEffects);
+					}
 					itemMix->ReturnItems();
 					itemMix->Clear();
 					InventoryFetch();
@@ -250,6 +273,7 @@ void ItemTestScene::Update()
 									break;
 								}
 								SoundMgr::GetInst()->Play(L"MIXEFF");
+								ItemMoveEffect::SetEffect(&itemBoxs.at(index), Vec2(350, 260), Inventory::GetInst()->GetItemData(index)->GetSprite(), itemMoveEffects);
 								Inventory::GetInst()->ChangeItem(str, index);
 								cutScene->CheckCanCutSceneItem(str);
 								break;
@@ -275,6 +299,7 @@ void ItemTestScene::Update()
 						if (Inventory::GetInst()->GetCount() > index)
 						{
 							SoundMgr::GetInst()->Play(L"CANCLEEFF");
+							ItemMoveEffect::SetEffect(&itemBoxs.at(index), Vec2(340, 150), Inventory::GetInst()->GetItemData(index)->GetSprite(), itemMoveEffects);
 							Inventory::GetInst()->RemoveItem(index);
 							break;
 						}
@@ -340,6 +365,14 @@ void ItemTestScene::Update()
 			}
 
 			isPreviousTouch = isTouch;
+		}
+
+		for (const auto& effect : *itemMoveEffects)
+		{
+			if (effect->GetIsMove())
+			{
+				effect->Update();
+			}
 		}
 	}
 }
@@ -439,6 +472,14 @@ void ItemTestScene::Render(HDC _dc)
 			break;
 		}
 		itemCaptionWindow->Render(_dc);
+
+		for (const auto& effect : *itemMoveEffects)
+		{
+			if (effect->GetIsMove())
+			{
+				effect->Render(_dc);
+			}
+		}
 	}
 
 	DeleteObject(s_hFont);

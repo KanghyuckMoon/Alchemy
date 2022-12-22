@@ -11,6 +11,7 @@ class Image;
 class ItemCaptionWindow;
 class WoodObject;
 class CutScene;
+class ItemMoveEffect;
 
 enum class ItemMode : int
 {
@@ -55,6 +56,7 @@ private:
     ItemCaptionWindow* itemCaptionWindow;
 
     vector<ItemBox> itemBoxs;
+    shared_ptr<vector<ItemMoveEffect*>> itemMoveEffects;
     Background* m_Background_DefaultMode;
     Background* m_Background_MixMode;
     Background* m_Background_ExchangeMode;

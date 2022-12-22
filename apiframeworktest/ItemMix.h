@@ -2,7 +2,6 @@
 
 class ItemBox;
 class ItemData;
-
 class ItemMix
 {
 public:
@@ -20,6 +19,9 @@ public:
 	void Clear();
 	void ReturnItems();
 	int GetCount();
+	shared_ptr<ItemBox> GetCurrentItemBox() { return (GetCount() > 0 ? ItemBox2() : ItemBox1()); }
+	shared_ptr<ItemBox> ItemBox1() { return itemBox1; }
+	shared_ptr<ItemBox> ItemBox2() { return itemBox2; }
 
 private:
 	void SelectItem1(const wstring& str);

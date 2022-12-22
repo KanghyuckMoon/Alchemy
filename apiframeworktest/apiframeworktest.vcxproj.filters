@@ -241,9 +241,6 @@
     <ClInclude Include="Scene_Ending.h">
       <Filter>Engine\05. Scene\Scene_Ending</Filter>
     </ClInclude>
-    <ClInclude Include="ItemTestScene.h">
-      <Filter>Engine\09. ScreiptableObject</Filter>
-    </ClInclude>
     <ClInclude Include="Background.h">
       <Filter>Engine\07. Component</Filter>
     </ClInclude>
@@ -277,6 +274,18 @@
       <Filter>Engine\04. Object\Effect</Filter>
     </ClInclude>
     <ClInclude Include="Scene_Intro.h" />
+    <ClInclude Include="ItemMoveEffect.h">
+      <Filter>Engine\04. Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="CutScene.h">
+      <Filter>Engine\07. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemTestScene.h">
+      <Filter>Engine\05. Scene\ItemTestScene</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemAfterImage.h">
+      <Filter>Engine\04. Object\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -397,9 +406,6 @@
     <ClCompile Include="Scene_Ending.cpp">
       <Filter>Engine\05. Scene\Scene_Ending</Filter>
     </ClCompile>
-    <ClCompile Include="ItemTestScene.cpp">
-      <Filter>Engine\09. ScreiptableObject</Filter>
-    </ClCompile>
     <ClCompile Include="Background.cpp">
       <Filter>Engine\07. Component</Filter>
     </ClCompile>
@@ -434,5 +440,17 @@
       <Filter>Engine\04. Object\Effect</Filter>
     </ClCompile>
     <ClCompile Include="Scene_Intro.cpp" />
+    <ClCompile Include="ItemMoveEffect.cpp">
+      <Filter>Engine\04. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="CutScene.cpp">
+      <Filter>Engine\07. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemTestScene.cpp">
+      <Filter>Engine\05. Scene\ItemTestScene</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemAfterImage.cpp">
+      <Filter>Engine\04. Object\Effect</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

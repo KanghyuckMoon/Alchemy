@@ -14,6 +14,7 @@
 #define KEY_NONE(key) KEY_CHECK(key, KEY_STATE::NONE)
 #define CLONE(type) type* Clone() {return new type(*this);}
 #define PI 3.1415926535897932384f
+#define LERP(A, B, ALPHA) float(A * (1 - ALPHA) + B * ALPHA)
 
 enum class KEY_STATE
 {
