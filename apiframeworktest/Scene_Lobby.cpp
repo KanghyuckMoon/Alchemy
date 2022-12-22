@@ -87,7 +87,6 @@ void Scene_Lobby::Render(HDC _dc)
 	s_hFont = CreateFontIndirect(&logFont);
 	s_oldHFont = (HFONT)SelectObject(_dc, s_hFont);
 
-
 	m_background.Render(_dc);
 
 	button_1->Render(_dc);
