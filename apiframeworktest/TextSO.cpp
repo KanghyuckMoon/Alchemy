@@ -22,7 +22,7 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"키_N", L"키");
 	GetInst()->AddTextData(L"나이프_N", L"나이프");
 	GetInst()->AddTextData(L"구운 고기_N", L"구운 고기");
-	GetInst()->AddTextData(L"철 헬멧_N", L"철 헬멧");
+	GetInst()->AddTextData(L"철 헬멧_N", L"은 헬멧");
 	GetInst()->AddTextData(L"금 열쇠_N", L"금 열쇠");
 	GetInst()->AddTextData(L"금괴_N", L"금괴");
 	GetInst()->AddTextData(L"상자_N", L"상자");
@@ -39,7 +39,7 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"가죽_T", L"생물의 살벽이니 미소녀가 될 수도?");
 	GetInst()->AddTextData(L"목재_T", L"나무를 쌓으니 그 부피가 꽤 된다");
 	GetInst()->AddTextData(L"양피지_T", L"얇고 가벼운 양피지이다");
-	GetInst()->AddTextData(L"구리 주괴_T", L"금속이니 미소녀가 될 수도?");
+	GetInst()->AddTextData(L"구리 주괴_T", L"단단한 금속이니 미소녀가 될 수도?");
 	GetInst()->AddTextData(L"구리_T", L"구리 주괴를 얇게 절단하였다");
 	GetInst()->AddTextData(L"가죽 모자_T", L"따뜻하고 착용감이 좋다");
 	GetInst()->AddTextData(L"책_T", L"지식들이 담겼으니 미소녀가 될 수도?");
@@ -89,76 +89,76 @@ void TextSO::Init()
 	//컷씬
 
 	//미소녀1
-	GetInst()->AddTextData(L"미소녀1_T0", L"도트 미소녀 등장!");
-	GetInst()->AddTextData(L"미소녀1_T1", L"□■□■□■□■□■");
-	GetInst()->AddTextData(L"미소녀1_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀1_T3", L"□■□■□■□■□■");
-	GetInst()->AddTextData(L"미소녀1_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀1_T5", L"□■□■□■□■");
-	GetInst()->AddTextData(L"미소녀1_T6", L"다시 등가교환이다");
+	GetInst()->AddTextData(L"미소녀1_T0", L"[도트 미소녀 등장!]");
+	GetInst()->AddTextData(L"미소녀1_T1", L"[□■□■□■□■□■]");
+	GetInst()->AddTextData(L"미소녀1_T2", L"{실패인가..}");
+	GetInst()->AddTextData(L"미소녀1_T3", L"[□■□■□■□■□■]");
+	GetInst()->AddTextData(L"미소녀1_T4", L"{안 되겠군}");
+	GetInst()->AddTextData(L"미소녀1_T5", L"[□■□■□■□■]");
+	GetInst()->AddTextData(L"미소녀1_T6", L"{다시 등가교환이다}");
 
 	//미소녀2
-	GetInst()->AddTextData(L"미소녀2_T0", L"Ms.비둘기 등장!");
-	GetInst()->AddTextData(L"미소녀2_T1", L"구구.");
-	GetInst()->AddTextData(L"미소녀2_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀2_T3", L"구구구");
-	GetInst()->AddTextData(L"미소녀2_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀2_T5", L"구구구구구구구구");
-	GetInst()->AddTextData(L"미소녀2_T6", L"다시 등가교환이다");
+	GetInst()->AddTextData(L"미소녀2_T0", L"[Ms.비둘기 등장!]");
+	GetInst()->AddTextData(L"미소녀2_T1", L"[구구.]");
+	GetInst()->AddTextData(L"미소녀2_T2", L"{실패인가..}");
+	GetInst()->AddTextData(L"미소녀2_T3", L"[구구구]");
+	GetInst()->AddTextData(L"미소녀2_T4", L"{안 되겠군}");
+	GetInst()->AddTextData(L"미소녀2_T5", L"[구구구구구구구구]");
+	GetInst()->AddTextData(L"미소녀2_T6", L"{다시 등가교환이다}");
 
 	//미소녀3
-	GetInst()->AddTextData(L"미소녀3_T0", L"프린터이모토 등장!");
-	GetInst()->AddTextData(L"미소녀3_T1", L"지이잉");
-	GetInst()->AddTextData(L"미소녀3_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀3_T3", L"잉크가 부족합니다");
-	GetInst()->AddTextData(L"미소녀3_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀3_T5", L"전원을 종료합니다");
-	GetInst()->AddTextData(L"미소녀3_T6", L"다시 등가교환이다");
+	GetInst()->AddTextData(L"미소녀3_T0", L"[프린터이모토 등장!]");
+	GetInst()->AddTextData(L"미소녀3_T1", L"[지이잉]");
+	GetInst()->AddTextData(L"미소녀3_T2", L"{실패인가..}");
+	GetInst()->AddTextData(L"미소녀3_T3", L"[잉크가 부족합니다]");
+	GetInst()->AddTextData(L"미소녀3_T4", L"{안 되겠군}");
+	GetInst()->AddTextData(L"미소녀3_T5", L"[전원을 종료합니다]");
+	GetInst()->AddTextData(L"미소녀3_T6", L"{다시 등가교환이다}");
 
 	//미소녀4
-	GetInst()->AddTextData(L"미소녀4_T0", L"대검카노조 등장!");
-	GetInst()->AddTextData(L"미소녀4_T1", L"그대가 나의 주인인가");
-	GetInst()->AddTextData(L"미소녀4_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀4_T3", L"자 나를 들어라");
-	GetInst()->AddTextData(L"미소녀4_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀4_T5", L"자!!");
-	GetInst()->AddTextData(L"미소녀4_T6", L"다시 등가교환이다");
+	GetInst()->AddTextData(L"미소녀4_T0", L"[대검카노조 등장!]");
+	GetInst()->AddTextData(L"미소녀4_T1", L"[그대가 나의 주인인가]");
+	GetInst()->AddTextData(L"미소녀4_T2", L"{실패인가..}");
+	GetInst()->AddTextData(L"미소녀4_T3", L"[자 나를 들어라]");
+	GetInst()->AddTextData(L"미소녀4_T4", L"{안 되겠군}");
+	GetInst()->AddTextData(L"미소녀4_T5", L"[자!!]");
+	GetInst()->AddTextData(L"미소녀4_T6", L"{다시 등가교환이다}");
 
 	//미소녀5
-	GetInst()->AddTextData(L"미소녀5_T0", L"AK47쨩 등장!");
-	GetInst()->AddTextData(L"미소녀5_T1", L"두두두두둥");
-	GetInst()->AddTextData(L"미소녀5_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀5_T3", L"(장전 중..)");
-	GetInst()->AddTextData(L"미소녀5_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀5_T5", L"두두두두둥");
-	GetInst()->AddTextData(L"미소녀5_T6", L"다시 등가교환이다");
+	GetInst()->AddTextData(L"미소녀5_T0", L"[AK47쨩 등장!]");
+	GetInst()->AddTextData(L"미소녀5_T1", L"[두두두두둥]");
+	GetInst()->AddTextData(L"미소녀5_T2", L"{실패인가..}");
+	GetInst()->AddTextData(L"미소녀5_T3", L"[(장전 중..)]");
+	GetInst()->AddTextData(L"미소녀5_T4", L"{안 되겠군}");
+	GetInst()->AddTextData(L"미소녀5_T5", L"[두두두두둥]");
+	GetInst()->AddTextData(L"미소녀5_T6", L"{다시 등가교환이다}");
 
 	//미소녀6
-	GetInst()->AddTextData(L"미소녀6_T0", L"함선달링 등장!");
-	GetInst()->AddTextData(L"미소녀6_T1", L"부우우웅");
-	GetInst()->AddTextData(L"미소녀6_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀6_T3", L"부우우웅");
-	GetInst()->AddTextData(L"미소녀6_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀6_T5", L"부우우웅");
-	GetInst()->AddTextData(L"미소녀6_T6", L"다시 등가교환이다");
+	GetInst()->AddTextData(L"미소녀6_T0", L"[함선달링 등장!]");
+	GetInst()->AddTextData(L"미소녀6_T1", L"[부우우웅]");
+	GetInst()->AddTextData(L"미소녀6_T2", L"{실패인가..}");
+	GetInst()->AddTextData(L"미소녀6_T3", L"[부우우웅]");
+	GetInst()->AddTextData(L"미소녀6_T4", L"{안 되겠군}");
+	GetInst()->AddTextData(L"미소녀6_T5", L"[부우우웅]");
+	GetInst()->AddTextData(L"미소녀6_T6", L"{다시 등가교환이다}");
 
 	//미소녀7
-	GetInst()->AddTextData(L"미소녀7_T0", L"팬티토모다치 등장!");
-	GetInst()->AddTextData(L"미소녀7_T1", L"안녕하세요!");
-	GetInst()->AddTextData(L"미소녀7_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀7_T3", L"착용감이 좋아요~");
-	GetInst()->AddTextData(L"미소녀7_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀7_T5", L"한번만 구매해보세요");
-	GetInst()->AddTextData(L"미소녀7_T6", L"다시 등가교환이다");
+	GetInst()->AddTextData(L"미소녀7_T0", L"[팬티토모다치 등장!]");
+	GetInst()->AddTextData(L"미소녀7_T1", L"[안녕하세요!]");
+	GetInst()->AddTextData(L"미소녀7_T2", L"{실패인가..}");
+	GetInst()->AddTextData(L"미소녀7_T3", L"[착용감이 좋아요~]");
+	GetInst()->AddTextData(L"미소녀7_T4", L"{안 되겠군}");
+	GetInst()->AddTextData(L"미소녀7_T5", L"[한번만 구매해보세요]");
+	GetInst()->AddTextData(L"미소녀7_T6", L"{다시 등가교환이다}");
 
 	//미소녀8
-	GetInst()->AddTextData(L"미소녀8_T0", L"알파카와이프 등장!");
-	GetInst()->AddTextData(L"미소녀8_T1", L"메~~~~");
-	GetInst()->AddTextData(L"미소녀8_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀8_T3", L"메~~~");
-	GetInst()->AddTextData(L"미소녀8_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀8_T5", L"퉤");
-	GetInst()->AddTextData(L"미소녀8_T6", L"다시 등가교환이다");
+	GetInst()->AddTextData(L"미소녀8_T0", L"[알파카와이프 등장!]");
+	GetInst()->AddTextData(L"미소녀8_T1", L"[메~~~~]");
+	GetInst()->AddTextData(L"미소녀8_T2", L"{실패인가..}");
+	GetInst()->AddTextData(L"미소녀8_T3", L"[메~~~]");
+	GetInst()->AddTextData(L"미소녀8_T4", L"{안 되겠군}");
+	GetInst()->AddTextData(L"미소녀8_T5", L"[퉤]");
+	GetInst()->AddTextData(L"미소녀8_T6", L"{다시 등가교환이다}");
 
 	//힌트
 
@@ -168,20 +168,20 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"목재힌트_T", L"나무를 쌓아라");
 	GetInst()->AddTextData(L"양피지힌트_T", L"두꺼운 것을 얇은 것과 바꾸어라");
 	GetInst()->AddTextData(L"구리 주괴힌트_T", L"딱딱함 속에 단단함을 쌓아라");
-	GetInst()->AddTextData(L"구리힌트_T", L"길고 단단한 것을 알갱이로 나누어라");
-	GetInst()->AddTextData(L"가죽 모자힌트_T", L"따뜻하게 머리를 감싸라");
+	GetInst()->AddTextData(L"구리힌트_T", L"길고 단단한 것을 바꾸어라");
+	GetInst()->AddTextData(L"가죽 모자힌트_T", L"두껍게 감싸 머리를 보호하라");
 	GetInst()->AddTextData(L"책힌트_T", L"두꺼운 것으로 덥고 얇은 것들로 채워라");
 	GetInst()->AddTextData(L"횃불힌트_T", L"지식으로 발견을 손에 넣어라");
 	GetInst()->AddTextData(L"박스힌트_T", L"쌓고 쌓아서 만들어라");
-	GetInst()->AddTextData(L"은괴힌트_T", L"더욱 단단한 것을 추구하라");
-	GetInst()->AddTextData(L"은힌트_T", L"나누는 것을 멈추지마라");
+	GetInst()->AddTextData(L"은괴힌트_T", L"길고 단단한 것과 얇고 단단한 것을 합하라");
+	GetInst()->AddTextData(L"은힌트_T", L"은색으로 얇게 빛내어라");
 	GetInst()->AddTextData(L"고기힌트_T", L"쌓아온 것으로 식사 준비를 하여라");
 	GetInst()->AddTextData(L"램프힌트_T", L"지식과 발견으로 발명을 하여라");
-	GetInst()->AddTextData(L"헬멧힌트_T", L"머리를 단단하게 보호하라");
+	GetInst()->AddTextData(L"헬멧힌트_T", L"단단함으로 머리를 보호하라");
 	GetInst()->AddTextData(L"키힌트_T", L"귀중한 금속을 겹쳐라");
-	GetInst()->AddTextData(L"나이프힌트_T", L"날카로운 것을 잡거라");
+	GetInst()->AddTextData(L"나이프힌트_T", L"은색의 날카로움 잡을 수 있게하라");
 	GetInst()->AddTextData(L"구운 고기힌트_T", L"위대한 발명 아래 식사가 시작된다");
-	GetInst()->AddTextData(L"철 헬멧힌트_T", L"단단함.. 더 많은 단단함..");
+	GetInst()->AddTextData(L"철 헬멧힌트_T", L"더 더 단단하게 보호하라");
 	GetInst()->AddTextData(L"금 열쇠힌트_T", L"미래를 위해 가치 있는 것을 바꾸어라");
 	GetInst()->AddTextData(L"금괴힌트_T", L"단단함 끝에는 가치 있는 것이 되리라");
 	GetInst()->AddTextData(L"상자힌트_T", L"쌓고 쌓아 만든 공간을 열어 새로운 공간을 보라");

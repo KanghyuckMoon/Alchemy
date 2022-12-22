@@ -21,6 +21,9 @@ public:
 	virtual void Render(HDC _dc) override;
 	void ResetPosition();
 
+private:
+	POINT previousMouse;
+	POINT mouse;
 
 public:
 	bool ClickEvent(POINT ps);

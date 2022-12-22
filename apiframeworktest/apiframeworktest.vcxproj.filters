@@ -289,6 +289,9 @@
     <ClInclude Include="CauldronObject.h">
       <Filter>Engine\04. Object</Filter>
     </ClInclude>
+    <ClInclude Include="CharacterImage.h">
+      <Filter>Engine\04. Object\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -457,6 +460,9 @@
     </ClCompile>
     <ClCompile Include="CauldronObject.cpp">
       <Filter>Engine\04. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterImage.cpp">
+      <Filter>Engine\04. Object\Effect</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

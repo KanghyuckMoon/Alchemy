@@ -174,7 +174,7 @@ void ItemTestScene::Update()
 				case ItemMode::EXCHANGEMODE:
 					itemMode = ItemMode::MIXMODE;
 					leftSceneButton->SetCaption(L"벌목");
-					rightSceneButton->SetCaption(L"아이템 트리");
+					rightSceneButton->SetCaption(L"등가 교환");
 					break;
 				case ItemMode::ITEMTREEMODE:
 					itemMode = ItemMode::EXCHANGEMODE;
@@ -490,9 +490,6 @@ void ItemTestScene::Render(HDC _dc)
 
 		Scene::Render(_dc);
 
-		leftSceneButton->Render(_dc);
-		rightSceneButton->Render(_dc);
-
 		switch (itemMode)
 		{
 		case ItemMode::MIXMODE:
@@ -509,7 +506,7 @@ void ItemTestScene::Render(HDC _dc)
 
 			TextOutW(_dc, 10, 10, L"합성", 2);
 			TextOutW(_dc, 10, 449, L"← → : 장소 변경, 아이템 클릭 :  합성할 아이템 선택", 33);
-			TextOutW(_dc, 10, 463, L"합성 버튼 : 두 아이템 합성하기, 취소 버튼 : 아이템 돌려받기", 35);
+			TextOutW(_dc, 10, 463, L"합성 버튼 : 두 아이템 합성하기, 취소 버튼 : 아이템 돌려받기", 36);
 
 			break;
 		case ItemMode::EXCHANGEMODE:
@@ -553,11 +550,15 @@ void ItemTestScene::Render(HDC _dc)
 			SetTextColor(_dc, RGB(0, 0, 255));
 			TextOutW(_dc, 10, 70, L"파랑 : 같은 아이템 두 개 합성", 18);
 			SetTextColor(_dc, RGB(0, 0, 0));
-			TextOutW(_dc, 10, 460, L"← → : 장소 변경, 아이템에 마우스 올리기 : 아이템 정보 확인", 37);
+			TextOutW(_dc, 10, 449, L"← → : 장소 변경, 아이템에 마우스 올리기 : 아이템 정보 확인", 37);
+			TextOutW(_dc, 10, 463, L"드래그 : 아이템 트리 둘러보기", 17);
 			SetTextColor(_dc, RGB(255, 255, 255));
 			break;
 		}
 		itemCaptionWindow->Render(_dc);
+
+		leftSceneButton->Render(_dc);
+		rightSceneButton->Render(_dc);
 
 		for (const auto& effect : *itemMoveEffects)
 		{

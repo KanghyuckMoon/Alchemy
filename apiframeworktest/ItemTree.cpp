@@ -5,6 +5,7 @@
 #include "Inventory.h"
 #include "ItemData.h"
 #include "KeyMgr.h"
+#include "Core.h"
 
 ItemTree::ItemTree()
 {
@@ -173,34 +174,21 @@ ItemTree::~ItemTree()
 }
 void ItemTree::Update()
 {
-	if (KEY_HOLD(KEY::W))
+
+	GetCursorPos(&mouse);
+	ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
+	float addX = (mouse.x - previousMouse.x);
+	float addY = (mouse.y - previousMouse.y);
+
+	if (KEY_HOLD(KEY::LBTN))
 	{
 		for (auto& itemBox : itemBoxs)
 		{
-			itemBox->SetPos(Vec2(itemBox->GetPos().x, itemBox->GetPos().y + 10));
+			itemBox->SetPos(Vec2(itemBox->GetPos().x + addX, itemBox->GetPos().y + addY));
 		}
 	}
-	else if (KEY_HOLD(KEY::S))
-	{
-		for (auto& itemBox : itemBoxs)
-		{
-			itemBox->SetPos(Vec2(itemBox->GetPos().x, itemBox->GetPos().y - 10));
-		}
-	}
-	else if (KEY_HOLD(KEY::A))
-	{
-		for (auto& itemBox : itemBoxs)
-		{
-			itemBox->SetPos(Vec2(itemBox->GetPos().x + 10, itemBox->GetPos().y));
-		}
-	}
-	else if (KEY_HOLD(KEY::D))
-	{
-		for (auto& itemBox : itemBoxs)
-		{
-			itemBox->SetPos(Vec2(itemBox->GetPos().x - 10, itemBox->GetPos().y));
-		}
-	}
+
+	previousMouse = mouse;
 }
 
 void ItemTree::Render(HDC _dc)

@@ -3,7 +3,7 @@
 
 class Button;
 class Image;
-
+class CharacterImage;
 class CutScene
 {
 public:
@@ -14,7 +14,8 @@ private:
 	unordered_set<wstring> cutSceneItems;
 	wstring cutSceneItem;
 	Button* button;
-	Image* image;
+	CharacterImage* girlImage;
+	CharacterImage* boyImage;
 	bool isCutsing = false;
 	int index = 0;
 	int textIndex = 0;

@@ -10,6 +10,8 @@
 #include "Object.h"
 #include "SpriteSO.h"
 #include "SoundMgr.h"
+#include "ResMgr.h"
+#include "CharacterImage.h"
 
 CutScene::CutScene()
 {
@@ -30,6 +32,18 @@ CutScene::CutScene()
 	button->SetCaption(L"TEXT");
 
 	SoundMgr::GetInst()->LoadSound(L"TEXTEFF", false, L"Sound\\270338__littlerobotsoundfactory__open-01.wav");
+
+	girlImage = new CharacterImage();
+	girlImage->SetIsSpot(true);
+	girlImage->SetOriginPos(Vec2(404, 190));
+	girlImage->SetTargetPos(Vec2(490, 210));
+
+	boyImage = new CharacterImage();
+	boyImage->SetIsSpot(false);
+	boyImage->SetOriginPos(Vec2(236, 190));
+	boyImage->SetTargetPos(Vec2(150, 210));
+
+	boyImage->SetImage(ResMgr::GetInst()->ImgLoad(L"PeopleImage", L"Image\\Background\\People.bmp"));
 }
 
 CutScene::~CutScene()
@@ -41,10 +55,32 @@ wstring CutScene::GetText(const wstring& itemKey, int index)
 	wstring str = ItemSO::GetInst()->GetItemData(itemKey)->GetTextAddress();
 	wstring str2 = std::to_wstring(index);
 	str = str.append(str2);
-	image = ItemSO::GetInst()->GetItemData(itemKey)->GetSprite();
+	girlImage->SetImage(ItemSO::GetInst()->GetItemData(itemKey)->GetSprite());
 
 	if (TextSO::GetInst()->GetTextData(str) != L"")
 	{
+		wstring text = TextSO::GetInst()->GetTextData(str);
+		if (text.at(0) == L'[')
+		{
+			girlImage->SetIsSpot(true);
+			boyImage->SetIsSpot(false);
+		}
+		else if (text.at(0) == L'{')
+		{
+			girlImage->SetIsSpot(false);
+			boyImage->SetIsSpot(true);
+		}
+		else if (text.at(0) == L'(')
+		{
+			girlImage->SetIsSpot(false);
+			boyImage->SetIsSpot(false);
+		}
+		else
+		{
+			girlImage->SetIsSpot(true);
+			boyImage->SetIsSpot(true);
+		}
+
 		return TextSO::GetInst()->GetTextData(str);
 	}
 	return L"";
@@ -79,21 +115,17 @@ bool CutScene::CheckCutSing()
 
 void CutScene::Render(HDC _dc)
 {
-	if (image)
-	{
-		TransparentBlt(_dc,
-			192,
-			50,
-			256,
-			256,
-			image->GetDC(), 0, 0, 128, 128, RGB(255, 0, 255));
-	}
+	girlImage->Render(_dc);
+	boyImage->Render(_dc);
 	button->Render(_dc);
 
 }
 
 void CutScene::Update()
 {
+	girlImage->Update();
+	boyImage->Update();
+
 	POINT mouse;
 	GetCursorPos(&mouse);
 	ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
