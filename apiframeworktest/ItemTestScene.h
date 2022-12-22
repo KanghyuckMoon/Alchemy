@@ -7,6 +7,9 @@ class Inventory;
 class ItemMix;
 class ItemTree;
 class Button;
+class Image;
+class ItemCaptionWindow;
+class WoodObject;
 
 enum class ItemMode : int
 {
@@ -36,10 +39,16 @@ private:
     ItemMode itemMode;
     ItemTree* itemTree;
 
+    //Default
+    WoodObject* woodObject;
+
     //ItemMix
     ItemMix* itemMix;
     Button* mixButton;
     Button* cancleButton;
+
+    Background* inventoryWindow;
+    ItemCaptionWindow* itemCaptionWindow;
 
     vector<ItemBox> itemBoxs;
     Background* m_Background_DefaultMode;

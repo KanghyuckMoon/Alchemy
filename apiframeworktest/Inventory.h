@@ -16,6 +16,7 @@ public:
 	void RemoveItem(const wstring& str);
 	void RemoveItem(int index);
 	void AddItem(const wstring& str);
+	void ChangeItem(const wstring& str, int index);
 	int GetCount();
 	shared_ptr<ItemData> GetItemData(int index);
 	bool CheckGetItemWas(const wstring& str);
