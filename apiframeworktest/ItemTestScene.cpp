@@ -21,6 +21,7 @@
 #include "Button.h"
 #include "ItemCaptionWindow.h"
 #include "WoodObject.h"
+#include "CutScene.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -87,14 +88,14 @@ void ItemTestScene::Enter()
 
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
 	int iItem = 8;
-	float fMoveDist = 30.f;
+	float fMoveDist = 10.f;
 	float fObjScale = 100.f;
 	float fTerm = (640 / iItem);
 	for (int i = 0; i < iItem; i++)
 	{
 		itemBoxs.push_back(ItemBox(L""));
 		itemBoxs.at(i).SetName(L"ItemBox");
-		itemBoxs.at(i).SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 440.f));
+		itemBoxs.at(i).SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 435.f));
 		itemBoxs.at(i).SetScale(Vec2(fObjScale, fObjScale));
 	}
 }
@@ -108,140 +109,104 @@ void ItemTestScene::Update()
 {
 	Scene::Update();
 
-
-	if (KEY_TAP(KEY::LEFT))
+	if (cutScene->CheckCutSing())
 	{
+		cutScene->Update();
+	}
+	else
+	{
+
+		if (KEY_TAP(KEY::LEFT))
+		{
+			switch (itemMode)
+			{
+			case ItemMode::DEFAULTMODE:
+				itemMode = ItemMode::DELETEMODE;
+				break;
+			case ItemMode::MIXMODE:
+				itemMode = ItemMode::DEFAULTMODE;
+				break;
+			case ItemMode::EXCHANGEMODE:
+				itemMode = ItemMode::MIXMODE;
+				break;
+			case ItemMode::ITEMTREEMODE:
+				itemMode = ItemMode::EXCHANGEMODE;
+				break;
+			case ItemMode::DELETEMODE:
+				itemMode = ItemMode::ITEMTREEMODE;
+				itemTree->ResetPosition();
+				break;
+			}
+		}
+
+		if (KEY_TAP(KEY::RIGHT))
+		{
+			switch (itemMode)
+			{
+			case ItemMode::DEFAULTMODE:
+				itemMode = ItemMode::MIXMODE;
+				break;
+			case ItemMode::MIXMODE:
+				itemMode = ItemMode::EXCHANGEMODE;
+				break;
+			case ItemMode::EXCHANGEMODE:
+				itemMode = ItemMode::ITEMTREEMODE;
+				itemTree->ResetPosition();
+				break;
+			case ItemMode::ITEMTREEMODE:
+				itemMode = ItemMode::DELETEMODE;
+				break;
+			case ItemMode::DELETEMODE:
+				itemMode = ItemMode::DEFAULTMODE;
+				break;
+			}
+		}
+
+		POINT mouse;
+		GetCursorPos(&mouse);
+		ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
+
 		switch (itemMode)
 		{
 		case ItemMode::DEFAULTMODE:
-			itemMode = ItemMode::DELETEMODE;
-			break;
-		case ItemMode::MIXMODE:
-			itemMode = ItemMode::DEFAULTMODE;
-			break;
-		case ItemMode::EXCHANGEMODE:
-			itemMode = ItemMode::MIXMODE;
-			break;
-		case ItemMode::ITEMTREEMODE:
-			itemMode = ItemMode::EXCHANGEMODE;
-			break;
-		case ItemMode::DELETEMODE:
-			itemMode = ItemMode::ITEMTREEMODE;
-			itemTree->ResetPosition();
-			break;
-		}
-	}
-
-	if (KEY_TAP(KEY::RIGHT))
-	{
-		switch (itemMode)
-		{
-		case ItemMode::DEFAULTMODE:
-			itemMode = ItemMode::MIXMODE;
-			break;
-		case ItemMode::MIXMODE:
-			itemMode = ItemMode::EXCHANGEMODE;
-			break;
-		case ItemMode::EXCHANGEMODE:
-			itemMode = ItemMode::ITEMTREEMODE;
-			itemTree->ResetPosition();
-			break;
-		case ItemMode::ITEMTREEMODE:
-			itemMode = ItemMode::DELETEMODE;
-			break;
-		case ItemMode::DELETEMODE:
-			itemMode = ItemMode::DEFAULTMODE;
-			break;
-		}
-	}
-
-	POINT mouse;
-	GetCursorPos(&mouse);
-	ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
-
-	switch (itemMode)
-	{
-	case ItemMode::DEFAULTMODE:
-		woodObject->Update();
-		if (KEY_TAP(KEY::LBTN))
-		{
-			if (woodObject->StayCollision(mouse))
+			woodObject->Update();
+			if (KEY_TAP(KEY::LBTN))
 			{
-				SoundMgr::GetInst()->Play(L"DEFAULTEFF");
-				Inventory::GetInst()->AddItem(L"나무");
-				InventoryFetch();
-			}
-		}
-		break;
-	case ItemMode::MIXMODE:
-		if (KEY_TAP(KEY::LBTN))
-		{
-			for (size_t index = 0; index < itemBoxs.size(); ++index)
-			{
-				if ((itemBoxs.begin() + index)->ClickEvent(mouse))
+				if (woodObject->StayCollision(mouse))
 				{
-					if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > index)
-					{
-						SoundMgr::GetInst()->Play(L"ITEMHCLICKEFF");
-						itemMix->SelectItem(Inventory::GetInst()->GetItemData(index)->GetKey());
-						Inventory::GetInst()->RemoveItem(index);
-						break;
-					}
+					SoundMgr::GetInst()->Play(L"DEFAULTEFF");
+					Inventory::GetInst()->AddItem(L"나무");
+					InventoryFetch();
 				}
 			}
-
-			if (mixButton->StayCollision(mouse))
+			break;
+		case ItemMode::MIXMODE:
+			if (KEY_TAP(KEY::LBTN))
 			{
-				wstring str = itemMix->MixItem();
-				if (str != L"")
+				for (size_t index = 0; index < itemBoxs.size(); ++index)
 				{
-					if (RecipeSO::GetInst()->GetRecipe(str) != L"")
+					if ((itemBoxs.begin() + index)->ClickEvent(mouse))
 					{
-						SoundMgr::GetInst()->Play(L"MIXEFF");
-						Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(str));
-						itemMix->Clear();
-					}
-					else
-					{
-						SoundMgr::GetInst()->Play(L"CANCLEEFF");
-					}
-				}
-			}
-
-			if (cancleButton->StayCollision(mouse))
-			{
-				SoundMgr::GetInst()->Play(L"CANCLEEFF");
-				itemMix->ReturnItems();
-				itemMix->Clear();
-				InventoryFetch();
-			}
-
-
-			InventoryFetch();
-		}
-		break;
-
-	case ItemMode::EXCHANGEMODE:
-		if (KEY_TAP(KEY::LBTN))
-		{
-			for (size_t index = 0; index < itemBoxs.size(); ++index)
-			{
-				if ((itemBoxs.begin() + index)->ClickEvent(mouse))
-				{
-					if (Inventory::GetInst()->GetCount() > index)
-					{
-						if (RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey()) != L"")
+						if (itemMix->GetCount() < 2 && Inventory::GetInst()->GetCount() > index)
 						{
-							wstring str = RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey());
-
-							if (str == L"미소녀9_1")
-							{
-								SceneMgr::GetInst()->ChangeScene(SCENE_TYPE::SCENE_ENDING);
-								break;
-							}
-							SoundMgr::GetInst()->Play(L"MIXEFF");
-							Inventory::GetInst()->ChangeItem(str, index);
+							SoundMgr::GetInst()->Play(L"ITEMHCLICKEFF");
+							itemMix->SelectItem(Inventory::GetInst()->GetItemData(index)->GetKey());
+							Inventory::GetInst()->RemoveItem(index);
 							break;
+						}
+					}
+				}
+
+				if (mixButton->StayCollision(mouse))
+				{
+					wstring str = itemMix->MixItem();
+					if (str != L"")
+					{
+						if (RecipeSO::GetInst()->GetRecipe(str) != L"")
+						{
+							SoundMgr::GetInst()->Play(L"MIXEFF");
+							Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(str));
+							itemMix->Clear();
 						}
 						else
 						{
@@ -249,86 +214,129 @@ void ItemTestScene::Update()
 						}
 					}
 				}
-			}
-			InventoryFetch();
-		}
-		break;
-	case ItemMode::DELETEMODE:
 
-		if (KEY_TAP(KEY::LBTN))
+				if (cancleButton->StayCollision(mouse))
+				{
+					SoundMgr::GetInst()->Play(L"CANCLEEFF");
+					itemMix->ReturnItems();
+					itemMix->Clear();
+					InventoryFetch();
+				}
+
+
+				InventoryFetch();
+			}
+			break;
+
+		case ItemMode::EXCHANGEMODE:
+			if (KEY_TAP(KEY::LBTN))
+			{
+				for (size_t index = 0; index < itemBoxs.size(); ++index)
+				{
+					if ((itemBoxs.begin() + index)->ClickEvent(mouse))
+					{
+						if (Inventory::GetInst()->GetCount() > index)
+						{
+							if (RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey()) != L"")
+							{
+								wstring str = RecipeSO::GetInst()->GetGirl(Inventory::GetInst()->GetItemData(index)->GetKey());
+
+								if (str == L"미소녀9_1")
+								{
+									SceneMgr::GetInst()->ChangeScene(SCENE_TYPE::SCENE_ENDING);
+									break;
+								}
+								SoundMgr::GetInst()->Play(L"MIXEFF");
+								Inventory::GetInst()->ChangeItem(str, index);
+								break;
+							}
+							else
+							{
+								SoundMgr::GetInst()->Play(L"CANCLEEFF");
+							}
+						}
+					}
+				}
+				InventoryFetch();
+			}
+			break;
+		case ItemMode::DELETEMODE:
+
+			if (KEY_TAP(KEY::LBTN))
+			{
+				for (size_t index = 0; index < itemBoxs.size(); ++index)
+				{
+					if ((itemBoxs.begin() + index)->ClickEvent(mouse))
+					{
+						if (Inventory::GetInst()->GetCount() > index)
+						{
+							SoundMgr::GetInst()->Play(L"CANCLEEFF");
+							Inventory::GetInst()->RemoveItem(index);
+							break;
+						}
+					}
+				}
+				InventoryFetch();
+			}
+			break;
+		case ItemMode::ITEMTREEMODE:
+			itemTree->Update();
+			break;
+		}
+
+		if (itemMode == ItemMode::ITEMTREEMODE)
 		{
+			static bool isPreviousTouch = false;
+			bool isTouch = false;
+			if (itemTree->ClickEventGetItemKey(mouse) != L"")
+			{
+				isTouch = true;
+				itemCaptionWindow->SetItemData(itemTree->ClickEventGetItemKey(mouse));
+
+			}
+			else
+			{
+				itemCaptionWindow->SetItemData(L"");
+			}
+			if (isTouch && !isPreviousTouch)
+			{
+				SoundMgr::GetInst()->Play(L"ITEMHIGHEFF");
+			}
+			isPreviousTouch = isTouch;
+		}
+		else
+		{
+			static bool isPreviousTouch = false;
+			bool isTouch = false;
 			for (size_t index = 0; index < itemBoxs.size(); ++index)
 			{
 				if ((itemBoxs.begin() + index)->ClickEvent(mouse))
 				{
 					if (Inventory::GetInst()->GetCount() > index)
 					{
-						SoundMgr::GetInst()->Play(L"CANCLEEFF");
-						Inventory::GetInst()->RemoveItem(index);
+						isTouch = true;
+						itemCaptionWindow->SetItemData(Inventory::GetInst()->GetItemData(index)->GetKey());
 						break;
+					}
+					else
+					{
+						isTouch = false;
+						itemCaptionWindow->SetItemData(L"");
 					}
 				}
 			}
-			InventoryFetch();
-		}
-		break;
-	case ItemMode::ITEMTREEMODE:
-		itemTree->Update();
-		break;
-	}
-
-	if (itemMode == ItemMode::ITEMTREEMODE)
-	{
-		static bool isPreviousTouch = false;
-		bool isTouch = false;
-		if (itemTree->ClickEventGetItemKey(mouse) != L"")
-		{
-			isTouch = true;
-			itemCaptionWindow->SetItemData(itemTree->ClickEventGetItemKey(mouse));
-
-		}
-		else
-		{
-			itemCaptionWindow->SetItemData(L"");
-		}
-		if (isTouch && !isPreviousTouch)
-		{
-			SoundMgr::GetInst()->Play(L"ITEMHIGHEFF");
-		}
-		isPreviousTouch = isTouch;
-	}
-	else
-	{
-		static bool isPreviousTouch = false;
-		bool isTouch = false;
-		for (size_t index = 0; index < itemBoxs.size(); ++index)
-		{
-			if ((itemBoxs.begin() + index)->ClickEvent(mouse))
+			if (!isTouch)
 			{
-				if (Inventory::GetInst()->GetCount() > index)
-				{
-					isTouch = true;
-					itemCaptionWindow->SetItemData(Inventory::GetInst()->GetItemData(index)->GetKey());
-					break;
-				}
-				else
-				{
-					isTouch = false;
-					itemCaptionWindow->SetItemData(L"");
-				}
+
+				itemCaptionWindow->SetItemData(L"");
 			}
-		}
-		if (!isTouch)
-		{
+			else if (!isPreviousTouch)
+			{
+				SoundMgr::GetInst()->Play(L"ITEMHIGHEFF");
+			}
 
-			itemCaptionWindow->SetItemData(L"");
+			isPreviousTouch = isTouch;
 		}
-		else if (!isPreviousTouch)
-		{
-			SoundMgr::GetInst()->Play(L"ITEMHIGHEFF");
-		}
-
-		isPreviousTouch = isTouch;
 	}
 }
 
@@ -348,77 +356,86 @@ void ItemTestScene::Render(HDC _dc)
 	s_hFont = CreateFontIndirect(&logFont);
 	s_oldHFont = (HFONT)SelectObject(_dc, s_hFont);
 
-	switch (itemMode)
+	if (cutScene->CheckCutSing())
 	{
-	case ItemMode::DEFAULTMODE:
-		m_Background_DefaultMode->Render(_dc);
-		break;
-	case ItemMode::MIXMODE:
-		m_Background_MixMode->Render(_dc);
-		break;
-	case ItemMode::EXCHANGEMODE:
-		m_Background_ExchangeMode->Render(_dc);
-		break;
-	case ItemMode::ITEMTREEMODE:
 		m_Background_ItemTreeMode->Render(_dc);
-		break;
-	case ItemMode::DELETEMODE:
-		m_Background_DeleteMode->Render(_dc);
-		break;
+		Scene::Render(_dc);
+		cutScene->Render(_dc);
 	}
-
-	Scene::Render(_dc);
-
-
-	switch (itemMode)
+	else
 	{
-	case ItemMode::MIXMODE:
-		inventoryWindow->Render(_dc);
-		itemMix->Render(_dc);
-		mixButton->Render(_dc);
-		cancleButton->Render(_dc);
-		for (int i = 0; i < 8; i++)
+		switch (itemMode)
 		{
-			itemBoxs.at(i).Render(_dc);
+		case ItemMode::DEFAULTMODE:
+			m_Background_DefaultMode->Render(_dc);
+			break;
+		case ItemMode::MIXMODE:
+			m_Background_MixMode->Render(_dc);
+			break;
+		case ItemMode::EXCHANGEMODE:
+			m_Background_ExchangeMode->Render(_dc);
+			break;
+		case ItemMode::ITEMTREEMODE:
+			m_Background_ItemTreeMode->Render(_dc);
+			break;
+		case ItemMode::DELETEMODE:
+			m_Background_DeleteMode->Render(_dc);
+			break;
 		}
 
-		TextOutW(_dc, 10, 10, L"합성", 2);
-		break;
-	case ItemMode::EXCHANGEMODE:
-		inventoryWindow->Render(_dc);
-		for (int i = 0; i < 8; i++)
-		{
-			itemBoxs.at(i).Render(_dc);
-		}
-		TextOutW(_dc, 10, 10, L"등가 교환", 5);
-		break;
-	case ItemMode::DELETEMODE:
-		inventoryWindow->Render(_dc);
-		for (int i = 0; i < 8; i++)
-		{
-			itemBoxs.at(i).Render(_dc);
-		}
-		TextOutW(_dc, 10, 10, L"제거", 2);
-		break;
-	case ItemMode::DEFAULTMODE:
-		woodObject->Render(_dc);
-		inventoryWindow->Render(_dc);
-		for (int i = 0; i < 8; i++)
-		{
-			itemBoxs.at(i).Render(_dc);
-		}
+		Scene::Render(_dc);
 
-		TextOutW(_dc, 10, 10, L"벌목", 2);
-		break;
-	case ItemMode::ITEMTREEMODE:
-		itemTree->Render(_dc);
-		TextOutW(_dc, 10, 10, L"아이템 트리", 6);
-		TextOutW(_dc, 10, 30, L"검정 : 다른 두 가지 아이템 합성", 19);
-		TextOutW(_dc, 10, 50, L"빨강 : 등가교환", 9);
-		TextOutW(_dc, 10, 70, L"파랑 : 같은 아이템 두 개 합성", 18);
-		break;
+
+		switch (itemMode)
+		{
+		case ItemMode::MIXMODE:
+			inventoryWindow->Render(_dc);
+			itemMix->Render(_dc);
+			mixButton->Render(_dc);
+			cancleButton->Render(_dc);
+			for (int i = 0; i < 8; i++)
+			{
+				itemBoxs.at(i).Render(_dc);
+			}
+
+			TextOutW(_dc, 10, 10, L"합성", 2);
+			break;
+		case ItemMode::EXCHANGEMODE:
+			inventoryWindow->Render(_dc);
+			for (int i = 0; i < 8; i++)
+			{
+				itemBoxs.at(i).Render(_dc);
+			}
+			TextOutW(_dc, 10, 10, L"등가 교환", 5);
+			break;
+		case ItemMode::DELETEMODE:
+			inventoryWindow->Render(_dc);
+			for (int i = 0; i < 8; i++)
+			{
+				itemBoxs.at(i).Render(_dc);
+			}
+			TextOutW(_dc, 10, 10, L"제거", 2);
+			break;
+		case ItemMode::DEFAULTMODE:
+			woodObject->Render(_dc);
+			inventoryWindow->Render(_dc);
+			for (int i = 0; i < 8; i++)
+			{
+				itemBoxs.at(i).Render(_dc);
+			}
+
+			TextOutW(_dc, 10, 10, L"벌목", 2);
+			break;
+		case ItemMode::ITEMTREEMODE:
+			itemTree->Render(_dc);
+			TextOutW(_dc, 10, 10, L"아이템 트리", 6);
+			TextOutW(_dc, 10, 30, L"검정 : 다른 두 가지 아이템 합성", 19);
+			TextOutW(_dc, 10, 50, L"빨강 : 등가교환", 9);
+			TextOutW(_dc, 10, 70, L"파랑 : 같은 아이템 두 개 합성", 18);
+			break;
+		}
+		itemCaptionWindow->Render(_dc);
 	}
-	itemCaptionWindow->Render(_dc);
 
 	DeleteObject(s_hFont);
 }

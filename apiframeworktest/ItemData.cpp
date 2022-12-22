@@ -32,3 +32,18 @@ Image* ItemData::GetSprite()
 {
 	return ResMgr::GetInst()->ImgFind(spriteAddress);
 }
+
+wstring ItemData::GetNameAddress()
+{
+	return this->nameAddress;
+}
+
+wstring ItemData::GetTextAddress()
+{
+	return this->textAddress;
+}
+
+wstring ItemData::GetSpriteAddress()
+{
+	return this->spriteAddress;
+}

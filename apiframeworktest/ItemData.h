@@ -16,6 +16,9 @@ public:
 	wstring GetName();
 	wstring GetText();
 	Image* GetSprite();
+	wstring GetNameAddress();
+	wstring GetTextAddress();
+	wstring GetSpriteAddress();
 
 };
 

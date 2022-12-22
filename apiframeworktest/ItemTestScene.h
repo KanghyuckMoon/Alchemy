@@ -10,6 +10,7 @@ class Button;
 class Image;
 class ItemCaptionWindow;
 class WoodObject;
+class CutScene;
 
 enum class ItemMode : int
 {
@@ -38,6 +39,9 @@ public:
 private:
     ItemMode itemMode;
     ItemTree* itemTree;
+
+    //CutScene
+    CutScene* cutScene;
 
     //Default
     WoodObject* woodObject;
