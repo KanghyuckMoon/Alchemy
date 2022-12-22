@@ -86,7 +86,7 @@ void CutScene::Render(HDC _dc)
 			50,
 			256,
 			256,
-			image->GetDC(), 0, 0, 128, 128, RGB(255, 255, 255));
+			image->GetDC(), 0, 0, 128, 128, RGB(255, 0, 255));
 	}
 	button->Render(_dc);
 

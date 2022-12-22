@@ -286,6 +286,9 @@
     <ClInclude Include="ItemAfterImage.h">
       <Filter>Engine\04. Object\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="CauldronObject.h">
+      <Filter>Engine\04. Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -451,6 +454,9 @@
     </ClCompile>
     <ClCompile Include="ItemAfterImage.cpp">
       <Filter>Engine\04. Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="CauldronObject.cpp">
+      <Filter>Engine\04. Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

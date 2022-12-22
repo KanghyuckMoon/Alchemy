@@ -12,6 +12,7 @@ class ItemCaptionWindow;
 class WoodObject;
 class CutScene;
 class ItemMoveEffect;
+class CauldronObject;
 
 enum class ItemMode : int
 {
@@ -41,11 +42,19 @@ private:
     ItemMode itemMode;
     ItemTree* itemTree;
 
+    //Left Right
+    Button* leftSceneButton;
+    Button* rightSceneButton;
+
+    //Tutorial
+    Button* tutorialButton;
+
     //CutScene
     CutScene* cutScene;
 
     //Default
     WoodObject* woodObject;
+    CauldronObject* cauldronObject;
 
     //ItemMix
     ItemMix* itemMix;

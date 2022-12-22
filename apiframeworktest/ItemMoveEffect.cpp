@@ -104,11 +104,11 @@ void ItemMoveEffect::Render(HDC _dc)
 		effect->Render(_dc, image, 100);
 	}
 
-	StretchBlt(_dc, GetPos().x - (GetScale().x / 2) + 5, 
+	TransparentBlt(_dc, GetPos().x - (GetScale().x / 2) + 5, 
 		GetPos().y - (GetScale().y / 2) + 5, 
 		GetScale().x / 2 - 10, 
 		GetScale().y / 2 - 10,
-		image->GetDC(), 0, 0, image->GetWidth(), image->GetHeight(), SRCCOPY);
+		image->GetDC(), 0, 0, image->GetWidth(), image->GetHeight(), RGB(255,0,255));
 
 }
 

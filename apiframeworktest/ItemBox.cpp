@@ -56,7 +56,7 @@ void ItemBox::Render(HDC _dc)
 	TransparentBlt(_dc, GetPos().x - (GetScale().x / 2), GetPos().y - (GetScale().y / 2), GetScale().x / 2, GetScale().y / 2, m_templateImage->GetDC(), 0, 0, m_templateImage->GetWidth(), m_templateImage->GetHeight(), RGB(255, 0, 255));
 	if (m_itemImage)
 	{
-		StretchBlt(_dc, GetPos().x - (GetScale().x / 2) + 5, GetPos().y - (GetScale().y / 2) + 5, GetScale().x / 2 - 10, GetScale().y / 2 - 10, m_itemImage->GetDC(), 0, 0, m_itemImage->GetWidth(), m_itemImage->GetHeight(), SRCCOPY);
+		TransparentBlt(_dc, GetPos().x - (GetScale().x / 2) + 5, GetPos().y - (GetScale().y / 2) + 5, GetScale().x / 2 - 10, GetScale().y / 2 - 10, m_itemImage->GetDC(), 0, 0, m_itemImage->GetWidth(), m_itemImage->GetHeight(), RGB(255,0,255));
 	}
 }
 

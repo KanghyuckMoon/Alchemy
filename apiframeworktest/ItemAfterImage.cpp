@@ -36,7 +36,7 @@ void ItemAfterImage::Render(HDC _dc, Image* image, int alpha)
 	BitBlt(MemDC, 0, 0, rect.right, rect.bottom, _dc, 0, 0, SRCCOPY);
 	BitBlt(AlphaDC, 0, 0, rect.right, rect.bottom, MemDC, 0, 0, SRCCOPY);
 
-	StretchBlt(AlphaDC, GetPos().x - (GetScale().x / 2) + 5, GetPos().y - (GetScale().y / 2) + 5, GetScale().x / 2 - 10, GetScale().y / 2 - 10, image->GetDC(), 0, 0, image->GetWidth(), image->GetHeight(), SRCCOPY);
+	TransparentBlt(AlphaDC, GetPos().x - (GetScale().x / 2) + 5, GetPos().y - (GetScale().y / 2) + 5, GetScale().x / 2 - 10, GetScale().y / 2 - 10, image->GetDC(), 0, 0, image->GetWidth(), image->GetHeight(), RGB(255,0,255));
 	AlphaBlend(MemDC, GetPos().x - (GetScale().x / 2) + 5, GetPos().y - (GetScale().y / 2) + 5, GetScale().x / 2 - 10, GetScale().y / 2 - 10, AlphaDC, GetPos().x - (GetScale().x / 2) + 5, GetPos().y - (GetScale().y / 2) + 5, GetScale().x / 2 - 10, GetScale().y / 2 - 10, _bf);
 	BitBlt(_dc, 0, 0, rect.right, rect.bottom, MemDC, 0, 0, SRCCOPY);
 

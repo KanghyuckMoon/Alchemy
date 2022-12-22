@@ -24,6 +24,7 @@
 #include "CutScene.h"
 #include "ItemMoveEffect.h"
 #include "ItemSO.h"
+#include "CauldronObject.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -65,6 +66,7 @@ void ItemTestScene::Enter()
 	m_Background_DeleteMode = new Background(L"Background5", L"Image\\Background\\background5.bmp");
 
 	woodObject = new WoodObject();
+	cauldronObject = new CauldronObject();
 
 	inventoryWindow = new Background(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
 	inventoryWindow->SetScale(Vec2(640, 64));
@@ -76,6 +78,13 @@ void ItemTestScene::Enter()
 	itemTree = new ItemTree();
 	itemMix = new ItemMix();
 	cutScene = new CutScene();
+
+	tutorialButton = new Button();
+	tutorialButton->SetPos(Vec2(600, 30));
+	tutorialButton->SetScale(Vec2(32, 32));
+	tutorialButton->SetImageSize(Vec2(32, 32));
+	tutorialButton->SetImage(L"Gear", L"Image\\ItemImage\\Gear.bmp");
+	tutorialButton->SetCaption(L"도움말");
 
 	mixButton = new Button();
 	mixButton->SetPos(Vec2(100, 270));
@@ -90,6 +99,20 @@ void ItemTestScene::Enter()
 	cancleButton->SetImageSize(Vec2(150, 40));
 	cancleButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 	cancleButton->SetCaption(L"취소");
+
+	leftSceneButton = new Button();
+	leftSceneButton->SetPos(Vec2(70, 320));
+	leftSceneButton->SetScale(Vec2(100, 20));
+	leftSceneButton->SetImageSize(Vec2(150, 40));
+	leftSceneButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
+	leftSceneButton->SetCaption(L"제거");
+
+	rightSceneButton = new Button();
+	rightSceneButton->SetPos(Vec2(540, 320));
+	rightSceneButton->SetScale(Vec2(100, 20));
+	rightSceneButton->SetImageSize(Vec2(100, 20));
+	rightSceneButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
+	rightSceneButton->SetCaption(L"합성");
 
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
 	int iItem = 8;
@@ -122,62 +145,87 @@ void ItemTestScene::Update()
 	}
 	else
 	{
-
-		if (KEY_TAP(KEY::LEFT))
-		{
-			switch (itemMode)
-			{
-			case ItemMode::DEFAULTMODE:
-				itemMode = ItemMode::DELETEMODE;
-				break;
-			case ItemMode::MIXMODE:
-				itemMix->ReturnItems();
-				itemMix->Clear();
-				InventoryFetch();
-				itemMode = ItemMode::DEFAULTMODE;
-				break;
-			case ItemMode::EXCHANGEMODE:
-				itemMode = ItemMode::MIXMODE;
-				break;
-			case ItemMode::ITEMTREEMODE:
-				itemMode = ItemMode::EXCHANGEMODE;
-				break;
-			case ItemMode::DELETEMODE:
-				itemMode = ItemMode::ITEMTREEMODE;
-				itemTree->ResetPosition();
-				break;
-			}
-		}
-
-		if (KEY_TAP(KEY::RIGHT))
-		{
-			switch (itemMode)
-			{
-			case ItemMode::DEFAULTMODE:
-				itemMode = ItemMode::MIXMODE;
-				break;
-			case ItemMode::MIXMODE:
-				itemMix->ReturnItems();
-				itemMix->Clear();
-				InventoryFetch();
-				itemMode = ItemMode::EXCHANGEMODE;
-				break;
-			case ItemMode::EXCHANGEMODE:
-				itemMode = ItemMode::ITEMTREEMODE;
-				itemTree->ResetPosition();
-				break;
-			case ItemMode::ITEMTREEMODE:
-				itemMode = ItemMode::DELETEMODE;
-				break;
-			case ItemMode::DELETEMODE:
-				itemMode = ItemMode::DEFAULTMODE;
-				break;
-			}
-		}
+		tutorialButton->Update();
 
 		POINT mouse;
 		GetCursorPos(&mouse);
 		ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
+
+
+		if (KEY_TAP(KEY::LBTN))
+		{
+			if (leftSceneButton->StayCollision(mouse))
+			{
+				switch (itemMode)
+				{
+				case ItemMode::DEFAULTMODE:
+					itemMode = ItemMode::DELETEMODE;
+					leftSceneButton->SetCaption(L"아이템 트리");
+					rightSceneButton->SetCaption(L"벌목");
+					break;
+				case ItemMode::MIXMODE:
+					itemMix->ReturnItems();
+					itemMix->Clear();
+					InventoryFetch();
+					itemMode = ItemMode::DEFAULTMODE;
+					leftSceneButton->SetCaption(L"제거");
+					rightSceneButton->SetCaption(L"합성");
+					break;
+				case ItemMode::EXCHANGEMODE:
+					itemMode = ItemMode::MIXMODE;
+					leftSceneButton->SetCaption(L"벌목");
+					rightSceneButton->SetCaption(L"아이템 트리");
+					break;
+				case ItemMode::ITEMTREEMODE:
+					itemMode = ItemMode::EXCHANGEMODE;
+					leftSceneButton->SetCaption(L"합성");
+					rightSceneButton->SetCaption(L"아이템 트리");
+					break;
+				case ItemMode::DELETEMODE:
+					itemMode = ItemMode::ITEMTREEMODE;
+					itemTree->ResetPosition();
+					leftSceneButton->SetCaption(L"등가 교환");
+					rightSceneButton->SetCaption(L"제거");
+					break;
+				}
+			}
+
+			if (rightSceneButton->StayCollision(mouse))
+			{
+				switch (itemMode)
+				{
+				case ItemMode::DEFAULTMODE:
+					itemMode = ItemMode::MIXMODE;
+					leftSceneButton->SetCaption(L"벌목");
+					rightSceneButton->SetCaption(L"등가 교환");
+					break;
+				case ItemMode::MIXMODE:
+					itemMix->ReturnItems();
+					itemMix->Clear();
+					InventoryFetch();
+					itemMode = ItemMode::EXCHANGEMODE;
+					leftSceneButton->SetCaption(L"합성");
+					rightSceneButton->SetCaption(L"아이템 트리");
+					break;
+				case ItemMode::EXCHANGEMODE:
+					itemMode = ItemMode::ITEMTREEMODE;
+					itemTree->ResetPosition();
+					leftSceneButton->SetCaption(L"등가 교환");
+					rightSceneButton->SetCaption(L"제거");
+					break;
+				case ItemMode::ITEMTREEMODE:
+					itemMode = ItemMode::DELETEMODE;
+					leftSceneButton->SetCaption(L"아이템 트리");
+					rightSceneButton->SetCaption(L"벌목");
+					break;
+				case ItemMode::DELETEMODE:
+					itemMode = ItemMode::DEFAULTMODE;
+					leftSceneButton->SetCaption(L"제거");
+					rightSceneButton->SetCaption(L"합성");
+					break;
+				}
+			}
+		}
 
 		switch (itemMode)
 		{
@@ -198,6 +246,25 @@ void ItemTestScene::Update()
 			}
 			break;
 		case ItemMode::MIXMODE:
+			cauldronObject->Update();
+			{
+				wstring str = itemMix->MixItem();
+				if (str != L"")
+				{
+					if (RecipeSO::GetInst()->GetRecipe(str) != L"")
+					{
+						cauldronObject->SetIsCanMix(true);
+					}
+					else
+					{
+						cauldronObject->SetIsCanMix(false);
+					}
+				}
+				else
+				{
+					cauldronObject->SetIsCanMix(false);
+				}
+			}
 			if (KEY_TAP(KEY::LBTN))
 			{
 				for (size_t index = 0; index < itemBoxs.size(); ++index)
@@ -223,6 +290,7 @@ void ItemTestScene::Update()
 						if (RecipeSO::GetInst()->GetRecipe(str) != L"")
 						{
 							SoundMgr::GetInst()->Play(L"MIXEFF");
+							cauldronObject->SetMix();
 							Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(str));
 							itemMix->Clear(); 
 						}
@@ -422,20 +490,27 @@ void ItemTestScene::Render(HDC _dc)
 
 		Scene::Render(_dc);
 
+		leftSceneButton->Render(_dc);
+		rightSceneButton->Render(_dc);
 
 		switch (itemMode)
 		{
 		case ItemMode::MIXMODE:
+			cauldronObject->Render(_dc);
 			inventoryWindow->Render(_dc);
 			itemMix->Render(_dc);
 			mixButton->Render(_dc);
 			cancleButton->Render(_dc);
+
 			for (int i = 0; i < 8; i++)
 			{
 				itemBoxs.at(i).Render(_dc);
 			}
 
 			TextOutW(_dc, 10, 10, L"합성", 2);
+			TextOutW(_dc, 10, 449, L"← → : 장소 변경, 아이템 클릭 :  합성할 아이템 선택", 33);
+			TextOutW(_dc, 10, 463, L"합성 버튼 : 두 아이템 합성하기, 취소 버튼 : 아이템 돌려받기", 35);
+
 			break;
 		case ItemMode::EXCHANGEMODE:
 			inventoryWindow->Render(_dc);
@@ -444,6 +519,7 @@ void ItemTestScene::Render(HDC _dc)
 				itemBoxs.at(i).Render(_dc);
 			}
 			TextOutW(_dc, 10, 10, L"등가 교환", 5);
+			TextOutW(_dc, 10, 460, L"← → : 장소 변경, 등가교환 가능한 아이템 클릭: 아이템 등가교환하기", 38);
 			break;
 		case ItemMode::DELETEMODE:
 			inventoryWindow->Render(_dc);
@@ -452,6 +528,7 @@ void ItemTestScene::Render(HDC _dc)
 				itemBoxs.at(i).Render(_dc);
 			}
 			TextOutW(_dc, 10, 10, L"제거", 2);
+			TextOutW(_dc, 10, 460, L"← → : 장소 변경, 아이템 클릭 : 아이템 버리기", 29);
 			break;
 		case ItemMode::DEFAULTMODE:
 			woodObject->Render(_dc);
@@ -462,13 +539,22 @@ void ItemTestScene::Render(HDC _dc)
 			}
 
 			TextOutW(_dc, 10, 10, L"벌목", 2);
+			TextOutW(_dc, 10, 460, L"← → : 장소 변경, 나무 클릭 : 나무 획득하기", 28);
 			break;
 		case ItemMode::ITEMTREEMODE:
+			SetTextColor(_dc, RGB(0, 0, 0));
 			itemTree->Render(_dc);
+			SetTextColor(_dc, RGB(0, 0, 0));
 			TextOutW(_dc, 10, 10, L"아이템 트리", 6);
+			SetTextColor(_dc, RGB(0, 0, 0));
 			TextOutW(_dc, 10, 30, L"검정 : 다른 두 가지 아이템 합성", 19);
+			SetTextColor(_dc, RGB(255, 0, 0));
 			TextOutW(_dc, 10, 50, L"빨강 : 등가교환", 9);
+			SetTextColor(_dc, RGB(0, 0, 255));
 			TextOutW(_dc, 10, 70, L"파랑 : 같은 아이템 두 개 합성", 18);
+			SetTextColor(_dc, RGB(0, 0, 0));
+			TextOutW(_dc, 10, 460, L"← → : 장소 변경, 아이템에 마우스 올리기 : 아이템 정보 확인", 37);
+			SetTextColor(_dc, RGB(255, 255, 255));
 			break;
 		}
 		itemCaptionWindow->Render(_dc);
@@ -480,6 +566,9 @@ void ItemTestScene::Render(HDC _dc)
 				effect->Render(_dc);
 			}
 		}
+
+
+		tutorialButton->Render(_dc);
 	}
 
 	DeleteObject(s_hFont);
