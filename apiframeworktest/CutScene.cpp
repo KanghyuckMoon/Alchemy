@@ -31,6 +31,20 @@ CutScene::CutScene()
 	button->SetPos(Vec2(320, 440 - 32));
 	button->SetCaption(L"TEXT");
 
+	choiceButton1 = new Button();
+	choiceButton1->SetScale(Vec2(150, 40));
+	choiceButton1->SetImageSize(Vec2(150, 40));
+	choiceButton1->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
+	choiceButton1->SetPos(Vec2(320, 100));
+	choiceButton1->SetCaption(L"TEXT");
+
+	choiceButton2 = new Button();
+	choiceButton2->SetScale(Vec2(150, 40));
+	choiceButton2->SetImageSize(Vec2(150, 40));
+	choiceButton2->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
+	choiceButton2->SetPos(Vec2(320, 250));
+	choiceButton2->SetCaption(L"TEXT");
+
 	SoundMgr::GetInst()->LoadSound(L"TEXTEFF", false, L"Sound\\270338__littlerobotsoundfactory__open-01.wav");
 
 	girlImage = new CharacterImage();
@@ -74,6 +88,26 @@ wstring CutScene::GetText(const wstring& itemKey, int index)
 		{
 			girlImage->SetIsSpot(false);
 			boyImage->SetIsSpot(false);
+		}
+		else if (text.at(0) == L'!')
+		{
+			isChoice = true;
+			//Button1
+			{
+				wstring str = ItemSO::GetInst()->GetItemData(itemKey)->GetTextAddress();
+				wstring str2 = std::to_wstring(index + 1);
+				str = str.append(str2);
+				wstring text = TextSO::GetInst()->GetTextData(str);
+				choiceButton1->SetCaption(text);
+			}
+			//Button2
+			{
+				wstring str = ItemSO::GetInst()->GetItemData(itemKey)->GetTextAddress();
+				wstring str2 = std::to_wstring(index + 2);
+				str = str.append(str2);
+				wstring text = TextSO::GetInst()->GetTextData(str);
+				choiceButton2->SetCaption(text);
+			}
 		}
 		else
 		{
@@ -119,6 +153,11 @@ void CutScene::Render(HDC _dc)
 	boyImage->Render(_dc);
 	button->Render(_dc);
 
+	if (isChoice)
+	{
+		choiceButton1->Render(_dc);
+		choiceButton2->Render(_dc);
+	}
 }
 
 void CutScene::Update()
@@ -131,7 +170,43 @@ void CutScene::Update()
 	ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
 	SetButtonText();
 
-	if (isCutsing)
+	if (isChoice)
+	{
+		if (KEY_TAP(KEY::LBTN))
+		{
+			bool isClick = false;
+			if (choiceButton1->StayCollision(mouse))
+			{
+				index += 100;
+
+				isChoice = false;
+				isClick = true;
+			}
+			else if (choiceButton2->StayCollision(mouse))
+			{
+				index += 1000;
+				
+				isChoice = false;
+				isClick = true;
+			}
+
+			if (isClick)
+			{
+				wstring text = GetText(cutSceneItem, index++);
+				if (text != L"")
+				{
+					button->SetCaption(L"");
+					textIndex = 0;
+					outText = text;
+				}
+				else
+				{
+					isCutsing = false;
+				}
+			}
+		}
+	}
+	else if (isCutsing)
 	{
 		//텍스트 창 누를 시
 		if (KEY_TAP(KEY::LBTN))

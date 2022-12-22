@@ -13,10 +13,14 @@ public:
 private:
 	unordered_set<wstring> cutSceneItems;
 	wstring cutSceneItem;
+
+	Button* choiceButton1;
+	Button* choiceButton2;
 	Button* button;
 	CharacterImage* girlImage;
 	CharacterImage* boyImage;
 	bool isCutsing = false;
+	bool isChoice = false;
 	int index = 0;
 	int textIndex = 0;
 	wstring outText = L"";
