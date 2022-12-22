@@ -15,12 +15,15 @@ Object* Button::Clone()
 
 void Button::Render(HDC _dc)
 {
-	TransparentBlt(_dc,
-		GetPos().x - GetScale().x / 2,
-		GetPos().x - GetScale().x / 2,
-		GetScale().x,
-		GetScale().y,
-		backgroundImage->GetDC(), 0, 0, GetScale().x, GetScale().y, RGB(255, 0, 255));
+	if (backgroundImage)
+	{
+		TransparentBlt(_dc,
+			GetPos().x - GetScale().x / 2,
+			GetPos().y - GetScale().y / 2,
+			GetScale().x,
+			GetScale().y,
+			backgroundImage->GetDC(), 0, 0, imageSize.x, imageSize.y, RGB(255, 0, 255));
+	}
 }
 
 bool Button::StayCollision(POINT ps)
@@ -42,4 +45,9 @@ bool Button::StayCollision(POINT ps)
 void Button::SetImage(const wstring& str, const wstring& path)
 {
 	backgroundImage = ResMgr::GetInst()->ImgLoad(str, path);
+}
+
+void Button::SetImageSize(Vec2 vec2)
+{
+	imageSize = vec2;
 }

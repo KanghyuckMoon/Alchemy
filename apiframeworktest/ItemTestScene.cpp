@@ -76,10 +76,14 @@ void ItemTestScene::Enter()
 	mixButton = new Button();
 	mixButton->SetPos(Vec2(100, 270));
 	mixButton->SetScale(Vec2(150, 40));
+	mixButton->SetImageSize(Vec2(150, 40));
+	mixButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 
 	cancleButton = new Button();
-	cancleButton->SetPos(Vec2(600, 270));
+	cancleButton->SetPos(Vec2(550, 270));
 	cancleButton->SetScale(Vec2(150, 40));
+	cancleButton->SetImageSize(Vec2(150, 40));
+	cancleButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
 	int iItem = 8;

@@ -2,7 +2,6 @@
 #include "Object.h"
 #include "Collider.h"
 class Image;
-class Background;
 class Button :
 	public Object
 {
@@ -13,9 +12,12 @@ public:
 	virtual void Render(HDC _dc) override;
 private:
 	Image* backgroundImage;
+	Vec2 imageSize = { 640, 480 };
+
 public:
 	bool	StayCollision(POINT ps);
 	void	SetImage(const wstring& str, const wstring& path);
 	void	SetBackground(Image* image) { backgroundImage = image; }
+	void	SetImageSize(Vec2 vec2);
 };
 
