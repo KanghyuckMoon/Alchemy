@@ -35,6 +35,16 @@ void SpriteSO::Init()
 	ResMgr::GetInst()->ImgLoad(L"Leather Helmet", L"Image\\ItemImage\\Leather Helmet.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Paper", L"Image\\ItemImage\\Paper.bmp");
 	ResMgr::GetInst()->ImgLoad(L"Bone", L"Image\\ItemImage\\Bone.bmp");
+
+	ResMgr::GetInst()->ImgLoad(L"Girl1", L"Image\\ItemImage\\girl1.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Girl2", L"Image\\ItemImage\\girl2.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Girl3", L"Image\\ItemImage\\girl3.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Girl4", L"Image\\ItemImage\\girl4.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Girl5", L"Image\\ItemImage\\girl5.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Girl6", L"Image\\ItemImage\\girl6.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Girl7", L"Image\\ItemImage\\girl7.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Girl8", L"Image\\ItemImage\\girl8.bmp");
+	ResMgr::GetInst()->ImgLoad(L"Girl9", L"Image\\ItemImage\\girl9.bmp");
 }
 
 //Image* SpriteSO::GetSpriteData(const wstring& key)

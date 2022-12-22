@@ -37,23 +37,25 @@ void ItemSO::Init()
 	AddItemData(L"´ÙÀÌ¾Æ¸óµå", shared_ptr<ItemData>(new ItemData(L"´ÙÀÌ¾Æ¸óµå", L"´ÙÀÌ¾Æ¸óµå_N", L"´ÙÀÌ¾Æ¸óµå_T", L"Diamond")));
 
 	//¹Ì¼Ò³à
-	AddItemData(L"¹Ì¼Ò³à1_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à1_1", L"¹Ì¼Ò³à1_N", L"¹Ì¼Ò³à1_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à2_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à2_1", L"¹Ì¼Ò³à2_N", L"¹Ì¼Ò³à2_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à3_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à3_1", L"¹Ì¼Ò³à3_N", L"¹Ì¼Ò³à3_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à4_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à4_1", L"¹Ì¼Ò³à4_N", L"¹Ì¼Ò³à4_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à5_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à5_1", L"¹Ì¼Ò³à5_N", L"¹Ì¼Ò³à5_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à6_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à6_1", L"¹Ì¼Ò³à6_N", L"¹Ì¼Ò³à6_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à7_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à7_1", L"¹Ì¼Ò³à7_N", L"¹Ì¼Ò³à7_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à8_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à8_1", L"¹Ì¼Ò³à8_N", L"¹Ì¼Ò³à8_T", L"Diamond")));
+	AddItemData(L"¹Ì¼Ò³à1_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à1_1", L"¹Ì¼Ò³à1_N", L"¹Ì¼Ò³à1_T", L"Girl1")));
+	AddItemData(L"¹Ì¼Ò³à2_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à2_1", L"¹Ì¼Ò³à2_N", L"¹Ì¼Ò³à2_T", L"Girl2")));
+	AddItemData(L"¹Ì¼Ò³à3_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à3_1", L"¹Ì¼Ò³à3_N", L"¹Ì¼Ò³à3_T", L"Girl3")));
+	AddItemData(L"¹Ì¼Ò³à4_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à4_1", L"¹Ì¼Ò³à4_N", L"¹Ì¼Ò³à4_T", L"Girl4")));
+	AddItemData(L"¹Ì¼Ò³à5_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à5_1", L"¹Ì¼Ò³à5_N", L"¹Ì¼Ò³à5_T", L"Girl5")));
+	AddItemData(L"¹Ì¼Ò³à6_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à6_1", L"¹Ì¼Ò³à6_N", L"¹Ì¼Ò³à6_T", L"Girl6")));
+	AddItemData(L"¹Ì¼Ò³à7_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à7_1", L"¹Ì¼Ò³à7_N", L"¹Ì¼Ò³à7_T", L"Girl7")));
+	AddItemData(L"¹Ì¼Ò³à8_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à8_1", L"¹Ì¼Ò³à8_N", L"¹Ì¼Ò³à8_T", L"Girl8")));
+	AddItemData(L"¹Ì¼Ò³à9_1", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à9_1", L"¹Ì¼Ò³à9_N", L"¹Ì¼Ò³à9_T", L"Girl9")));
 
-	AddItemData(L"¹Ì¼Ò³à1_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à1_2", L"¹Ì¼Ò³à1_N", L"¹Ì¼Ò³à1_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à2_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à2_2", L"¹Ì¼Ò³à2_N", L"¹Ì¼Ò³à2_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à3_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à3_2", L"¹Ì¼Ò³à3_N", L"¹Ì¼Ò³à3_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à4_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à4_2", L"¹Ì¼Ò³à4_N", L"¹Ì¼Ò³à4_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à5_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à5_2", L"¹Ì¼Ò³à5_N", L"¹Ì¼Ò³à5_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à6_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à6_2", L"¹Ì¼Ò³à6_N", L"¹Ì¼Ò³à6_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à7_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à7_2", L"¹Ì¼Ò³à7_N", L"¹Ì¼Ò³à7_T", L"Diamond")));
-	AddItemData(L"¹Ì¼Ò³à8_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à8_2", L"¹Ì¼Ò³à8_N", L"¹Ì¼Ò³à8_T", L"Diamond")));
+	AddItemData(L"¹Ì¼Ò³à1_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à1_2", L"¹Ì¼Ò³à1_N", L"¹Ì¼Ò³à1_T", L"Girl1")));
+	AddItemData(L"¹Ì¼Ò³à2_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à2_2", L"¹Ì¼Ò³à2_N", L"¹Ì¼Ò³à2_T", L"Girl2")));
+	AddItemData(L"¹Ì¼Ò³à3_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à3_2", L"¹Ì¼Ò³à3_N", L"¹Ì¼Ò³à3_T", L"Girl3")));
+	AddItemData(L"¹Ì¼Ò³à4_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à4_2", L"¹Ì¼Ò³à4_N", L"¹Ì¼Ò³à4_T", L"Girl4")));
+	AddItemData(L"¹Ì¼Ò³à5_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à5_2", L"¹Ì¼Ò³à5_N", L"¹Ì¼Ò³à5_T", L"Girl5")));
+	AddItemData(L"¹Ì¼Ò³à6_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à6_2", L"¹Ì¼Ò³à6_N", L"¹Ì¼Ò³à6_T", L"Girl6")));
+	AddItemData(L"¹Ì¼Ò³à7_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à7_2", L"¹Ì¼Ò³à7_N", L"¹Ì¼Ò³à7_T", L"Girl7")));
+	AddItemData(L"¹Ì¼Ò³à8_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à8_2", L"¹Ì¼Ò³à8_N", L"¹Ì¼Ò³à8_T", L"Girl8")));
+	AddItemData(L"¹Ì¼Ò³à9_2", shared_ptr<ItemData>(new ItemData(L"¹Ì¼Ò³à9_2", L"¹Ì¼Ò³à9_N", L"¹Ì¼Ò³à9_T", L"Girl9")));
 
 	//ÈùÆ®
 	AddItemData(L"³ª¹«ÈùÆ®", shared_ptr<ItemData>(new ItemData(L"³ª¹«", L"³ª¹«_N", L"³ª¹«ÈùÆ®_T", L"Wood")));
