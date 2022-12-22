@@ -10,7 +10,6 @@ ItemCaptionWindow::ItemCaptionWindow()
 	background->SetPos(Vec2(320, 350));
 	background->SetImageSize(Vec2(640, 32));
 	originBackgroundPos = Vec2(320, 350);
-
 }
 
 ItemCaptionWindow::~ItemCaptionWindow()
@@ -44,6 +43,7 @@ void ItemCaptionWindow::Render(HDC _dc)
 		}
 
 		background->Render(_dc);
-		TextOutW(_dc, background->GetPos().x - background->GetScale().x / 2 + 20, background->GetPos().y - 5, m_caption.c_str(), m_caption.length());
+		SetTextAlign(_dc, TA_CENTER | TA_TOP);
+		TextOut(_dc, background->GetPos().x, background->GetPos().y - 5, m_caption.c_str(), m_caption.length());
 	}
 }

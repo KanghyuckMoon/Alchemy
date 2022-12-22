@@ -25,7 +25,5 @@ public:
 private:
 	Background* background;
 	wstring m_caption;
-
-	
 };
 

@@ -4,6 +4,7 @@ class Image;
 class Background : public Object
 {
 public:
+	Background() {}
 	Background(const wstring& str, const wstring& path);
 
 private:
