@@ -11,7 +11,7 @@ public:
 	virtual Object* Clone() override;
 	virtual void Render(HDC _dc) override;
 private:
-	Image* backgroundImage;
+	Image* backgroundImage = {};
 	Vec2 imageSize = { 640, 480 };
 
 public:
