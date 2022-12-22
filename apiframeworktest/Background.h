@@ -20,6 +20,7 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
 	void SetImage(const wstring& str, const wstring& path);
+	void SetImage(Image* image);
 	Image* GetImage();
 	void SetImageSize(Vec2 vec2);
 };

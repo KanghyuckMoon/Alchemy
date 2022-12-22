@@ -51,6 +51,7 @@ void ItemBox::Render(HDC _dc)
 	Component_Render(_dc);
 
 	//·»´õ
+	SetTextAlign(_dc, TA_LEFT);
 	TextOutW(_dc, GetPos().x - (GetScale().x / 2), GetPos().y - (GetScale().y / 2) + 50, m_name.c_str(), m_name.length());
 	TransparentBlt(_dc, GetPos().x - (GetScale().x / 2), GetPos().y - (GetScale().y / 2), GetScale().x / 2, GetScale().y / 2, m_templateImage->GetDC(), 0, 0, m_templateImage->GetWidth(), m_templateImage->GetHeight(), RGB(255, 0, 255));
 	if (m_itemImage)

@@ -63,7 +63,7 @@ void ItemSO::Init()
 	AddItemData(L"啊磷腮飘", shared_ptr<ItemData>(new ItemData(L"啊磷", L"啊磷_N", L"啊磷腮飘_T", L"Leather")));
 	AddItemData(L"剧乔瘤腮飘", shared_ptr<ItemData>(new ItemData(L"剧乔瘤", L"剧乔瘤_N", L"剧乔瘤腮飘_T", L"Paper")));
 	AddItemData(L"格犁腮飘", shared_ptr<ItemData>(new ItemData(L"格犁", L"格犁_N", L"格犁腮飘_T", L"Wooden Plank")));
-	AddItemData(L"备府 林鲍腮飘", shared_ptr<ItemData>(new ItemData(L"备府 林鲍", L"备府 林鲍腮飘_N", L"备府 林鲍_T", L"Copper Ingot")));
+	AddItemData(L"备府 林鲍腮飘", shared_ptr<ItemData>(new ItemData(L"备府 林鲍", L"备府 林鲍_N", L"备府 林鲍腮飘_T", L"Copper Ingot")));
 	AddItemData(L"备府腮飘", shared_ptr<ItemData>(new ItemData(L"备府", L"备府_N", L"备府腮飘_T", L"Copper Nugget")));
 	AddItemData(L"啊磷 葛磊腮飘", shared_ptr<ItemData>(new ItemData(L"啊磷 葛磊", L"啊磷 葛磊_N", L"啊磷 葛磊腮飘_T", L"Leather Helmet")));
 	AddItemData(L"氓腮飘", shared_ptr<ItemData>(new ItemData(L"氓", L"氓_N", L"氓腮飘_T", L"Book")));

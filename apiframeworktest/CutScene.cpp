@@ -5,6 +5,11 @@
 #include "Button.h"
 #include "Core.h"
 #include "KeyMgr.h"
+#include "TimeMgr.h"
+#include "Image.h"
+#include "Object.h"
+#include "SpriteSO.h"
+#include "SoundMgr.h"
 
 CutScene::CutScene()
 {
@@ -23,6 +28,8 @@ CutScene::CutScene()
 	button->SetImage(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
 	button->SetPos(Vec2(320, 440 - 32));
 	button->SetCaption(L"TEXT");
+
+	SoundMgr::GetInst()->LoadSound(L"TEXTEFF", false, L"Sound\\270338__littlerobotsoundfactory__open-01.wav");
 }
 
 CutScene::~CutScene()
@@ -34,6 +41,7 @@ wstring CutScene::GetText(const wstring& itemKey, int index)
 	wstring str = ItemSO::GetInst()->GetItemData(itemKey)->GetTextAddress();
 	wstring str2 = std::to_wstring(index);
 	str = str.append(str2);
+	image = ItemSO::GetInst()->GetItemData(itemKey)->GetSprite();
 
 	if (TextSO::GetInst()->GetTextData(str) != L"")
 	{
@@ -47,6 +55,7 @@ bool CutScene::CheckCanCutSceneItem(const wstring& itemKey)
 	if (cutSceneItems.count(itemKey))
 	{
 		index = 0;
+		textIndex = 0;
 		cutSceneItem = itemKey;
 		cutSceneItems.erase(itemKey);
 		isCutsing = true;
@@ -54,7 +63,7 @@ bool CutScene::CheckCanCutSceneItem(const wstring& itemKey)
 		wstring text = GetText(cutSceneItem, index++);
 		if (text != L"")
 		{
-			button->SetCaption(text);
+			outText = text;
 		}
 
 		return true;
@@ -70,7 +79,17 @@ bool CutScene::CheckCutSing()
 
 void CutScene::Render(HDC _dc)
 {
+	if (image)
+	{
+		TransparentBlt(_dc,
+			192,
+			50,
+			256,
+			256,
+			image->GetDC(), 0, 0, 128, 128, RGB(255, 255, 255));
+	}
 	button->Render(_dc);
+
 }
 
 void CutScene::Update()
@@ -78,11 +97,11 @@ void CutScene::Update()
 	POINT mouse;
 	GetCursorPos(&mouse);
 	ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
+	SetButtonText();
 
 	if (isCutsing)
 	{
 		//텍스트 창 누를 시
-
 		if (KEY_TAP(KEY::LBTN))
 		{
 			if (button->StayCollision(mouse))
@@ -92,7 +111,9 @@ void CutScene::Update()
 					wstring text = GetText(cutSceneItem, index++);
 					if (text != L"")
 					{
-						button->SetCaption(text);
+						button->SetCaption(L"");
+						textIndex = 0;
+						outText = text;
 					}
 					else
 					{
@@ -102,4 +123,28 @@ void CutScene::Update()
 			}
 		}
 	}
+}
+
+void CutScene::SetButtonText()
+{
+	static float time = 0.f;
+	if (time < 0.05f)
+	{
+		time += TimeMgr::GetInst()->GetDT();
+		return;
+	}
+	else
+	{
+		time = 0.f;
+	}
+
+	static wstring str = L"";
+
+	if (outText.length() >= textIndex)
+	{
+		SoundMgr::GetInst()->Play(L"TEXTEFF");
+		str = outText.substr(0, textIndex++);
+	}
+
+	button->SetCaption(str);
 }
