@@ -1,5 +1,7 @@
 #pragma once
+#pragma once
 #include "Scene.h"
+#include "Background.h"
 class Button;
 
 class Scene_Lobby :
@@ -18,4 +20,6 @@ public:
 public:
 	Button* button_1;
 	Button* button_2;
+
+	Background m_background;
 };

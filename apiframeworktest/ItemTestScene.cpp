@@ -78,12 +78,14 @@ void ItemTestScene::Enter()
 	mixButton->SetScale(Vec2(150, 40));
 	mixButton->SetImageSize(Vec2(150, 40));
 	mixButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
+	mixButton->SetCaption(L"합성");
 
 	cancleButton = new Button();
 	cancleButton->SetPos(Vec2(550, 270));
 	cancleButton->SetScale(Vec2(150, 40));
 	cancleButton->SetImageSize(Vec2(150, 40));
 	cancleButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
+	cancleButton->SetCaption(L"취소");
 
 	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
 	int iItem = 8;

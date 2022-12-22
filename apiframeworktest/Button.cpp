@@ -24,6 +24,11 @@ void Button::Render(HDC _dc)
 			GetScale().y,
 			backgroundImage->GetDC(), 0, 0, imageSize.x, imageSize.y, RGB(255, 0, 255));
 	}
+
+	if (m_caption != L"") {
+		SetTextAlign(_dc, TA_CENTER | TA_TOP);
+		TextOut(_dc, GetPos().x, GetPos().y -10, m_caption.c_str(), m_caption.length());
+	}
 }
 
 bool Button::StayCollision(POINT ps)
