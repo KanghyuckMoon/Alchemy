@@ -20,8 +20,9 @@ CutScene::CutScene()
 	button = new Button();
 	button->SetScale(Vec2(640, 64));
 	button->SetImageSize(Vec2(640, 32));
-	button->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
+	button->SetImage(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
 	button->SetPos(Vec2(320, 440 - 32));
+	button->SetCaption(L"TEXT");
 }
 
 CutScene::~CutScene()
@@ -49,6 +50,13 @@ bool CutScene::CheckCanCutSceneItem(const wstring& itemKey)
 		cutSceneItem = itemKey;
 		cutSceneItems.erase(itemKey);
 		isCutsing = true;
+
+		wstring text = GetText(cutSceneItem, index++);
+		if (text != L"")
+		{
+			button->SetCaption(text);
+		}
+
 		return true;
 	}
 
@@ -84,7 +92,7 @@ void CutScene::Update()
 					wstring text = GetText(cutSceneItem, index++);
 					if (text != L"")
 					{
-						//button
+						button->SetCaption(text);
 					}
 					else
 					{

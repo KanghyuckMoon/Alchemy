@@ -89,6 +89,7 @@ void TextSO::Init()
 	//컷씬
 
 	//미소녀1
+	GetInst()->AddTextData(L"미소녀1_T0", L"도트 미소녀 등장!");
 	GetInst()->AddTextData(L"미소녀1_T1", L"□■□■□■□■□■");
 	GetInst()->AddTextData(L"미소녀1_T2", L"실패인가..");
 	GetInst()->AddTextData(L"미소녀1_T3", L"□■□■□■□■□■");
@@ -97,6 +98,7 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"미소녀1_T6", L"다시 등가교환이다");
 
 	//미소녀2
+	GetInst()->AddTextData(L"미소녀2_T0", L"Ms.비둘기 등장!");
 	GetInst()->AddTextData(L"미소녀2_T1", L"구구.");
 	GetInst()->AddTextData(L"미소녀2_T2", L"실패인가..");
 	GetInst()->AddTextData(L"미소녀2_T3", L"구구구");
@@ -105,6 +107,7 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"미소녀2_T6", L"다시 등가교환이다");
 
 	//미소녀3
+	GetInst()->AddTextData(L"미소녀3_T0", L"프린터이모토 등장!");
 	GetInst()->AddTextData(L"미소녀3_T1", L"지이잉");
 	GetInst()->AddTextData(L"미소녀3_T2", L"실패인가..");
 	GetInst()->AddTextData(L"미소녀3_T3", L"잉크가 부족합니다");
@@ -113,6 +116,7 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"미소녀3_T6", L"다시 등가교환이다");
 
 	//미소녀4
+	GetInst()->AddTextData(L"미소녀4_T0", L"대검카노조 등장!");
 	GetInst()->AddTextData(L"미소녀4_T1", L"그대가 나의 주인인가");
 	GetInst()->AddTextData(L"미소녀4_T2", L"실패인가..");
 	GetInst()->AddTextData(L"미소녀4_T3", L"자 나를 들어라");
@@ -121,6 +125,7 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"미소녀4_T6", L"다시 등가교환이다");
 
 	//미소녀5
+	GetInst()->AddTextData(L"미소녀5_T0", L"AK47쨩 등장!");
 	GetInst()->AddTextData(L"미소녀5_T1", L"두두두두둥");
 	GetInst()->AddTextData(L"미소녀5_T2", L"실패인가..");
 	GetInst()->AddTextData(L"미소녀5_T3", L"(장전 중..)");
@@ -129,14 +134,16 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"미소녀5_T6", L"다시 등가교환이다");
 
 	//미소녀6
-	GetInst()->AddTextData(L"미소녀6_T1", L"두두두두둥");
+	GetInst()->AddTextData(L"미소녀6_T0", L"함선달링 등장!");
+	GetInst()->AddTextData(L"미소녀6_T1", L"부우우웅");
 	GetInst()->AddTextData(L"미소녀6_T2", L"실패인가..");
-	GetInst()->AddTextData(L"미소녀6_T3", L"(장전 중..)");
+	GetInst()->AddTextData(L"미소녀6_T3", L"부우우웅");
 	GetInst()->AddTextData(L"미소녀6_T4", L"안 되겠군");
-	GetInst()->AddTextData(L"미소녀6_T5", L"두두두두둥");
+	GetInst()->AddTextData(L"미소녀6_T5", L"부우우웅");
 	GetInst()->AddTextData(L"미소녀6_T6", L"다시 등가교환이다");
 
 	//미소녀7
+	GetInst()->AddTextData(L"미소녀7_T0", L"팬티토모다치 등장!");
 	GetInst()->AddTextData(L"미소녀7_T1", L"안녕하세요!");
 	GetInst()->AddTextData(L"미소녀7_T2", L"실패인가..");
 	GetInst()->AddTextData(L"미소녀7_T3", L"착용감이 좋아요~");
@@ -145,6 +152,7 @@ void TextSO::Init()
 	GetInst()->AddTextData(L"미소녀7_T6", L"다시 등가교환이다");
 
 	//미소녀8
+	GetInst()->AddTextData(L"미소녀8_T0", L"알파카와이프 등장!");
 	GetInst()->AddTextData(L"미소녀8_T1", L"메~~~~");
 	GetInst()->AddTextData(L"미소녀8_T2", L"실패인가..");
 	GetInst()->AddTextData(L"미소녀8_T3", L"메~~~");
