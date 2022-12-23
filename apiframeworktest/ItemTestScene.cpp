@@ -58,7 +58,7 @@ void ItemTestScene::Enter()
 	SoundMgr::GetInst()->LoadSound(L"ITEMHIGHEFF", false, L"Sound\\one_beep-99630.wav");
 	SoundMgr::GetInst()->LoadSound(L"ITEMHCLICKEFF", false, L"Sound\\confirm-38513.wav");
 	SoundMgr::GetInst()->LoadSound(L"CANCLEEFF", false, L"Sound\\hurt_c_08-102842.wav");
-	//SoundMgr::GetInst()->Play(L"BGM");
+	SoundMgr::GetInst()->Play(L"BGM");
 	m_Background_DefaultMode = new Background(L"Background1", L"Image\\Background\\background1.bmp");
 	m_Background_MixMode = new Background(L"Background2", L"Image\\Background\\background2.bmp");
 	m_Background_ExchangeMode = new Background(L"Background3", L"Image\\Background\\background3.bmp");
