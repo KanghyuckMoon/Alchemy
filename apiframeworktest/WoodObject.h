@@ -19,8 +19,8 @@ private:
 
 private:
 	Image* image;
-	ClickEffect* clickEffect;
-	vector<AfterImage*> afterImages;
+	shared_ptr<ClickEffect> clickEffect;
+	vector<shared_ptr<AfterImage>> afterImages;
 
 public:
 	bool	StayCollision(POINT ps);

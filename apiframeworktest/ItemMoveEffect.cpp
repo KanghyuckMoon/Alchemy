@@ -20,9 +20,9 @@ ItemMoveEffect::~ItemMoveEffect()
 {
 }
 
-void ItemMoveEffect::SetEffect(Object* object, Vec2 target, Image* image, shared_ptr<vector<ItemMoveEffect*>> itemMoveEffects)
+void ItemMoveEffect::SetEffect(Object* object, Vec2 target, Image* image, shared_ptr<vector<shared_ptr<ItemMoveEffect>>> itemMoveEffects)
 {
-	ItemMoveEffect* effect = nullptr;
+	shared_ptr<ItemMoveEffect> effect = nullptr;
 
 	for (auto& effectObj : (* itemMoveEffects))
 	{
@@ -34,7 +34,7 @@ void ItemMoveEffect::SetEffect(Object* object, Vec2 target, Image* image, shared
 	}
 	if (!effect)
 	{
-		effect = new ItemMoveEffect();
+		effect = make_shared<ItemMoveEffect>();
 		itemMoveEffects->push_back(effect);
 	}
 
@@ -46,9 +46,9 @@ void ItemMoveEffect::SetEffect(Object* object, Vec2 target, Image* image, shared
 	effect->SetMove(true);
 }
 
-void ItemMoveEffect::SetEffect(Vec2 origin, Vec2 scale, Vec2 target, Image* image, shared_ptr<vector<ItemMoveEffect*>> itemMoveEffects)
+void ItemMoveEffect::SetEffect(Vec2 origin, Vec2 scale, Vec2 target, Image* image, shared_ptr<vector<shared_ptr<ItemMoveEffect>>> itemMoveEffects)
 {
-	ItemMoveEffect* effect = nullptr;
+	shared_ptr<ItemMoveEffect> effect = nullptr;
 
 	for (auto& effectObj : (*itemMoveEffects))
 	{
@@ -60,7 +60,7 @@ void ItemMoveEffect::SetEffect(Vec2 origin, Vec2 scale, Vec2 target, Image* imag
 	}
 	if (!effect)
 	{
-		effect = new ItemMoveEffect();
+		effect = make_shared<ItemMoveEffect>();
 		itemMoveEffects->push_back(effect);
 	}
 

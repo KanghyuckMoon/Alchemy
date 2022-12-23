@@ -9,8 +9,8 @@ public:
 	virtual ~ItemMoveEffect();
 
 public:
-	static void SetEffect(Object* object, Vec2 target, Image* image, shared_ptr<vector<ItemMoveEffect*>> itemMoveEffects);
-	static void SetEffect(Vec2 origin, Vec2 scale, Vec2 target, Image* image, shared_ptr<vector<ItemMoveEffect*>> itemMoveEffects);
+	static void SetEffect(Object* object, Vec2 target, Image* image, shared_ptr<vector<shared_ptr<ItemMoveEffect>>> itemMoveEffects);
+	static void SetEffect(Vec2 origin, Vec2 scale, Vec2 target, Image* image, shared_ptr<vector<shared_ptr<ItemMoveEffect>>> itemMoveEffects);
 
 public:
 	void SetImage(Image* image);

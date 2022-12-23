@@ -14,11 +14,11 @@ private:
 	unordered_set<wstring> cutSceneItems;
 	wstring cutSceneItem;
 
-	Button* choiceButton1;
-	Button* choiceButton2;
-	Button* button;
-	CharacterImage* girlImage;
-	CharacterImage* boyImage;
+	shared_ptr<Button> choiceButton1;
+	shared_ptr<Button> choiceButton2;
+	shared_ptr<Button> button;
+	shared_ptr<CharacterImage> girlImage;
+	shared_ptr<CharacterImage> boyImage;
 	bool isCutsing = false;
 	bool isChoice = false;
 	int index = 0;

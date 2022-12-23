@@ -59,55 +59,55 @@ void ItemTestScene::Enter()
 	SoundMgr::GetInst()->LoadSound(L"ITEMHCLICKEFF", false, L"Sound\\confirm-38513.wav");
 	SoundMgr::GetInst()->LoadSound(L"CANCLEEFF", false, L"Sound\\hurt_c_08-102842.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
-	m_Background_DefaultMode = new Background(L"Background1", L"Image\\Background\\background1.bmp");
-	m_Background_MixMode = new Background(L"Background2", L"Image\\Background\\background2.bmp");
-	m_Background_ExchangeMode = new Background(L"Background3", L"Image\\Background\\background3.bmp");
-	m_Background_ItemTreeMode = new Background(L"Background4", L"Image\\Background\\background4.bmp");
-	m_Background_DeleteMode = new Background(L"Background5", L"Image\\Background\\background5.bmp");
+	m_Background_DefaultMode = make_shared<Background>(L"Background1", L"Image\\Background\\background1.bmp");
+	m_Background_MixMode = make_shared<Background>(L"Background2", L"Image\\Background\\background2.bmp");
+	m_Background_ExchangeMode = make_shared<Background>(L"Background3", L"Image\\Background\\background3.bmp");
+	m_Background_ItemTreeMode = make_shared<Background>(L"Background4", L"Image\\Background\\background4.bmp");
+	m_Background_DeleteMode = make_shared<Background>(L"Background5", L"Image\\Background\\background5.bmp");
 
-	woodObject = new WoodObject();
-	cauldronObject = new CauldronObject();
+	woodObject = make_shared<WoodObject>();
+	cauldronObject = make_shared<CauldronObject>();
 
-	inventoryWindow = new Background(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
+	inventoryWindow = make_shared<Background>(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
 	inventoryWindow->SetScale(Vec2(640, 64));
 	inventoryWindow->SetPos(Vec2(320, 440 - 32));
 	inventoryWindow->SetImageSize(Vec2(640, 32));
 
-	itemCaptionWindow = new ItemCaptionWindow();
+	itemCaptionWindow = make_shared<ItemCaptionWindow>();
 
-	itemTree = new ItemTree();
-	itemMix = new ItemMix();
-	cutScene = new CutScene();
+	itemTree = make_shared<ItemTree>();
+	itemMix = make_shared<ItemMix>();
+	cutScene = make_shared<CutScene>();
 
-	tutorialButton = new Button();
+	tutorialButton = make_shared<Button>();
 	tutorialButton->SetPos(Vec2(600, 30));
 	tutorialButton->SetScale(Vec2(32, 32));
 	tutorialButton->SetImageSize(Vec2(32, 32));
 	tutorialButton->SetImage(L"Gear", L"Image\\ItemImage\\Gear.bmp");
 	tutorialButton->SetCaption(L"도움말");
 
-	mixButton = new Button();
+	mixButton = make_shared<Button>();
 	mixButton->SetPos(Vec2(100, 270));
 	mixButton->SetScale(Vec2(150, 40));
 	mixButton->SetImageSize(Vec2(150, 40));
 	mixButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 	mixButton->SetCaption(L"합성");
 
-	cancleButton = new Button();
+	cancleButton = make_shared<Button>();
 	cancleButton->SetPos(Vec2(550, 270));
 	cancleButton->SetScale(Vec2(150, 40));
 	cancleButton->SetImageSize(Vec2(150, 40));
 	cancleButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 	cancleButton->SetCaption(L"취소");
 
-	leftSceneButton = new Button();
+	leftSceneButton = make_shared<Button>();
 	leftSceneButton->SetPos(Vec2(70, 320));
 	leftSceneButton->SetScale(Vec2(100, 20));
 	leftSceneButton->SetImageSize(Vec2(150, 40));
 	leftSceneButton->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 	leftSceneButton->SetCaption(L"제거");
 
-	rightSceneButton = new Button();
+	rightSceneButton = make_shared<Button>();
 	rightSceneButton->SetPos(Vec2(540, 320));
 	rightSceneButton->SetScale(Vec2(100, 20));
 	rightSceneButton->SetImageSize(Vec2(100, 20));
@@ -127,7 +127,7 @@ void ItemTestScene::Enter()
 		itemBoxs.at(i).SetScale(Vec2(fObjScale, fObjScale));
 	}
 
-	itemMoveEffects = make_shared<vector<ItemMoveEffect*>>();
+	itemMoveEffects = make_shared<vector<shared_ptr<ItemMoveEffect>>>();
 }
 
 void ItemTestScene::Exit()

@@ -5,7 +5,7 @@
 #include "ItemSO.h"
 ItemCaptionWindow::ItemCaptionWindow()
 {
-	background = new Background(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
+	background = make_shared<Background>(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
 	background->SetScale(Vec2(320, 32));
 	background->SetPos(Vec2(320, 350));
 	background->SetImageSize(Vec2(640, 32));

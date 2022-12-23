@@ -40,36 +40,36 @@ public:
 
 private:
     ItemMode itemMode;
-    ItemTree* itemTree;
+    shared_ptr<ItemTree> itemTree;
 
     //Left Right
-    Button* leftSceneButton;
-    Button* rightSceneButton;
+    shared_ptr<Button> leftSceneButton;
+    shared_ptr<Button> rightSceneButton;
 
     //Tutorial
-    Button* tutorialButton;
+    shared_ptr<Button> tutorialButton;
 
     //CutScene
-    CutScene* cutScene;
+    shared_ptr<CutScene> cutScene;
 
     //Default
-    WoodObject* woodObject;
-    CauldronObject* cauldronObject;
+    shared_ptr<WoodObject> woodObject;
+    shared_ptr<CauldronObject> cauldronObject;
 
     //ItemMix
-    ItemMix* itemMix;
-    Button* mixButton;
-    Button* cancleButton;
+    shared_ptr<ItemMix> itemMix;
+    shared_ptr<Button> mixButton;
+    shared_ptr<Button> cancleButton;
 
-    Background* inventoryWindow;
-    ItemCaptionWindow* itemCaptionWindow;
+    shared_ptr<Background> inventoryWindow;
+    shared_ptr<ItemCaptionWindow> itemCaptionWindow;
 
     vector<ItemBox> itemBoxs;
-    shared_ptr<vector<ItemMoveEffect*>> itemMoveEffects;
-    Background* m_Background_DefaultMode;
-    Background* m_Background_MixMode;
-    Background* m_Background_ExchangeMode;
-    Background* m_Background_ItemTreeMode;
-    Background* m_Background_DeleteMode;
+    shared_ptr<vector<shared_ptr<ItemMoveEffect>>> itemMoveEffects;
+    shared_ptr<Background> m_Background_DefaultMode;
+    shared_ptr<Background> m_Background_MixMode;
+    shared_ptr<Background> m_Background_ExchangeMode;
+    shared_ptr<Background> m_Background_ItemTreeMode;
+    shared_ptr<Background> m_Background_DeleteMode;
 };
 

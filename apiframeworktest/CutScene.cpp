@@ -24,21 +24,21 @@ CutScene::CutScene()
 	cutSceneItems.insert(L"¹Ì¼Ò³à7_1");
 	cutSceneItems.insert(L"¹Ì¼Ò³à8_1");
 
-	button = new Button();
+	button = make_shared<Button>();
 	button->SetScale(Vec2(640, 64));
 	button->SetImageSize(Vec2(640, 32));
 	button->SetImage(L"ButtonImage640-32", L"Image\\Background\\ButtonImage640-32.bmp");
 	button->SetPos(Vec2(320, 440 - 32));
 	button->SetCaption(L"TEXT");
 
-	choiceButton1 = new Button();
+	choiceButton1 = make_shared<Button>();
 	choiceButton1->SetScale(Vec2(150, 40));
 	choiceButton1->SetImageSize(Vec2(150, 40));
 	choiceButton1->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
 	choiceButton1->SetPos(Vec2(320, 100));
 	choiceButton1->SetCaption(L"TEXT");
 
-	choiceButton2 = new Button();
+	choiceButton2 = make_shared<Button>();
 	choiceButton2->SetScale(Vec2(150, 40));
 	choiceButton2->SetImageSize(Vec2(150, 40));
 	choiceButton2->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
@@ -46,13 +46,13 @@ CutScene::CutScene()
 	choiceButton2->SetCaption(L"TEXT");
 
 	SoundMgr::GetInst()->LoadSound(L"TEXTEFF", false, L"Sound\\270338__littlerobotsoundfactory__open-01.wav");
-
-	girlImage = new CharacterImage();
+	
+	girlImage = make_shared<CharacterImage>();
 	girlImage->SetIsSpot(true);
 	girlImage->SetOriginPos(Vec2(404, 190));
 	girlImage->SetTargetPos(Vec2(490, 210));
 
-	boyImage = new CharacterImage();
+	boyImage = make_shared<CharacterImage>();
 	boyImage->SetIsSpot(false);
 	boyImage->SetOriginPos(Vec2(236, 190));
 	boyImage->SetTargetPos(Vec2(150, 210));

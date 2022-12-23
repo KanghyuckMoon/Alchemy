@@ -23,7 +23,7 @@ public:
 	virtual void Render(HDC _dc) override;
 
 private:
-	Background* background;
+	shared_ptr<Background> background;
 	wstring m_caption;
 };
 

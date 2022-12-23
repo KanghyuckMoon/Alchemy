@@ -8,8 +8,5 @@ public:
 
 public:
 	void Init();
-
-public:
-	//Image* GetSpriteData(const wstring& key);
 };
 

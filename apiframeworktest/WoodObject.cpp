@@ -12,18 +12,19 @@ WoodObject::WoodObject()
     SetPos(Vec2(320, 240));
     SetScale(Vec2(200, 200));
 
-    AfterImage* afterImage;
+    shared_ptr<AfterImage> afterImage;
     
     for (int i = 1; i < 6; ++i)
     {
-        afterImage = new AfterImage(this);
+        afterImage = make_shared<AfterImage>(this);
         afterImage->SetPos(Vec2(1000, 1000));
         afterImage->SetScale(Vec2(200, 200));
         afterImage->SetDelay((float)i * 0.15f);
         afterImages.push_back(afterImage);
     }
 
-    clickEffect = new ClickEffect();
+    clickEffect = make_shared<ClickEffect>();
+
 }
 
 WoodObject::~WoodObject()
