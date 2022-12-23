@@ -170,6 +170,7 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="CutScene.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="EventMgr.h" />
     <ClInclude Include="framework.h" />
@@ -196,6 +197,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="Scene_01.h" />
+    <ClInclude Include="Scene_Credit.h" />
     <ClInclude Include="Scene_Ending.h" />
     <ClInclude Include="Scene_Intro.h" />
     <ClInclude Include="Scene_Lobby.h" />
@@ -225,6 +227,7 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="CutScene.cpp" />
     <ClCompile Include="EventMgr.cpp" />
     <ClCompile Include="func.cpp" />
     <ClCompile Include="Image.cpp" />
@@ -254,6 +257,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="Scene_01.cpp" />
+    <ClCompile Include="Scene_Credit.cpp" />
     <ClCompile Include="Scene_Ending.cpp" />
     <ClCompile Include="Scene_Intro.cpp" />
     <ClCompile Include="Scene_Lobby.cpp" />

@@ -116,6 +116,9 @@
     <Filter Include="Engine\05. Scene\Scene_intro">
       <UniqueIdentifier>{fa213b5c-082c-4a1e-96ca-a93c5004727f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Credit">
+      <UniqueIdentifier>{04e8b441-a51b-488e-8af4-d5d759786d50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -277,6 +280,10 @@
       <Filter>Engine\04. Object\Effect</Filter>
     </ClInclude>
     <ClInclude Include="Scene_Intro.h" />
+    <ClInclude Include="CutScene.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Credit.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -434,5 +441,9 @@
       <Filter>Engine\04. Object\Effect</Filter>
     </ClCompile>
     <ClCompile Include="Scene_Intro.cpp" />
+    <ClCompile Include="CutScene.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Credit.cpp" />
   </ItemGroup>
 </Project>
