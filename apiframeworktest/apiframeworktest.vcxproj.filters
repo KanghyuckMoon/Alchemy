@@ -119,6 +119,9 @@
     <Filter Include="Engine\05. Scene\Scene_Credit">
       <UniqueIdentifier>{04e8b441-a51b-488e-8af4-d5d759786d50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\TutorialObject">
+      <UniqueIdentifier>{5e08107b-b1ad-44a9-9f89-3b22409fc85d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -284,6 +287,7 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Scene_Credit.h" />
+    <ClInclude Include="TutorialObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -445,5 +449,6 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Scene_Credit.cpp" />
+    <ClCompile Include="TutorialObject.cpp" />
   </ItemGroup>
 </Project>

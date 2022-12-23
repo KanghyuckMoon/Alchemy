@@ -213,6 +213,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextSO.h" />
     <ClInclude Include="TimeMgr.h" />
+    <ClInclude Include="TutorialObject.h" />
     <ClInclude Include="Vec2.h" />
     <ClInclude Include="WoodObject.h" />
   </ItemGroup>
@@ -272,6 +273,7 @@
     <ClCompile Include="SpriteSO.cpp" />
     <ClCompile Include="TextSO.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
+    <ClCompile Include="TutorialObject.cpp" />
     <ClCompile Include="Vec2.cpp" />
     <ClCompile Include="WoodObject.cpp" />
   </ItemGroup>
