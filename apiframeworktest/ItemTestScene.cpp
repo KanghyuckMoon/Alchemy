@@ -540,6 +540,7 @@ void ItemTestScene::Render(HDC _dc)
 			TextOutW(_dc, 10, 460, L"← → : 장소 변경, 나무 클릭 : 나무 획득하기", 28);
 			break;
 		case ItemMode::ITEMTREEMODE:
+			SetTextAlign(_dc, TA_LEFT);
 			SetTextColor(_dc, RGB(0, 0, 0));
 			itemTree->Render(_dc);
 			SetTextColor(_dc, RGB(0, 0, 0));
@@ -554,6 +555,7 @@ void ItemTestScene::Render(HDC _dc)
 			TextOutW(_dc, 10, 449, L"← → : 장소 변경, 아이템에 마우스 올리기 : 아이템 정보 확인", 37);
 			TextOutW(_dc, 10, 463, L"드래그 : 아이템 트리 둘러보기", 17);
 			SetTextColor(_dc, RGB(255, 255, 255));
+			SetTextAlign(_dc, TA_CENTER);
 			break;
 		}
 		itemCaptionWindow->Render(_dc);
