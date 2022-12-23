@@ -291,6 +291,7 @@ void ItemTestScene::Update()
 						{
 							SoundMgr::GetInst()->Play(L"MIXEFF");
 							cauldronObject->SetMix();
+							ItemMoveEffect::SetEffect(cauldronObject->GetPos(), Vec2(100.f, 100.f), itemBoxs.at(Inventory::GetInst()->GetCount()).GetPos(), ItemSO::GetInst()->GetItemData(RecipeSO::GetInst()->GetRecipe(str))->GetSprite(), itemMoveEffects);
 							Inventory::GetInst()->AddItem(RecipeSO::GetInst()->GetRecipe(str));
 							itemMix->Clear(); 
 						}
