@@ -66,7 +66,8 @@ void Scene_Ending::Update()
 				m_endingBtn->SetImage(L"Ending_8", L"Image\\Ending\\Ending8.bmp");
 				break;
 			default:
-				Core::GetInst()->Close();
+				//Core::GetInst()->Close();
+				ChangeScene(SCENE_TYPE::SCENE_CREDIT);
 				break;
 			}
 		}

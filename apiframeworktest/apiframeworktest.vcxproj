@@ -201,6 +201,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="Scene_01.h" />
+    <ClInclude Include="Scene_Credit.h" />
     <ClInclude Include="Scene_Ending.h" />
     <ClInclude Include="Scene_Intro.h" />
     <ClInclude Include="Scene_Lobby.h" />
@@ -216,6 +217,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextSO.h" />
     <ClInclude Include="TimeMgr.h" />
+    <ClInclude Include="TutorialObject.h" />
     <ClInclude Include="Vec2.h" />
     <ClInclude Include="WoodObject.h" />
   </ItemGroup>
@@ -264,6 +266,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="Scene_01.cpp" />
+    <ClCompile Include="Scene_Credit.cpp" />
     <ClCompile Include="Scene_Ending.cpp" />
     <ClCompile Include="Scene_Intro.cpp" />
     <ClCompile Include="Scene_Lobby.cpp" />
@@ -278,6 +281,7 @@
     <ClCompile Include="SpriteSO.cpp" />
     <ClCompile Include="TextSO.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
+    <ClCompile Include="TutorialObject.cpp" />
     <ClCompile Include="Vec2.cpp" />
     <ClCompile Include="WoodObject.cpp" />
   </ItemGroup>
