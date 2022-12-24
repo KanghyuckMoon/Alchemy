@@ -17,7 +17,7 @@ Scene_Intro::~Scene_Intro()
 
 void Scene_Intro::Enter()
 {
-	m_introBtn = new Button();
+	m_introBtn = make_shared<Button>();
 	m_introBtn->SetScale(Vec2(Core::GetInst()->GetResolution().x, Core::GetInst()->GetResolution().y));
 	m_introBtn->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
 	m_introBtn->SetImageSize(Vec2(Core::GetInst()->GetResolution().x, Core::GetInst()->GetResolution().y));

@@ -15,7 +15,7 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
 private:
-	Button* m_introBtn;
+	shared_ptr<Button> m_introBtn;
 
 	int m_index;
 };

@@ -17,7 +17,7 @@ void Scene_Lobby::Enter()
 {
 	m_background = Background(L"Title", L"Image\\Background\\Title.bmp");
 
-	button_1 = new Button();
+	button_1 = make_shared<Button>();
 	button_1->SetScale(Vec2(150, 40));
 	button_1->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2 - 200, Core::GetInst()->GetResolution().y / 2 + 100));
 	button_1->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
@@ -25,7 +25,7 @@ void Scene_Lobby::Enter()
 	button_1->SetCaption(L"Start");
 	button_1->CreateCollider();
 
-	button_2 = new Button();
+	button_2 = make_shared<Button>();
 	button_2->SetScale(Vec2(150, 40));
 	button_2->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2 + 200, Core::GetInst()->GetResolution().y / 2 + 100));
 	button_2->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
