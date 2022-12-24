@@ -22,25 +22,11 @@ private:
 
 private:
 	Image* image;
-	Image* tutorialImage_0;
-	Image* tutorialImage_1;
-	Image* tutorialImage_2;
-	Image* tutorialImage_3;
-	Image* tutorialImage_4;
-	Image* tutorialImage_5;
-	Image* tutorialImage_6;
-	Image* tutorialImage_7;
-	Image* tutorialImage_8;
-	Image* tutorialImage_9;
-	Image* tutorialImage_10;
-	Image* tutorialImage_11;
-	Image* tutorialImage_12;
+	vector<Image*> tutorialImages;
 
-
-
-	Button* leftBtn;
-	Button* rightBtn;
-	Button* closeBtn;
+	shared_ptr<	Button> leftBtn;
+	shared_ptr<	Button> rightBtn;
+	shared_ptr<	Button> closeBtn;
 
 	ItemTestScene* itemTestScene;
 

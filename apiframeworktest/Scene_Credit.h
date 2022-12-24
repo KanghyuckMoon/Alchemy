@@ -19,6 +19,6 @@ private:
 	float time = 0.f;
 
 private:
-	TextObject* textObj;
+	shared_ptr<TextObject> textObj;
 
 };

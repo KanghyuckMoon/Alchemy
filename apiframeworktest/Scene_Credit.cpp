@@ -14,7 +14,7 @@ Scene_Credit::~Scene_Credit()
 
 void Scene_Credit::Enter()
 {
-	textObj = new TextObject();
+	textObj = make_shared<TextObject>();
 	textObj->SetCreditText(L"Ending\n문강혁 레전드");
 	textObj->SetMoveValue(0, -0.1f);
 }

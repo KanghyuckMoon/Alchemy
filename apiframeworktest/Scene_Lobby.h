@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "Scene.h"
 #include "Background.h"
 class Button;
@@ -18,8 +17,8 @@ public:
 	virtual void Render(HDC _dc) override;
 
 public:
-	Button* button_1;
-	Button* button_2;
+	shared_ptr<Button> button_1;
+	shared_ptr<Button> button_2;
 
 	Background m_background;
 };

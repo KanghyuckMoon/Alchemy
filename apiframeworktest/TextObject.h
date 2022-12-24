@@ -7,7 +7,6 @@ public:
 	TextObject();
 	virtual ~TextObject();
 
-
 public:
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
