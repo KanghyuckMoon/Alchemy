@@ -12,9 +12,12 @@
 #include "SoundMgr.h"
 #include "ResMgr.h"
 #include "CharacterImage.h"
+#include "SoundMgr.h"
 
 CutScene::CutScene()
 {
+	SoundMgr::GetInst()->LoadSound(L"CUTSCENEBGM", true ,L"Sound\\Slow-Dance.wav");
+
 	cutSceneItems.insert(L"¹Ì¼Ò³à1_1");
 	cutSceneItems.insert(L"¹Ì¼Ò³à2_1");
 	cutSceneItems.insert(L"¹Ì¼Ò³à3_1");
@@ -128,6 +131,11 @@ bool CutScene::CheckCanCutSceneItem(const wstring& itemKey)
 		textIndex = 0;
 		cutSceneItem = itemKey;
 		cutSceneItems.erase(itemKey);
+		if (!isCutsing)
+		{
+			SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
+			SoundMgr::GetInst()->Play(L"CUTSCENEBGM");
+		}
 		isCutsing = true;
 
 		wstring text = GetText(cutSceneItem, index++);
@@ -201,6 +209,8 @@ void CutScene::Update()
 				}
 				else
 				{
+					SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
+					SoundMgr::GetInst()->Play(L"BGM");
 					isCutsing = false;
 				}
 			}
