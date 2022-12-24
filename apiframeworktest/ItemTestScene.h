@@ -13,6 +13,7 @@ class WoodObject;
 class CutScene;
 class ItemMoveEffect;
 class CauldronObject;
+class TutorialObject;
 
 enum class ItemMode : int
 {
@@ -37,6 +38,8 @@ public:
 
 public:
     void InventoryFetch();
+    void SetIsTutorial(bool _isTutorial) { isTutorial = _isTutorial; }
+
 
 private:
     ItemMode itemMode;
@@ -71,5 +74,8 @@ private:
     shared_ptr<Background> m_Background_ExchangeMode;
     shared_ptr<Background> m_Background_ItemTreeMode;
     shared_ptr<Background> m_Background_DeleteMode;
+
+    bool isTutorial;
+    TutorialObject* tutorialObject;
 };
 
