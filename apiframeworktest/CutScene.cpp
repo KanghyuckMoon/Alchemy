@@ -234,6 +234,8 @@ void CutScene::Update()
 					}
 					else
 					{
+						SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
+						SoundMgr::GetInst()->Play(L"BGM");
 						isCutsing = false;
 					}
 				}
