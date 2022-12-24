@@ -40,7 +40,6 @@ public:
     void InventoryFetch();
     void SetIsTutorial(bool _isTutorial) { isTutorial = _isTutorial; }
 
-
 private:
     ItemMode itemMode;
     shared_ptr<ItemTree> itemTree;
