@@ -44,30 +44,16 @@ void Scene_Lobby::Update()
 	GetCursorPos(&mouse);
 	ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
 
-	KEY_STATE key = KeyMgr::GetInst()->GetKey(KEY::LBTN);
-
 	if (button_1->StayCollision(mouse)) {
-		if (key == KEY_STATE::TAP) {
+		if (KEY_TAP(KEY::LBTN)) {
 			ChangeScene(SCENE_TYPE::SCENE_INTRO);
 		}
-		else if (key == KEY_STATE::AWAY) {
-
-		}
-	}
-	else {
-
 	}
 
 	if (button_2->StayCollision(mouse)) {
-		if (key == KEY_STATE::TAP) {
+		if (KEY_TAP(KEY::LBTN)) {
 			Core::GetInst()->Close();
 		}
-		else if (key == KEY_STATE::AWAY) {
-
-		}
-	}
-	else {
-
 	}
 }
 

@@ -64,7 +64,7 @@ void SceneMgr::Init()
 	//	m_arrScene[(UINT)SCENE_TYPE::SCENE_02] = new Scene02;
 
 	// ÇöÀç ¾À ÁöÁ¤
-	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::SCENE_CREDIT];
+	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::SCENE_LOBBY];
 	m_pCurScene->Enter();
 }
 

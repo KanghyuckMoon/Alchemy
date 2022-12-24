@@ -25,6 +25,7 @@
 #include "ItemMoveEffect.h"
 #include "ItemSO.h"
 #include "CauldronObject.h"
+#include "TutorialObject.h"
 
 ItemTestScene::ItemTestScene()
 {
@@ -128,6 +129,10 @@ void ItemTestScene::Enter()
 	}
 
 	itemMoveEffects = make_shared<vector<shared_ptr<ItemMoveEffect>>>();
+
+	tutorialObject = new TutorialObject();
+	tutorialObject->SetScene(this);
+	isTutorial = true;
 }
 
 void ItemTestScene::Exit()
@@ -138,6 +143,10 @@ void ItemTestScene::Exit()
 void ItemTestScene::Update()
 {
 	Scene::Update();
+	if (isTutorial) {
+		tutorialObject->Update();
+		return;
+	}
 
 	if (cutScene->CheckCutSing())
 	{
@@ -150,6 +159,13 @@ void ItemTestScene::Update()
 		POINT mouse;
 		GetCursorPos(&mouse);
 		ScreenToClient(Core::GetInst()->GetWndHandle(), &mouse);
+
+		if (tutorialButton->StayCollision(mouse)) {
+			if (KEY_TAP(KEY::LBTN)) {
+				SetIsTutorial(true);
+				return;
+			}
+		}
 
 
 		if (KEY_TAP(KEY::LBTN))
@@ -444,10 +460,17 @@ void ItemTestScene::Update()
 			}
 		}
 	}
+
+	
 }
 
 void ItemTestScene::Render(HDC _dc)
 {
+	if (isTutorial) {
+		tutorialObject->Render(_dc);
+		return;
+	}
+
 	SetBkMode(_dc, TRANSPARENT);
 
 	HFONT s_hFont = (HFONT)NULL;
@@ -574,6 +597,8 @@ void ItemTestScene::Render(HDC _dc)
 
 		tutorialButton->Render(_dc);
 	}
+
+
 
 	DeleteObject(s_hFont);
 }
