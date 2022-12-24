@@ -4,8 +4,6 @@
 #include "ResMgr.h"
 #include "Core.h"
 #include "KeyMgr.h"
-#include "SceneMgr.h"
-#include "Scene_Credit.h"
 
 TutorialObject::TutorialObject()
 {
@@ -74,7 +72,7 @@ void TutorialObject::Update()
 
 	if (closeBtn->StayCollision(mouse)) {
 		if (key == KEY_STATE::TAP) {
-			scene_credit->SetIsTutorial(false);
+
 		}
 	}
 

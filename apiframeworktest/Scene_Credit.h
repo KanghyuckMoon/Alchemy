@@ -1,7 +1,7 @@
 #pragma once
 #include "Scene.h"
 
-class TutorialObject;
+class TextObject;
 
 class Scene_Credit :
 	public Scene
@@ -15,10 +15,10 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
 
-	void SetIsTutorial(bool _isTutorial) { isTutorial = _isTutorial; }
+private:
+	float time = 0.f;
 
 private:
-	bool isTutorial;
-	TutorialObject* tutorialObject;
-};
+	TextObject* textObj;
 
+};

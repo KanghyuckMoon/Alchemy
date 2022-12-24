@@ -215,6 +215,7 @@
     <ClInclude Include="SoundMgr.h" />
     <ClInclude Include="SpriteSO.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextObject.h" />
     <ClInclude Include="TextSO.h" />
     <ClInclude Include="TimeMgr.h" />
     <ClInclude Include="TutorialObject.h" />
@@ -279,6 +280,7 @@
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundMgr.cpp" />
     <ClCompile Include="SpriteSO.cpp" />
+    <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="TextSO.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
     <ClCompile Include="TutorialObject.cpp" />

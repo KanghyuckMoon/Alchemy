@@ -14,7 +14,7 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
 
-	void SetSceneCredit(Scene_Credit* _scene_credit) { scene_credit = _scene_credit; }
+	// void SetSceneCredit(Scene_Credit* _scene_credit) { scene_credit = _scene_credit; }
 
 
 private:
@@ -26,7 +26,7 @@ private:
 	Button* rightBtn;
 	Button* closeBtn;
 
-	Scene_Credit* scene_credit;
+	// Scene_Credit* scene_credit;
 
 	int m_index;
 	int maxIndex;
