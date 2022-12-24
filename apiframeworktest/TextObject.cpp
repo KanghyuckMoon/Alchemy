@@ -35,7 +35,9 @@ void TextObject::Render(HDC _dc)
 	s_oldHFont = (HFONT)SelectObject(_dc, s_hFont);
 
 	SetTextAlign(_dc, TA_CENTER | TA_TOP);
-	TextOut(_dc, GetPos().x, GetPos().y - 10, creditText.c_str(), creditText.length());
+	for (int i = 0; i < creditText.size(); i++) {
+		TextOut(_dc, GetPos().x, GetPos().y + 10 + i * 20, creditText[i].c_str(), creditText[i].length());
+	}
 
 	DeleteObject(s_hFont);
 }

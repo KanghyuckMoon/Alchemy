@@ -6,6 +6,7 @@
 #include "Button.h"
 #include "KeyMgr.h"
 #include "Image.h"
+#include "SoundMgr.h"
 
 Scene_Intro::Scene_Intro()
 {
@@ -17,6 +18,9 @@ Scene_Intro::~Scene_Intro()
 
 void Scene_Intro::Enter()
 {
+	SoundMgr::GetInst()->LoadSound(L"INTROBGM", true, L"Sound\\FALLING-SLOWLY.wav");
+	SoundMgr::GetInst()->Play(L"INTROBGM");
+
 	m_introBtn = make_shared<Button>();
 	m_introBtn->SetScale(Vec2(Core::GetInst()->GetResolution().x, Core::GetInst()->GetResolution().y));
 	m_introBtn->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
@@ -28,6 +32,7 @@ void Scene_Intro::Enter()
 
 void Scene_Intro::Exit()
 {
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 }
 
 void Scene_Intro::Update()

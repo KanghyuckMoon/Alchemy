@@ -4,6 +4,7 @@
 #include "KeyMgr.h"
 #include "Button.h"
 #include "Background.h"
+#include "SoundMgr.h"
 
 Scene_Lobby::Scene_Lobby()
 {
@@ -15,6 +16,11 @@ Scene_Lobby::~Scene_Lobby()
 
 void Scene_Lobby::Enter()
 {
+	SoundMgr::GetInst()->LoadSound(L"TITLEBGM", true, L"Sound\\Gloomy.wav");
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
+	SoundMgr::GetInst()->Play(L"TITLEBGM");
+
+
 	m_background = Background(L"Title", L"Image\\Background\\Title.bmp");
 
 	button_1 = make_shared<Button>();
@@ -36,6 +42,7 @@ void Scene_Lobby::Enter()
 
 void Scene_Lobby::Exit()
 {
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 }
 
 void Scene_Lobby::Update()

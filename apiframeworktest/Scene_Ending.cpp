@@ -6,6 +6,7 @@
 #include "Button.h"
 #include "KeyMgr.h"
 #include "Image.h"
+#include "SoundMgr.h"
 
 Scene_Ending::Scene_Ending() : m_index(0)
 {
@@ -17,6 +18,10 @@ Scene_Ending::~Scene_Ending()
 
 void Scene_Ending::Enter()
 {
+	SoundMgr::GetInst()->LoadSound(L"ENDINGBGM", true, L"Sound\\FALLING-SLOWLY.wav");
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
+	SoundMgr::GetInst()->Play(L"ENDINGBGM");
+
 	m_endingBtn = new Button();
 	m_endingBtn->SetScale(Vec2(Core::GetInst()->GetResolution().x, Core::GetInst()->GetResolution().y));
 	m_endingBtn->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
@@ -28,6 +33,7 @@ void Scene_Ending::Enter()
 
 void Scene_Ending::Exit()
 {
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 }
 
 void Scene_Ending::Update()

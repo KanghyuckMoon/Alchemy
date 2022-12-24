@@ -12,13 +12,13 @@ public:
 	virtual void Render(HDC _dc) override;
 
 public:
-	void SetCreditText(wstring wstr) { creditText = wstr; }
+	void SetCreditText(vector<wstring> wstr) { creditText = wstr; }
 	void SetMoveValue(float _x, float _y) { x = _x; y = _y; }
 private:
 	CLONE(TextObject);
 
 private:
-	wstring creditText;
+	vector<wstring> creditText;
 	float x;
 	float y;
 };
