@@ -24,6 +24,5 @@ private:
 
 public:
 	bool	StayCollision(POINT ps);
-
 };
 

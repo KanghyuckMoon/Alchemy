@@ -292,6 +292,9 @@
     <ClInclude Include="CharacterImage.h">
       <Filter>Engine\04. Object\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Scene_Credit.h" />
+    <ClInclude Include="TutorialObject.h" />
+    <ClInclude Include="TextObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -464,5 +467,8 @@
     <ClCompile Include="CharacterImage.cpp">
       <Filter>Engine\04. Object\Effect</Filter>
     </ClCompile>
+    <ClCompile Include="Scene_Credit.cpp" />
+    <ClCompile Include="TutorialObject.cpp" />
+    <ClCompile Include="TextObject.cpp" />
   </ItemGroup>
 </Project>

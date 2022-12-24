@@ -8,6 +8,7 @@
 #include "Scene_Lobby.h"
 #include "Scene_Main.h"
 #include "Scene_Ending.h"
+#include "Scene_Credit.h"
 #include "ItemTestScene.h"
 
 #include "EventMgr.h"
@@ -55,14 +56,15 @@ void SceneMgr::Init()
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_MAIN]->SetName(L"Scene Main");
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_ENDING] = new Scene_Ending;
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_ENDING]->SetName(L"Scene Ending");
+	m_arrScene[(UINT)SCENE_TYPE::SCENE_CREDIT] = new Scene_Credit;
+	m_arrScene[(UINT)SCENE_TYPE::SCENE_CREDIT]->SetName(L"Scene Credit");
 
 
 	//	m_arrScene[(UINT)SCENE_TYPE::TOOL] = new Scene_Tool;
 	//	m_arrScene[(UINT)SCENE_TYPE::SCENE_02] = new Scene02;
 
-
 	// ÇöÀç ¾À ÁöÁ¤
-	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::SCENE_LOBBY];
+	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::SCENE_CREDIT];
 	m_pCurScene->Enter();
 }
 
