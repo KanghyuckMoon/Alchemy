@@ -46,7 +46,7 @@ TutorialObject::TutorialObject()
 	rightBtn->SetCaption(L"다음");
 	rightBtn->CreateCollider();
 
-	closeBtn = make_shared<Button>();	
+	closeBtn = make_shared<Button>();
 	closeBtn->SetScale(Vec2(40, 40));
 	closeBtn->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2 + 210, Core::GetInst()->GetResolution().y / 2 + 160));
 	closeBtn->SetImage(L"ButtonBMP150-40", L"Image\\Background\\ButtonBMP150-40.bmp");
@@ -70,9 +70,10 @@ void TutorialObject::Update()
 	if (leftBtn->StayCollision(mouse)) {
 		if (KEY_TAP(KEY::LBTN)) {
 			// 이전 튜토리얼
-			if (m_index-- == -1) {
+			if (m_index-- == 0) {
 				m_index = maxIndex;
 			}
+			image = tutorialImages[m_index];
 		}
 	}
 
@@ -82,6 +83,7 @@ void TutorialObject::Update()
 			if (m_index++ == maxIndex) {
 				m_index = 0;
 			}
+			image = tutorialImages[m_index];
 		}
 	}
 
@@ -91,7 +93,6 @@ void TutorialObject::Update()
 		}
 	}
 
-	image = tutorialImages[m_index];
 }
 
 void TutorialObject::Render(HDC _dc)
