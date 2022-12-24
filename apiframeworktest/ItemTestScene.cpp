@@ -60,6 +60,7 @@ void ItemTestScene::Enter()
 	SoundMgr::GetInst()->LoadSound(L"ITEMHCLICKEFF", false, L"Sound\\confirm-38513.wav");
 	SoundMgr::GetInst()->LoadSound(L"CANCLEEFF", false, L"Sound\\hurt_c_08-102842.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
+
 	m_Background_DefaultMode = make_shared<Background>(L"Background1", L"Image\\Background\\background1.bmp");
 	m_Background_MixMode = make_shared<Background>(L"Background2", L"Image\\Background\\background2.bmp");
 	m_Background_ExchangeMode = make_shared<Background>(L"Background3", L"Image\\Background\\background3.bmp");
